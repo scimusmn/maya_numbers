@@ -59,20 +59,23 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.glyphs {
+  width: 205px;
+  height: 205px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px 10px 10px 0;
+}
+#bucket {
+  width: 550px;
+  height: 550px;
+  padding: 0.5em;
+  float: left;
+  top: 50px;
+  left: 300px;
+  margin: 10px;
+  background: #333;
+}
 
 /* ==========================================================================
    Media Queries
