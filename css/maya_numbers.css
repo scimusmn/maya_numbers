@@ -61,12 +61,12 @@ div#total {
   float: left;
   margin: 10px 10px 6px 0;
 }
-#glyphs li#glyph-11 {
+#glyphs li#glyph-10 {
   clear: both;
 }
 #glyphs li img {
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
 }
 #bucket {
   width: 300px;
