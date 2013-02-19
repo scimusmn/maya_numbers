@@ -20,25 +20,30 @@
   </head>
   <body>
 
-    <h1>Can you match numbers with the corresponding glyphs?</h1>
+    <div id="wrapper">
+      <div id="intro_overlay"></div>
 
-    <div id="instructions">
-      <p>Drag the correct glyph from below into the value box.</p>
-      <p>You'll need [x] correct answers to move on to the next level</p>
-    </div>
+      <h1>Can you match numbers with the corresponding glyphs?</h1>
 
-    <div id="target_value"></div>
+      <div id="instructions">
+        <p>Drag the correct glyph from below into the value box. <br />
+        You'll need [x] correct answers to move on to the next level.</p>
+      </div>
 
-    <div id="bucket"><p>Drop glyph here</p></div>
+      <div id="target_value"></div>
 
-    <div id="live_sum">
-      <hr />
-      = <span id="total"></span>
-    </div>
+      <div id="bucket">
+        <p>Drop glyph here</p>
+      </div>
 
-    <div id="glyphs"></div>
+      <div id="live_sum">
+        <div class="value last"></div>
+        <div id="total"></div>
+      </div>
 
-    <div id="help">Help?</div>
+      <div id="glyphs"></div>
 
+      <div id="help">Help?</div>
+     </div>
   </body>
 </html>

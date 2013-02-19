@@ -1,21 +1,71 @@
+body {
+  width: 1280px;
+}
+div#wrapper {
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 0 18px;
+}
+p {
+  font-size: 1.2em;
+  text-align: left;
+}
+
+/* Layout */
+div#instructions {
+  margin-bottom: 2em;
+  padding: .5em 1em;
+  background: #F1F1F1;
+  border-radius: 10px;
+}
+div#target_value,
+div#bucket,
+div#live_sum {
+  float: left;
+}
+div#bucket {
+  margin: 0 200px;
+}
+div#help {
+  clear: both;
+  padding-top: 2em;
+  text-align: left;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Content */
+div#target_value {
+  font-size: 5em;
+}
+div#live_sum {
+  font-size: 3.5em;
+}
+div#total {
+  font-weight: bold;
+  border-top: 1px solid #000000;
+}
 .glyphs {
-  width: 205px;
+  /*width: 205px;
   height: 205px;
   padding: 0.5em;
   float: left;
-  margin: 10px 10px 10px 0;
+  margin: 10px 10px 10px 0;*/
 }
-
 #bucket {
-  width: 550px;
-  height: 550px;
-  padding: 0.5em;
-  float: left;
-  top: 50px;
-  left: 300px;
+  width: 300px;
+  height: 300px;
   margin: 10px;
-  background: #333;
+  background: #888;
 }
 #bucket p {
-  font-size: 3em;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  margin-top: 120px;
 }
+
+
