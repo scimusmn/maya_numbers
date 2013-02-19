@@ -36,10 +36,11 @@ $(function () {
     return number;
   }
 
+  // Show the number returned by the updateNumber function.
   function displayNumber($item) {
     var updatedNumber = updateNumber($item.attr('data-glyph-value'), 'addition');
-    // Trying to set the internal HTML to the class of the dragged element
-    $('p', $bucket).html(updatedNumber);
+    // Show the total over to the right of the bucket
+    $('div#total').html(updatedNumber);
   }
 
 });
@@ -52,7 +53,7 @@ function generateGlyphs() {
   // Make 20 glyphs - images rendered as list items.
   var glyphs = '<ul>';
   for (var val=1; val<=20; val++) {
-    glyphs += '<li><img data-glyph-value="'+ val +'" alt="'+ val +'" src="media/images/numbers/'+ val +'.png" /></li>';
+    glyphs += '<li id="glyph-'+ val +'"><img data-glyph-value="'+ val +'" alt="'+ val +'" src="media/images/numbers/'+ val +'.png" /></li>';
   }
   glyphs += '</ul>';
 
