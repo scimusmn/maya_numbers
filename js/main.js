@@ -1,6 +1,9 @@
 $(function () {
   "use strict";
 
+  // Return markup for glyphs
+  generateGlyphs();
+
   var $glyphs = $('#glyphs'),
       $bucket = $('#bucket'),
       number = 0;
@@ -38,3 +41,19 @@ $(function () {
   }
 
 });
+
+/*
+ * Make glyphs, and put them in the glyphs div.
+ * @return - string - HTML markup
+*/
+function generateGlyphs() {
+  // Make 20 glyphs - images rendered as list items.
+  var glyphs = '<ul>';
+  for (var val=1; val<=20; val++) {
+    glyphs += '<li><img data-glyph-value="'+ val +'" alt="'+ val +'" src="media/images/numbers/'+ val +'.png" /></li>';
+  }
+  glyphs += '</ul>';
+
+  // Put markup into the glyphs div.
+  $('#glyphs').html(glyphs);
+}
