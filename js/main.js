@@ -55,7 +55,7 @@ $(function () {
 function generateGlyphs() {
   // Make 20 glyphs - images rendered as list items.
   var glyphs = '<ul>';
-  for (var val=1; val<=20; val++) {
+  for (var val=0; val<=19; val++) {
     glyphs += '<li id="glyph-'+ val +'"><img data-glyph-value="'+ val +'" alt="'+ val +'" src="media/images/numbers/'+ val +'.png" /></li>';
   }
   glyphs += '</ul>';
