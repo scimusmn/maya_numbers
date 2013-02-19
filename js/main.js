@@ -37,9 +37,9 @@ $(function () {
   }
 
   function displayNumber($item) {
-    var updadatedNumber = updateNumber($item.attr('data-glyph-value'), 'addition');
+    var updatedNumber = updateNumber($item.attr('data-glyph-value'), 'addition');
     // Trying to set the internal HTML to the class of the dragged element
-    $('p', $bucket).html(updadatedNumber);
+    $('p', $bucket).html(updatedNumber);
   }
 
 });
