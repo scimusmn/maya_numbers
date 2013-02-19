@@ -15,10 +15,12 @@ $(function () {
   // Make the bucket droppable
   $('#bucket').droppable({
     drop: function (event, ui) {
+      // Show the current total when a glyph is dropped.
       displayNumber(ui.draggable);
     }
   });
 
+  // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
   function updateNumber(value, op) {
     value = parseInt(value, 10);
     var multiplier = 0;
