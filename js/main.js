@@ -13,15 +13,23 @@ $(function () {
   insertTarget(level);
 
   // Let the glyphs be draggable
-  $('img', $glyphs).draggable({
+  $('#glyphs img').draggable({
     revert: 'invalid' // Revert back to the original location if dropped outside the target
   });
+
   // Make the bucket droppable
   $('#bucket').droppable({
     drop: function (event, ui) {
       // Show the current total when a glyph is dropped.
-      displayNumber(ui.draggable);
+      displayNumber(ui.draggable, 'addition');
       ui.draggable.addClass('dropped');
+      $glyphs.droppable();
+    },
+    // Allow items to be removed from the bucket
+    out: function (event, ui) {
+      $('.dropped').draggable({
+        revert: 'valid'
+      });
     }
   });
 
@@ -43,9 +51,9 @@ $(function () {
 
   // Show the number returned by the updateNumber function.
   // If the item's already been dropped, don't run updateNumber.
-  function displayNumber($item) {
+  function displayNumber($item, op) {
     if (!$item.hasClass('dropped')) {
-      var updatedNumber = updateNumber($item.attr('data-glyph-value'), 'addition');
+      var updatedNumber = updateNumber($item.attr('data-glyph-value'), op);
     }
     // Show the total over to the right of the bucket
     $('div#total').html(updatedNumber);
