@@ -21,6 +21,7 @@ $(function () {
     drop: function (event, ui) {
       // Show the current total when a glyph is dropped.
       displayNumber(ui.draggable);
+      ui.draggable.addClass('dropped');
     }
   });
 
@@ -41,8 +42,11 @@ $(function () {
   }
 
   // Show the number returned by the updateNumber function.
+  // If the item's already been dropped, don't run updateNumber.
   function displayNumber($item) {
-    var updatedNumber = updateNumber($item.attr('data-glyph-value'), 'addition');
+    if (!$item.hasClass('dropped')) {
+      var updatedNumber = updateNumber($item.attr('data-glyph-value'), 'addition');
+    }
     // Show the total over to the right of the bucket
     $('div#total').html(updatedNumber);
   }
