@@ -78,6 +78,13 @@ $(function () {
     }
   }
 
+  // When the Enter button is clicked, see if the answer is correct
+  $('.btn').click(function() {
+    var target = $('div#target_value').text();
+    var value = $('div#total').text();
+    sumChecker(target, value);
+  });
+
 });
 
 /*
@@ -124,4 +131,18 @@ function insertTarget(level) {
   // Display this value to the player
   $('div#target_value').html(value);
 
+}
+
+/*
+ * Compare the target value to the sum of the glyphs.
+ * If they match, go to the next level.
+ * @param value - int - sum of submitted glyphs.
+ * @param target - int - target value for the level.
+*/
+function sumChecker(value, target) {
+  if (value == target) {
+    alert('Correct!');
+  } else {
+    alert('Try again');
+  }
 }
