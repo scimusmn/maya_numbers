@@ -89,6 +89,9 @@ div#total {
 .ui-widget-overlay {
   opacity: .8;
 }
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
 .help_overlay ul li {
   list-style-type: none;
   height: 40px;

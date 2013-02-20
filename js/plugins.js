@@ -43,7 +43,14 @@ $(document).ready(function() {
     hide: {
       effect: 'fadeOut',
       duration: 200
-    }
+    },
+    open: function() {
+      $('.ui-widget-overlay').bind('click', function() {
+        $('#level-1').dialog('close');
+      })
+    },
+    dialogClass: "no-close",
+    title: "Touch the screen to start"
   });
 });
 
