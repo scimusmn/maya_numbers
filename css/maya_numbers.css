@@ -41,6 +41,11 @@ div#help {
 }
 
 /* Content */
+#activity {
+  float: left;
+  width: 100%;
+  height: 200px;
+}
 div#target_value {
   font-size: 5em;
 }
@@ -69,10 +74,9 @@ div#total {
   width: 80px;
 }
 #bucket {
-  width: 300px;
-  height: 300px;
-  margin: 10px;
-  background: #888;
+  width: 120px;
+  height: 120px;
+  background: #CDCDCD;
 }
 #bucket p {
   color: #FFFFFF;
