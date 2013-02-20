@@ -23,11 +23,17 @@ $(function () {
       // Show the current total when a glyph is dropped.
       displayNumber(ui.draggable, 'addition');
       ui.draggable.addClass('dropped');
+
+      // Only accept one block in the bucket (in levels 2-3, there will be multiple buckets)
+      $(this).droppable('option', 'accept', ui.draggable);
     },
     // Allow items to be removed from the bucket
     out: function (event, ui) {
+      // When the item leaves, allow another item to replace it
+      $(this).droppable('option', 'accept', '#glyphs img');
       ui.draggable.draggable({
         revert: 'valid',
+
         // Subtract the value from the total once the item's removed
         stop: function (event, ui) {
           $(this).removeClass('dropped');
