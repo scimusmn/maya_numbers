@@ -53,14 +53,23 @@ $(function () {
     return number;
   }
 
-  // Show the number returned by the updateNumber function.
-  // If the item's already been dropped, don't run updateNumber.
+  // Show the active numbers.
   function displayNumber($item, op) {
+    // Only update if a glyph has moved or left the bucket
     if (!$item.hasClass('dropped')) {
-      var updatedNumber = updateNumber($item.attr('data-glyph-value'), op);
+      var value = $item.attr('data-glyph-value');
+      var updatedNumber = updateNumber(value, op);
+
+      // Show numbers currently in the bucket above the total
+      if (op == 'addition') {
+        $('#live_sum').prepend('<div class="value" id="value-'+ value +'">'+ value +'</div>');
+      } else {
+        $('#value-' + value).remove();
+      }
+
+      // Update the total
+      $('div#total').html(updatedNumber);
     }
-    // Show the total over to the right of the bucket
-    $('div#total').html(updatedNumber);
   }
 
 });
