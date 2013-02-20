@@ -86,4 +86,7 @@ div#total {
 .help_overlay {
   display: none;
 }
+.ui-widget-overlay {
+  opacity: .8;
+}
 

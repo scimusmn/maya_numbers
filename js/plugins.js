@@ -22,3 +22,33 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+
+/*
+ * MODAL DIALOGS
+ * Help text is shown in a modal overlay at the start of each level.
+ * Clicking the "Help?" link re-opens that level's dialog box.
+*/
+
+$(document).ready(function() {
+  // Level 1: Dialog opens on the initial page load.
+  $('#level-1').dialog({
+    buttons: [{
+      text: "Go!",
+      click: function() {
+        $(this).dialog('close');
+      }
+    }],
+    modal: true,
+    width: 500,
+    hide: {
+      effect: 'fadeOut',
+      duration: 200
+    }
+  });
+});
+
+// Level 2: Dialog opens on level change
+
+// Level 3: Dialog opens on level change
+
+
