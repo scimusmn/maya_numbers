@@ -82,4 +82,8 @@ div#total {
   margin-top: 120px;
 }
 
+/* Modal overlays */
+.help_overlay {
+  display: none;
+}
 

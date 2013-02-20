@@ -21,7 +21,7 @@
   <body>
 
     <div id="wrapper">
-      <div id="intro_overlay"></div>
+      <div class="help_overlay" id="level-1"></div>
 
       <h1>Can you match numbers with the corresponding glyphs?</h1>
 
@@ -44,6 +44,42 @@
       <div id="glyphs"></div>
 
       <div id="help">Help?</div>
-     </div>
+
+      <!-- Help text, displayed in overlays, usually hidden. -->
+      <div class="help_overlay" id="level-1">
+        <p>The Maya developed glyphs that visually express the numeric values they represent.</p>
+        <ul>
+          <li>Dots indicate values of one.</li>
+          <li>Lines indicate values of five.</li>
+          <li>A glyph with one dot and one line represents the value "six."</li>
+        </ul>
+        <div class="button">Go!</div>
+      </div>
+
+      <div class="help_overlay" id="level-2">
+        <p>The Maya employed a vertically structured "base 20" value system.</p>
+        <ul>
+          <li>This row represents the 400s place.</li>
+          <li>The next row represents the 20s place.</li>
+          <li>The bottom row represents the units, or 1s, place.</li>
+          <li>The stacked rows are added to obtain a sum.</li>
+        </ul>
+        <div class="button">Go!</div>
+      </div>
+
+      <div class="help_overlay" id="level-3">
+        <p>Now things get a little tougher!</p>
+        <ul>
+          <li>This row represents the 8000s place.</li>
+          <li>The next row represents the 400s place.</li>
+          <li>The next row represents the 20s place.</li>
+          <li>The bottom row represents the units, or 1s, place.</li>
+          <li>The stacked rows are added to obtain a sum.</li>          
+        </ul>
+        <div class="button">Go!</div>
+      </div>
+     
+    </div><!--/wrapper-->
   </body>
 </html>
+
