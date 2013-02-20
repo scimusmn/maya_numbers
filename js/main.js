@@ -23,12 +23,16 @@ $(function () {
       // Show the current total when a glyph is dropped.
       displayNumber(ui.draggable, 'addition');
       ui.draggable.addClass('dropped');
-      $glyphs.droppable();
     },
     // Allow items to be removed from the bucket
     out: function (event, ui) {
-      $('.dropped').draggable({
-        revert: 'valid'
+      ui.draggable.draggable({
+        revert: 'valid',
+        // Subtract the value from the total once the item's removed
+        stop: function (event, ui) {
+          $(this).removeClass('dropped');
+          displayNumber($(this), 'subtract');
+        }
       });
     }
   });
