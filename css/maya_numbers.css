@@ -41,6 +41,7 @@ div#help {
 }
 
 /* Content */
+/* @TODO: Set fixed widths on elements in this div that change so things aren't so shifty */
 #activity {
   float: left;
   width: 100%;
@@ -73,6 +74,7 @@ div#total {
 #glyphs li img {
   height: 80px;
   width: 80px;
+  cursor: pointer;
 }
 #bucket {
   width: 120px;
