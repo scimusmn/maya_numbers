@@ -1,11 +1,11 @@
 $(function () {
   "use strict";
 
-  var level = 1;
-  var totalCorrect = 0;
-  var $glyphs = $('#glyphs'),
-      $bucket = $('#bucket'),
-      number = 0;
+  var level = 1,
+      totalCorrect = 0,
+      number = 0,
+      $glyphs = $('#glyphs'),
+      $bucket = $('#bucket');
 
   // Insert markup for glyphs
   generateGlyphs();
@@ -84,6 +84,11 @@ $(function () {
     var target = $('div#target_value').text();
     var value = $('div#total').text();
     sumChecker(value, target, totalCorrect, level);
+  });
+
+  // Note original positions of glyphs; will use for resetting later
+  $('#glyphs img').each(function() {
+    $(this).data('left', $(this).position().left).data('top', $(this).position().top);
   });
 
 });
