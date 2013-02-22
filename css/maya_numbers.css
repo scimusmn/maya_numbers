@@ -60,13 +60,12 @@ div#total {
 }
 #glyphs ul {
   clear: both;
-  float: left;
   margin: 2em 0;
 }
 #glyphs li {
   list-style-type: none;
-  float: left;
   margin: 10px 10px 6px 0;
+  display: inline-block;
 }
 #glyphs li#glyph-10 {
   clear: both;
