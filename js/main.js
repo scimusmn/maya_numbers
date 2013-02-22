@@ -83,7 +83,27 @@ $(function () {
   $('.btn').click(function() {
     var target = $('div#target_value').text();
     var value = $('div#total').text();
-    sumChecker(value, target, totalCorrect, level);
+
+    // Correct answer
+    if (value == target) {
+      totalCorrect++;
+      alert('Correct! ' + totalCorrect + ' so far');
+
+      // @TODO: Reset the glyphs
+
+      // Load a new target value
+      $('div#target_value').html('');
+      insertTarget(level);
+
+      // Move to the next level after 10 correct answers
+      if (totalCorrect == 10) {
+        level++;
+        alert('Good job! On to level ' + level);
+      }
+
+    } else { // Incorrect answer
+      alert('Try again');
+    }
   });
 
   // Note original positions of glyphs; will use for resetting later
@@ -137,35 +157,4 @@ function insertTarget(level) {
   // Display this value to the player
   $('div#target_value').html(value);
 
-}
-
-/*
- * Compare the target value to the sum of the glyphs.
- * If they match, go to the next level.
- * @param value - int - sum of submitted glyphs.
- * @param target - int - target value for the level.
- * @param totalCorrect - int - number of correct answers so far at this level.
- * @param level - int - current level.
-*/
-function sumChecker(value, target, totalCorrect, level) {
-  if (value == target) {
-
-    // @TODO: this isn't updating for some reason
-    totalCorrect = totalCorrect + 1;
-    alert('Correct! ' + totalCorrect + ' so far');
-
-    // @TODO: Reset the glyphs
-
-    // Load a new target value
-    $('div#target_value').html('');
-    insertTarget(level);
-
-    // Move to the next level after 10 correct answers
-    if (totalCorrect == 3) {
-      level = level + 1;
-      alert('Good job! On to level ' + level);
-    }
-  } else {
-    alert('Try again');
-  }
 }
