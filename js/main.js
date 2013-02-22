@@ -29,6 +29,7 @@ $(function () {
       $(this).droppable('option', 'accept', ui.draggable);
     },
     // Allow items to be removed from the bucket
+    // @TODO: Items won't go back in after they've been removed, that's no good
     out: function (event, ui) {
       // When the item leaves, allow another item to replace it
       $(this).droppable('option', 'accept', '#glyphs img');
@@ -36,6 +37,7 @@ $(function () {
         revert: 'valid',
 
         // Subtract the value from the total once the item's removed
+        // @TODO: This can happen multiple times - should only happen on removal from bucket
         stop: function (event, ui) {
           $(this).removeClass('dropped');
           displayNumber($(this), 'subtract');

@@ -58,4 +58,5 @@ $(document).ready(function() {
 
 // Level 3: Dialog opens on level change
 
+// @TODO: Set up help link to fire these, too
 
