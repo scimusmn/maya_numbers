@@ -1,35 +1,39 @@
 body {
-  width: 1280px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1em;
+  line-height: 1.3em;
+  color: #333333;
+  background: url(../media/images/bg.png) repeat;
+}
+h1 {
+  text-align: center;
 }
 div#wrapper {
-  text-align: center;
-  margin: 0 auto;
-  width: 80%;
-  padding: 0 18px;
-}
-p {
-  font-size: 1.2em;
-  text-align: left;
+  margin: 20px auto;
+  width: 940px;
+  padding: 20px 42px;
+  border-radius: 10px;
+  background: #FFFFFF;
 }
 
 /* Layout */
 div#instructions {
-  margin-bottom: 2em;
+  margin: 1em 0 2em;
   padding: .5em 1em;
-  background: #F1F1F1;
+  background: #F7F7F7;
   border-radius: 10px;
+  font-size: 1.3em;
 }
-div#target_value,
-div#bucket,
-div#live_sum {
-  float: left;
+div#instructions li {
+  padding: 5px 0;
 }
-div#bucket {
-  margin: 0 200px;
+div#activity div {
+  display: inline-block;
 }
 div#glyphs {
-  clear: both;
-  text-align: left;
+  width: 940px;
+  margin: 0 auto;
+  text-align: center;
 }
 div#help {
   clear: both;
@@ -41,26 +45,40 @@ div#help {
 }
 
 /* Content */
-/* @TODO: Set fixed widths on elements in this div that change so things aren't so shifty */
 #activity {
-  float: left;
-  width: 100%;
-  height: 200px;
+  width: 940px;
+  margin: 0 auto;
+  padding: 30px 0 60px;
 }
 div#target_value {
-  font-size: 5em;
+  font-size: 6em;
+  font-weight: bold;
+  width: 250px;
+  padding-left: 40px;
 }
 div#live_sum {
   font-size: 3.5em;
-  width: 100px;
+  width: 150px;
+  padding: 0 100px;
+  text-align: center;
+  height: 150px;
+  vertical-align: middle;
+}
+div#live_sum div {
+  display: block;
+}
+div.value {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000000;
 }
 div#total {
   font-weight: bold;
-  border-top: 1px solid #000000;
+  padding-top: 20px;
+  margin-top: 10px;
 }
 #glyphs ul {
   clear: both;
-  margin: 2em 0;
+  padding: 0;
 }
 #glyphs li {
   list-style-type: none;
@@ -70,22 +88,22 @@ div#total {
 #glyphs li#glyph-10 {
   clear: both;
 }
+#glyphs li#glyph-9,
+#glyphs li#glyph-19 {
+  margin-right: 0;
+}
 #glyphs li img {
   height: 80px;
   width: 80px;
   cursor: pointer;
 }
 #bucket {
-  width: 120px;
-  height: 120px;
-  background: #CDCDCD;
-}
-#bucket p {
-  color: #FFFFFF;
-  font-weight: bold;
-  margin: 0;
-  text-align: center;
-  margin-top: 120px;
+  padding: 40px 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #000;
+  background: #F7F7F7;
+  color: #777;
 }
 .btn {
   display: inline-block;
@@ -129,6 +147,11 @@ div#total {
   background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
+}
+.btn-large {
+  padding: 16px 22px;
+  font-size: 24px;
+  border-radius: 8px;
 }
 
 /* Modal overlays */
