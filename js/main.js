@@ -47,9 +47,9 @@ $(function () {
   });
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
-  function updateNumber(value, op) {
-    value = parseInt(value, 10);
-    var multiplier = 0;
+  var updateNumber = function(value, op) {
+    var value = parseInt(value, 10),
+        multiplier = 0;
     switch (op) {
       case 'addition':
         multiplier = 1;
@@ -63,7 +63,7 @@ $(function () {
   }
 
   // Show the active numbers.
-  function displayNumber($item, op) {
+  var displayNumber = function($item, op) {
     // Only update if a glyph has moved or left the bucket
     if (!$item.hasClass('dropped')) {
       var value = $item.attr('data-glyph-value');
@@ -83,8 +83,8 @@ $(function () {
 
   // When the Enter button is clicked, see if the answer is correct
   $('.btn').click(function() {
-    var target = $('div#target_value').text();
-    var value = $('div#total').text();
+    var target = $('div#target_value').text(),
+        value = $('div#total').text();
 
     // Correct answer
     if (value == target) {
@@ -118,7 +118,7 @@ $(function () {
 /*
  * Make glyphs, and put them in the glyphs div.
 */
-function generateGlyphs() {
+var generateGlyphs = function() {
   // Make 20 glyphs - images rendered as list items.
   var glyphs = '<ul>';
   for (var val=0; val<=19; val++) {
@@ -135,7 +135,7 @@ function generateGlyphs() {
  * Possible values for this depend on the game level the player has reached.
  * @param level - integer - current game level
 */
-function insertTarget(level) {
+var insertTarget = function(level) {
   // Set valid range of values
   switch (level) {
     case 1:
