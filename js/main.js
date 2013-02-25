@@ -1,25 +1,25 @@
 $(function () {
   "use strict";
 
+  // Insert markup for glyphs
+  generateGlyphs();
+
   var level = 1,
       totalCorrect = 0,
       number = 0,
-      $glyphs = $('#glyphs'),
+      $glyphs = $('#glyphs img'),
       $bucket = $('#bucket');
-
-  // Insert markup for glyphs
-  generateGlyphs();
 
   // Insert a target value
   insertTarget(level);
 
   // Let the glyphs be draggable
-  $('#glyphs img').draggable({
+  $glyphs.draggable({
     revert: 'invalid' // Revert back to the original location if dropped outside the target
   });
 
   // Make the bucket droppable
-  $('#bucket').droppable({
+  $bucket.droppable({
     drop: function (event, ui) {
       // Show the current total when a glyph is dropped.
       displayNumber(ui.draggable, 'addition');
@@ -32,7 +32,7 @@ $(function () {
     // @TODO: Items won't go back in after they've been removed, that's no good
     out: function (event, ui) {
       // When the item leaves, allow another item to replace it
-      $(this).droppable('option', 'accept', '#glyphs img');
+      $(this).droppable('option', 'accept', $glyphs);
       ui.draggable.draggable({
         revert: 'valid',
 
@@ -92,13 +92,17 @@ $(function () {
       alert('Correct! ' + totalCorrect + ' so far');
 
       // Reset the glyphs
-      $('#glyphs img').each(function() {
+      $glyphs.each(function() {
+        // Removes the "position: relative" added by jqUI draggable.
+        // Without this, the glyphs end up at the bottom of the page. There's probably a better fix for this.
         $(this).removeAttr('style');
+        // Put the glyphs back home
         $(this).animate({
           'left': $(this).data('left'),
-          'top': $(this).data('top'),
+          'top':  $(this).data('top'),
         }, 'slow',  function() {
-          $('#glyphs img').removeAttr('style').css('position', 'relative');
+          // Reinstate draggble CSS attributes.
+          $glyphs.removeAttr('style').css('position', 'relative');
           // @TODO: Make the bucket droppable again
         });
       });
@@ -119,7 +123,7 @@ $(function () {
   });
 
   // Note original positions of glyphs; will use for resetting later
-  $('#glyphs img').each(function() {
+  $glyphs.each(function() {
     $(this).data('left', $(this).position().left).data('top', $(this).position().top);
   });
 
