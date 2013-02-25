@@ -15,35 +15,24 @@ $(function () {
 
   // Let the glyphs be draggable
   $glyphs.draggable({
-    revert: 'invalid' // Revert back to the original location if dropped outside the target
+    revert: 'invalid' // Revert back to the original location if dropped outside the targets
   });
 
-  // Make the bucket droppable
+  // Make the bucket and the glyphs area droppable
   var bucketInit = function($bucket) {
     $bucket.droppable({
       drop: function (event, ui) {
         // Show the current total when a glyph is dropped.
         displayNumber(ui.draggable, 'addition');
-        ui.draggable.addClass('dropped');
-      },
-
-      // Allow items to be removed from the bucket
-      out: function (event, ui) {
-        ui.draggable.draggable({
-          // Subtract the value from the total once the item's removed
-          // @TODO: This can happen multiple times - should only happen on removal from bucket
-          stop: function (event, ui) {
-            $(this).removeClass('dropped');
-            displayNumber($(this), 'subtract');
-          }
-        });
+      }
+    });
+    // When a glyph goes back to its origin, remove it from the total
+    $('#glyphs').droppable({
+      drop: function (event, ui) {
+        displayNumber(ui.draggable, 'subtract');
       }
     });
   }
-
-  // Initialize the droppable areas
-  bucketInit($bucket);
-  $('#glyphs').droppable();
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
   var updateNumber = function(value, op) {
@@ -64,9 +53,8 @@ $(function () {
   // Show the active numbers.
   var displayNumber = function($item, op) {
     // Only update if a glyph has moved or left the bucket
-    if (!$item.hasClass('dropped')) {
-      var value = $item.attr('data-glyph-value');
-      var updatedNumber = updateNumber(value, op);
+    var value = $item.attr('data-glyph-value');
+    var updatedNumber = updateNumber(value, op);
 
       // Show numbers currently in the bucket above the total
       /*if (op == 'addition') {
@@ -75,9 +63,8 @@ $(function () {
         $('#value-' + value).remove();
       }*/
 
-      // Update the total
-      $('div#total').html('= ' + updatedNumber);
-    }
+    // Update the total
+    $('div#total').html('= ' + updatedNumber);
   }
 
   // When the Enter button is clicked, see if the answer is correct
