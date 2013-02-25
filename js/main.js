@@ -11,7 +11,7 @@ $(function () {
       $bucket = $('#bucket');
 
   // Insert a target value
-  insertTarget(level);
+  insertTarget(level, totalCorrect);
 
   // Let the glyphs be draggable
   $glyphs.draggable({
@@ -116,7 +116,7 @@ $(function () {
 
       // Load a new target value
       $('div#target_value').html('');
-      insertTarget(level);
+      insertTarget(level, totalCorrect);
 
       // Move to the next level after 10 correct answers
       if (totalCorrect == 10) {
@@ -159,7 +159,7 @@ var generateGlyphs = function() {
  * @TODO: Have it generate an array instead - we don't want repeats in a level
  * @param level - integer - current game level
 */
-var insertTarget = function(level) {
+var insertTarget = function(level, totalCorrect) {
   // Set valid range of values
   switch (level) {
     case 1:
@@ -178,9 +178,21 @@ var insertTarget = function(level) {
 
   // Randomly choose values from the acceptable range
   // See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random
-  var value = Math.floor(Math.random() * (max - min + 1)) + min;
+  // And http://stackoverflow.com/a/2380113/1940172
+  var values = []
+  while (values.length < 10) {
+    var rando = Math.floor(Math.random() * (max - min + 1)) + min;
+    var found = false;
+    for (var i=0; i<values.length; i++) {
+      if (values[i] == rando) {
+        found=true;
+        break
+      }
+    }
+    if(!found)values[values.length]=rando;
+  }
 
   // Display this value to the player
-  $('div#target_value').html(value);
+  $('div#target_value').html(values[totalCorrect]);
 
 }
