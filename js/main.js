@@ -26,8 +26,7 @@ $(function () {
         displayNumber(ui.draggable, 'addition');
         ui.draggable.addClass('dropped');
 
-        // Only accept one block in the bucket (in levels 2-3, there will be multiple buckets)
-        // $(this).droppable('option', 'accept', ui.draggable);
+        // @TODO: If there's already a block here, put it back if a new one's added
       },
 
       // Allow items to be removed from the bucket
@@ -76,21 +75,21 @@ $(function () {
       var updatedNumber = updateNumber(value, op);
 
       // Show numbers currently in the bucket above the total
-      if (op == 'addition') {
+      /*if (op == 'addition') {
         $('#live_sum').prepend('<div class="value" id="value-'+ value +'">'+ value +'</div>');
       } else {
         $('#value-' + value).remove();
-      }
+      }*/
 
       // Update the total
-      $('div#total').html(updatedNumber);
+      $('div#total').html('= ' + updatedNumber);
     }
   }
 
   // When the Enter button is clicked, see if the answer is correct
   $('.btn').click(function() {
     var target = $('div#target_value').text(),
-        value = $('div#total').text();
+        value = $('div#total').text().match(/\d+/); // Look at integers in the div only
 
     // Correct answer
     if (value == target) {
@@ -102,7 +101,7 @@ $(function () {
         // Removes the "position: relative" added by jqUI draggable.
         // Without this, the glyphs end up at the bottom of the page. There's probably a better fix for this.
         $(this).removeAttr('style');
-        $('#live_sum').text('');
+        $('#live_sum div').text('');
         // Put the glyphs back home
         $(this).animate({
           'left': $(this).data('left'),
@@ -111,6 +110,7 @@ $(function () {
           // Reinstate draggble CSS attributes and behavior
           $glyphs.removeAttr('style').css('position', 'relative');
           bucketInit($bucket);
+          number = 0;
         });
       });
 
@@ -156,6 +156,7 @@ var generateGlyphs = function() {
 /*
  * Generate a target value. The player needs to hit this value with their glyphs.
  * Possible values for this depend on the game level the player has reached.
+ * @TODO: Have it generate an array instead - we don't want repeats in a level
  * @param level - integer - current game level
 */
 var insertTarget = function(level) {
