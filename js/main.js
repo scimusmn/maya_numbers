@@ -91,7 +91,17 @@ $(function () {
       totalCorrect++;
       alert('Correct! ' + totalCorrect + ' so far');
 
-      // @TODO: Reset the glyphs
+      // Reset the glyphs
+      $('#glyphs img').each(function() {
+        $(this).removeAttr('style');
+        $(this).animate({
+          'left': $(this).data('left'),
+          'top': $(this).data('top'),
+        }, 'slow',  function() {
+          $('#glyphs img').removeAttr('style').css('position', 'relative');
+          // @TODO: Make the bucket droppable again
+        });
+      });
 
       // Load a new target value
       $('div#target_value').html('');
@@ -117,6 +127,8 @@ $(function () {
 
 /*
  * Make glyphs, and put them in the glyphs div.
+ * @TODO: This should just be HTML on the page in the final version (for performance).
+ * This is just easier to manipulate for now.
 */
 var generateGlyphs = function() {
   // Make 20 glyphs - images rendered as list items.
