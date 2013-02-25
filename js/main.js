@@ -7,8 +7,7 @@ $(function () {
   var level = 1,
       totalCorrect = 0,
       number = 0,
-      $glyphs = $('#glyphs img'),
-      $bucket = $('#bucket');
+      $glyphs = $('#glyphs img');
 
   // Insert a target value
   insertTarget(level, totalCorrect);
@@ -19,8 +18,8 @@ $(function () {
   });
 
   // Make the bucket and the glyphs area droppable
-  var bucketInit = function($bucket) {
-    $bucket.droppable({
+  var bucketInit = function() {
+    $('#bucket').droppable({
       drop: function (event, ui) {
         // Show the current total when a glyph is dropped.
         displayNumber(ui.draggable, 'addition');
@@ -33,6 +32,9 @@ $(function () {
       }
     });
   }
+
+  // Initialize the droppables
+  bucketInit();
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
   var updateNumber = function(value, op) {
@@ -90,7 +92,7 @@ $(function () {
         }, 'slow',  function() {
           // Reinstate draggble CSS attributes and behavior
           $glyphs.removeAttr('style').css('position', 'relative');
-          bucketInit($bucket);
+          bucketInit();
           number = 0;
         });
       });
