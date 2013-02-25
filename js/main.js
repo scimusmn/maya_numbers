@@ -19,32 +19,38 @@ $(function () {
   });
 
   // Make the bucket droppable
-  $bucket.droppable({
-    drop: function (event, ui) {
-      // Show the current total when a glyph is dropped.
-      displayNumber(ui.draggable, 'addition');
-      ui.draggable.addClass('dropped');
+  var bucketInit = function($bucket) {
+    $bucket.droppable({
+      drop: function (event, ui) {
+        // Show the current total when a glyph is dropped.
+        displayNumber(ui.draggable, 'addition');
+        ui.draggable.addClass('dropped');
 
-      // Only accept one block in the bucket (in levels 2-3, there will be multiple buckets)
-      $(this).droppable('option', 'accept', ui.draggable);
-    },
-    // Allow items to be removed from the bucket
-    // @TODO: Items won't go back in after they've been removed, that's no good
-    out: function (event, ui) {
-      // When the item leaves, allow another item to replace it
-      $(this).droppable('option', 'accept', $glyphs);
-      ui.draggable.draggable({
-        revert: 'valid',
+        // Only accept one block in the bucket (in levels 2-3, there will be multiple buckets)
+        // $(this).droppable('option', 'accept', ui.draggable);
+      },
 
-        // Subtract the value from the total once the item's removed
-        // @TODO: This can happen multiple times - should only happen on removal from bucket
-        stop: function (event, ui) {
-          $(this).removeClass('dropped');
-          displayNumber($(this), 'subtract');
-        }
-      });
-    }
-  });
+      // Allow items to be removed from the bucket
+      // @TODO: Items won't go back in after they've been removed, that's no good
+      out: function (event, ui) {
+        // When the item leaves, allow another item to replace it
+        $(this).droppable('option', 'accept', $glyphs);
+        ui.draggable.draggable({
+          revert: 'valid',
+
+          // Subtract the value from the total once the item's removed
+          // @TODO: This can happen multiple times - should only happen on removal from bucket
+          stop: function (event, ui) {
+            $(this).removeClass('dropped');
+            displayNumber($(this), 'subtract');
+          }
+        });
+      }
+    });
+  }
+
+  // Initialize the bucket
+  bucketInit($bucket);
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
   var updateNumber = function(value, op) {
@@ -96,14 +102,15 @@ $(function () {
         // Removes the "position: relative" added by jqUI draggable.
         // Without this, the glyphs end up at the bottom of the page. There's probably a better fix for this.
         $(this).removeAttr('style');
+        $('#live_sum').text('');
         // Put the glyphs back home
         $(this).animate({
           'left': $(this).data('left'),
           'top':  $(this).data('top'),
         }, 'slow',  function() {
-          // Reinstate draggble CSS attributes.
+          // Reinstate draggble CSS attributes and behavior
           $glyphs.removeAttr('style').css('position', 'relative');
-          // @TODO: Make the bucket droppable again
+          bucketInit($bucket);
         });
       });
 
