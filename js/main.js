@@ -25,18 +25,11 @@ $(function () {
         // Show the current total when a glyph is dropped.
         displayNumber(ui.draggable, 'addition');
         ui.draggable.addClass('dropped');
-
-        // @TODO: If there's already a block here, put it back if a new one's added
       },
 
       // Allow items to be removed from the bucket
-      // @TODO: Items won't go back in after they've been removed, that's no good
       out: function (event, ui) {
-        // When the item leaves, allow another item to replace it
-        $(this).droppable('option', 'accept', $glyphs);
         ui.draggable.draggable({
-          revert: 'valid',
-
           // Subtract the value from the total once the item's removed
           // @TODO: This can happen multiple times - should only happen on removal from bucket
           stop: function (event, ui) {
@@ -48,8 +41,9 @@ $(function () {
     });
   }
 
-  // Initialize the bucket
+  // Initialize the droppable areas
   bucketInit($bucket);
+  $('#glyphs').droppable();
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
   var updateNumber = function(value, op) {
@@ -156,7 +150,6 @@ var generateGlyphs = function() {
 /*
  * Generate a target value. The player needs to hit this value with their glyphs.
  * Possible values for this depend on the game level the player has reached.
- * @TODO: Have it generate an array instead - we don't want repeats in a level
  * @param level - integer - current game level
 */
 var insertTarget = function(level, totalCorrect) {
