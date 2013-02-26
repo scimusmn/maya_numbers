@@ -180,6 +180,12 @@ var insertTarget = function(level, totalCorrect) {
     if(!found)values[values.length]=rando;
   }
 
+  // @BUG - Look at the array these next lines print at the bottom of the page -
+  // It gets 10 more numbers after each correct answer
+  // It should hang onto values[] until the level advances
+  var key = (values.join(","));
+  $('#wrapper').append(key);
+
   // Display this value to the player
   $('div#target_value').html(values[totalCorrect]);
 
