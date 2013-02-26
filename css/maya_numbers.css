@@ -35,14 +35,6 @@ div#glyphs {
   margin: 0 auto;
   text-align: center;
 }
-div#help {
-  clear: both;
-  padding-top: 2em;
-  text-align: left;
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
-}
 
 /* Content */
 #activity {
@@ -59,7 +51,7 @@ div#target_value {
 div#live_sum {
   font-size: 3.5em;
   width: 150px;
-  padding: 0 100px;
+  padding: 0 70px;
   text-align: center;
   height: 150px;
   vertical-align: middle;
@@ -105,6 +97,37 @@ div#total {
   height: 105px;
   width: 105px;
   vertical-align: middle;
+}
+#buttons #reset {
+  margin-left: 6px;
+}
+
+/* Modal overlays */
+.help_overlay {
+  display: none;
+}
+.ui-widget-overlay {
+  opacity: .8;
+}
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+.help_overlay ul li {
+  list-style-type: none;
+  height: 40px;
+  padding-left: 40px;
+}
+.help_overlay ul li.dots {
+  background: url('../media/images/numbers/1.png') no-repeat left top;
+  background-size: 30px 30px;
+}
+.help_overlay ul li.lines {
+  background: url('../media/images/numbers/5.png') no-repeat left top;
+  background-size: 30px 30px;
+}
+.help_overlay ul li.six {
+  background: url('../media/images/numbers/6.png') no-repeat left top;
+  background-size: 30px 30px;
 }
 
 /* Bootstrap buttons */
@@ -484,32 +507,4 @@ input[type="submit"].btn.btn-mini {
 .btn-link[disabled]:focus {
   color: #333333;
   text-decoration: none;
-}
-
-/* Modal overlays */
-.help_overlay {
-  display: none;
-}
-.ui-widget-overlay {
-  opacity: .8;
-}
-.no-close .ui-dialog-titlebar-close {
-  display: none;
-}
-.help_overlay ul li {
-  list-style-type: none;
-  height: 40px;
-  padding-left: 40px;
-}
-.help_overlay ul li.dots {
-  background: url('../media/images/numbers/1.png') no-repeat left top;
-  background-size: 30px 30px;
-}
-.help_overlay ul li.lines {
-  background: url('../media/images/numbers/5.png') no-repeat left top;
-  background-size: 30px 30px;
-}
-.help_overlay ul li.six {
-  background: url('../media/images/numbers/6.png') no-repeat left top;
-  background-size: 30px 30px;
 }

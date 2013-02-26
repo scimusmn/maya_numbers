@@ -77,7 +77,7 @@ $(function () {
   }
 
   // When the Enter button is clicked, see if the answer is correct
-  $('.btn').click(function() {
+  $('#enter').click(function() {
     var target = $('div#target_value').text(),
         value = $('div#total').text().match(/\d+/); // Look at integers in the div only
 
@@ -170,7 +170,7 @@ var levelChange = function(level) {
   // Randomly choose values from the acceptable range
   // See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random
   // And http://stackoverflow.com/a/2380113/1940172
-  window.targetValues = []
+  window.targetValues = [];
   while (targetValues.length < 10) {
     var rando = Math.floor(Math.random() * (max - min + 1)) + min;
     var found = false;
