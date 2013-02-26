@@ -7,6 +7,7 @@ $(function () {
   var level = 1,
       totalCorrect = 0,
       number = 0,
+      required = 10, // # of correct answers to pass level
       $glyphs = $('#glyphs img');
 
   // Initialize the level
@@ -84,21 +85,23 @@ $(function () {
     // Correct answer
     if (value == target) {
       totalCorrect++;
-      alert('Correct! ' + totalCorrect + ' so far');
+      if (totalCorrect < required) {
+        alert('Correct! ' + totalCorrect + ' so far');
+      }
 
       // Reset the glyphs
       resetGlyphs($glyphs);
+
+      // Move to the next level after required number of correct answers
+      if (totalCorrect == required) {
+        level++;
+        levelChange(level);
+      }
 
       // Load a new target value
       $('div#target_value').html('');
       updateTarget(targetValues, totalCorrect);
 
-      // Move to the next level after 10 correct answers
-      if (totalCorrect == 10) {
-        level++;
-        levelChange(level);
-        alert('Good job! On to level ' + level);
-      }
 
     } else { // Incorrect answer
       alert('Try again');
@@ -163,6 +166,12 @@ var generateGlyphs = function() {
 */
 var levelChange = function(level) {
 
+  if (level != 1) {
+    alert('Good job! On to level ' + level);
+    $('#targets').text('');
+    targetValues.length = 0;
+  }
+
   // Set valid range of values
   switch (level) {
     case 1:
@@ -182,7 +191,7 @@ var levelChange = function(level) {
   // Randomly choose values from the acceptable range
   // See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random
   // And http://stackoverflow.com/a/2380113/1940172
-  window.targetValues = [];
+  targetValues = [];
   while (targetValues.length < 10) {
     var rando = Math.floor(Math.random() * (max - min + 1)) + min;
     var found = false;
@@ -195,6 +204,12 @@ var levelChange = function(level) {
     if(!found)targetValues[targetValues.length]=rando;
   }
 
+  // Display the level below the glyphs
+  // $('#wrapper').append('Level ' + level + '<br />');
+
+  // Debug - display targetValues array
+  // var key = (targetValues.join(", "));
+  // $('#wrapper').append('<div id="targets">Targets: ' + key + '</div>');
 }
 
 /*
