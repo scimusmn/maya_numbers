@@ -27,6 +27,9 @@ div#instructions {
 div#instructions li {
   padding: 5px 0;
 }
+span#required {
+  font-weight: bold;
+}
 div#activity div {
   display: inline-block;
 }

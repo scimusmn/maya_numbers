@@ -7,7 +7,6 @@ $(function () {
   var level = 1,
       totalCorrect = 0,
       number = 0,
-      required = 2, // # of correct answers to pass level
       $glyphs = $('#glyphs img');
 
   // Initialize the level
@@ -177,14 +176,17 @@ var levelChange = function(level) {
     case 1:
       var min = 0;
       var max = 19;
+      required = 2; // @TODO This will really be 10, but 2's easier for testing.
       break;
     case 2:
       var min = 20;
       var max = 7999;
+      required = 3;
       break;
     case 3:
       var min = 8000;
       var max = 159999;
+      required = 3;
       break;
   }
 
@@ -203,6 +205,9 @@ var levelChange = function(level) {
     }
     if(!found)targetValues[targetValues.length]=rando;
   }
+
+  // Update directions
+  $('span#required').text(required);
 
   // Display the level below the glyphs
   // $('#wrapper').append('Level ' + level + '<br />');
