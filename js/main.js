@@ -169,22 +169,25 @@ var levelChange = function(level) {
     targetValues.length = 0; // Empty out the targetValues array so we can put new values up in it
   }
 
-  // Set valid range of values
+  // Set level-specific values
   switch (level) {
     case 1:
       var min = 0;
       var max = 19;
       required = 2; // @TODO This will really be 10, but 2's easier for testing.
+      var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
       var min = 20;
       var max = 7999;
       required = 3;
+      var dialogTitle = 'Level 2';
       break;
     case 3:
       var min = 8000;
       var max = 159999;
       required = 3;
+      var dialogTitle = 'Level 3';
       break;
   }
 
@@ -211,8 +214,8 @@ var levelChange = function(level) {
   // Update directions
   $('span#required').text(required);
 
-  // Help dialogs
-  helpDialogs(level);
+  // Open the level's help dialog
+  helpDialogs(level, dialogTitle);
 
   // Display the level below the glyphs
   // $('#wrapper').append('Level ' + level + '<br />');
@@ -229,7 +232,7 @@ var updateTarget = function(targetValues, totalCorrect) {
 /*
  * Help dialogs. These open when each level begins and can be re-opened using the "Help?" link.
 */
-var helpDialogs = function(level) {
+var helpDialogs = function(level, dialogTitle) {
   $('#level-'+ level +'-help').dialog({
     buttons: [{
       text: "Go!",
@@ -249,8 +252,9 @@ var helpDialogs = function(level) {
       })
     },
     dialogClass: "no-close",
-    title: "Touch the screen to start"
+    title: dialogTitle
   });
+
 }
 
 /*
