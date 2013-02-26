@@ -233,7 +233,8 @@ var updateTarget = function(targetValues, totalCorrect) {
  * Help dialogs. These open when each level begins and can be re-opened using the "Help?" link.
 */
 var helpDialogs = function(level, dialogTitle) {
-  $('#level-'+ level +'-help').dialog({
+
+  var options = {
     buttons: [{
       text: "Go!",
       click: function() {
@@ -253,6 +254,15 @@ var helpDialogs = function(level, dialogTitle) {
     },
     dialogClass: "no-close",
     title: dialogTitle
+  }
+
+  // Initialize dialogs
+  $('#level-'+ level +'-help').dialog(options);
+
+  // Open the dialog from the help link
+  // @BUG On level 2, it opens both dialogs
+  $('.level-'+ level +' #help').click(function() {
+    $('#level-'+ level +'-help').dialog('open');
   });
 
 }
@@ -267,3 +277,4 @@ var commaSeparateNumber = function(val) {
   }
   return val;
 }
+
