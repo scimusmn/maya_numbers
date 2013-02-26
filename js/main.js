@@ -213,9 +213,12 @@ var levelChange = function(level) {
 
   // Update directions
   $('span#required').text(required);
+  $('.level-' + lastLevel).hide();
+  $('.level-' + level).show();
 
-  // Open the level's help dialog
-  helpDialogs(level, dialogTitle);
+
+  // Open the level's help dialog - @TODO - Re-enable later
+  // helpDialogs(level, dialogTitle);
 
   // Display the level below the glyphs
   // $('#wrapper').append('Level ' + level + '<br />');

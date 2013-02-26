@@ -105,6 +105,11 @@ div#total {
   margin-left: 6px;
 }
 
+/* Levels 2-3 */
+.level-2, .level-3 {
+  display: none;
+}
+
 /* Modal overlays */
 .help_overlay {
   display: none;
