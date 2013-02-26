@@ -17,18 +17,24 @@ $(function () {
     revert: 'invalid' // Revert back to the original location if dropped outside the targets
   });
 
-  // Make the bucket and the glyphs area droppable
+  // When a draggable goes into the bucket, add points.
+  // When it returns to the origin, subtract those points.
+  // The "math" data attribute checks if the appropriate math has already happened.
   var bucketInit = function() {
     $('#bucket').droppable({
       drop: function (event, ui) {
-        // Show the current total when a glyph is dropped.
-        displayNumber(ui.draggable, 'addition');
+        if (ui.draggable.data('math') != true) {
+          displayNumber(ui.draggable, 'addition');
+        }
+        ui.draggable.data('math', true);
       }
     });
-    // When a glyph goes back to its origin, remove it from the total
     $('#glyphs').droppable({
       drop: function (event, ui) {
-        displayNumber(ui.draggable, 'subtract');
+        if (ui.draggable.data('math') == true) {
+          displayNumber(ui.draggable, 'subtract');
+        }
+        ui.draggable.data('math', false);
       }
     });
   }
