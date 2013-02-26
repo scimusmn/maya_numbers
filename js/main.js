@@ -87,22 +87,7 @@ $(function () {
       alert('Correct! ' + totalCorrect + ' so far');
 
       // Reset the glyphs
-      $glyphs.each(function() {
-        // Removes the "position: relative" added by jqUI draggable.
-        // Without this, the glyphs end up at the bottom of the page. There's probably a better fix for this.
-        $(this).removeAttr('style');
-        $('#live_sum div').text('');
-        // Put the glyphs back home
-        $(this).animate({
-          'left': $(this).data('left'),
-          'top':  $(this).data('top'),
-        }, 'slow',  function() {
-          // Reinstate draggble CSS attributes and behavior
-          $glyphs.removeAttr('style').css('position', 'relative');
-          bucketInit();
-          number = 0;
-        });
-      });
+      resetGlyphs($glyphs);
 
       // Load a new target value
       $('div#target_value').html('');
@@ -120,10 +105,37 @@ $(function () {
     }
   });
 
+  // When the reset button is clicked, reset all the things
+  $('#reset').click(function() {
+    resetGlyphs($glyphs);
+  });
+
   // Note original positions of glyphs; will use for resetting later
   $glyphs.each(function() {
     $(this).data('left', $(this).position().left).data('top', $(this).position().top);
   });
+
+  /*
+   * Put the glyphs back where they started, and clear out the live sum div.
+  */
+  var resetGlyphs = function($glyphs) {
+    $glyphs.each(function() {
+      $('#live_sum div').text('');
+      // Removes the "position: relative" added by jqUI draggable.
+      // Without this, the glyphs end up at the bottom of the page. There's probably a better fix for this.
+      $(this).removeAttr('style');
+      // Put the glyphs back home
+      $(this).animate({
+        'left': $(this).data('left'),
+        'top':  $(this).data('top'),
+      }, 'slow',  function() {
+        // Reinstate draggble CSS attributes and behavior
+        $glyphs.removeAttr('style').css('position', 'relative');
+        bucketInit();
+        number = 0;
+      });
+    });
+  }
 
 });
 
