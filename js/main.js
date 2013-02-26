@@ -4,6 +4,9 @@ $(function () {
   // Insert markup for glyphs
   generateGlyphs();
 
+  // Hide markup we don't need for level 1
+  $('.level-2, .level-3').hide();
+
   var level = 1,
       totalCorrect = 0,
       number = 0,
@@ -22,7 +25,7 @@ $(function () {
   // When it returns to the origin, subtract those points.
   // The "math" data attribute checks if the appropriate math has already happened.
   var bucketInit = function() {
-    $('#bucket').droppable({
+    $('.bucket').droppable({
       drop: function (event, ui) {
         if (ui.draggable.data('math') != true) {
           displayNumber(ui.draggable, 'addition');
@@ -174,7 +177,7 @@ var levelChange = function(level) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 2; // @TODO This will really be 10, but 2's easier for testing.
+      required = 1; // @TODO This will really be 10, but 1's easier for testing.
       var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
@@ -215,7 +218,6 @@ var levelChange = function(level) {
   $('span#required').text(required);
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
-
 
   // Open the level's help dialog - @TODO - Re-enable later
   // helpDialogs(level, dialogTitle);
