@@ -204,8 +204,15 @@ var levelChange = function(level) {
     if(!found)targetValues[targetValues.length]=rando;
   }
 
+  // Update body class
+  var lastLevel = level - 1;
+  $('body').removeClass('level-' + lastLevel).addClass('level-' + level);
+
   // Update directions
   $('span#required').text(required);
+
+  // Help dialogs
+  helpDialogs(level);
 
   // Display the level below the glyphs
   // $('#wrapper').append('Level ' + level + '<br />');
@@ -217,6 +224,33 @@ var levelChange = function(level) {
 */
 var updateTarget = function(targetValues, totalCorrect) {
   $('div#target_value').html(commaSeparateNumber(targetValues[totalCorrect]));
+}
+
+/*
+ * Help dialogs. These open when each level begins and can be re-opened using the "Help?" link.
+*/
+var helpDialogs = function(level) {
+  $('#level-'+ level +'-help').dialog({
+    buttons: [{
+      text: "Go!",
+      click: function() {
+        $(this).dialog('close');
+      }
+    }],
+    modal: true,
+    width: 500,
+    hide: {
+      effect: 'fadeOut',
+      duration: 200
+    },
+    open: function() {
+      $('.ui-widget-overlay').bind('click', function() {
+        $('#level-'+ level +'-help').dialog('close');
+      })
+    },
+    dialogClass: "no-close",
+    title: "Touch the screen to start"
+  });
 }
 
 /*
