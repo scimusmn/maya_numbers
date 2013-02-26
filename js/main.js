@@ -117,9 +117,8 @@ $(function () {
     $(this).data('left', $(this).position().left).data('top', $(this).position().top);
   });
 
-  /*
-   * Put the glyphs back where they started, and clear out the live sum div.
-  */
+
+  // Put the glyphs back where they started, and clear out the live sum
   var resetGlyphs = function($glyphs) {
     $glyphs.each(function() {
       $('#live_sum div').text('');
@@ -131,7 +130,7 @@ $(function () {
         'left': $(this).data('left'),
         'top':  $(this).data('top'),
       }, 'slow',  function() {
-        // Reinstate draggble CSS attributes and behavior
+        // Reinstate draggble CSS attributes and behavior once the animation's done
         $glyphs.removeAttr('style').css('position', 'relative');
         bucketInit();
         number = 0;
@@ -167,8 +166,7 @@ var levelChange = function(level) {
 
   if (level != 1) {
     alert('Good job! On to level ' + level);
-    $('#targets').text('');
-    targetValues.length = 0;
+    targetValues.length = 0; // Empty out the targetValues array so we can put new values up in it
   }
 
   // Set valid range of values
@@ -211,10 +209,6 @@ var levelChange = function(level) {
 
   // Display the level below the glyphs
   // $('#wrapper').append('Level ' + level + '<br />');
-
-  // Debug - display targetValues array
-  // var key = (targetValues.join(", "));
-  // $('#wrapper').append('<div id="targets">Targets: ' + key + '</div>');
 }
 
 /*
