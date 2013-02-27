@@ -80,8 +80,6 @@ div#total {
   margin-right: 0;
 }
 #glyphs li img {
-  height: 80px;
-  width: 80px;
   cursor: pointer;
 }
 .bucket {

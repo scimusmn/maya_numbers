@@ -1,9 +1,6 @@
 $(function () {
   "use strict";
 
-  // Insert markup for glyphs
-  generateGlyphs();
-
   // Hide markup we don't need for level 1
   $('.level-2, .level-3').hide();
 
@@ -38,7 +35,7 @@ $(function () {
     $('#glyphs').droppable({
       drop: function (event, ui) {
         if (ui.draggable.data('math') == true) {
-          displayNumber(ui.draggable, 'subtract');
+          displayNumber(ui.draggable, 'subtract', bucketID);
         }
         ui.draggable.data('math', false);
       }
@@ -151,23 +148,6 @@ $(function () {
   }
 
 });
-
-/*
- * Make glyphs, and put them in the glyphs div.
- * @TODO: This should just be HTML on the page in the final version (for performance).
- * This is just easier to manipulate for now.
-*/
-var generateGlyphs = function() {
-  // Make 20 glyphs - images rendered as list items.
-  var glyphs = '<ul>';
-  for (var val=0; val<=19; val++) {
-    glyphs += '<li id="glyph-'+ val +'"><img data-glyph-value="'+ val +'" alt="'+ val +'" src="media/images/numbers/'+ val +'.png" /></li>';
-  }
-  glyphs += '</ul>';
-
-  // Put markup into the glyphs div.
-  $('#glyphs').html(glyphs);
-}
 
 /*
  * This runs when you advance levels.
