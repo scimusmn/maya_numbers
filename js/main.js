@@ -26,19 +26,23 @@ $(function () {
       drop: function (event, ui) {
         // Make note of which bucket we're dropping in
         var bucketID = $(this).attr('id').match(/\d+/);
+        ui.draggable.data('bucketID', bucketID);
+        // Run the addition function if we haven't already
         if (ui.draggable.data('math') != true) {
           displayNumber(ui.draggable, 'addition', bucketID);
         }
-        ui.draggable.data('math', true);
+        ui.draggable.data('math', true); // Note that this glyph has been added to the total.
       }
     });
     $('#glyphs').droppable({
       drop: function (event, ui) {
-        var bucketID = 1; // need to figure out a way to get this
+        var bucketID = ui.draggable.data('bucketID');
+        // Run the subtraction function if we haven't already
         if (ui.draggable.data('math') == true) {
           displayNumber(ui.draggable, 'subtract', bucketID);
         }
-        ui.draggable.data('math', false);
+        ui.draggable.data('math', false); // Note that this glyph is not part of the total.
+        ui.draggable.removeData('bucketID'); // Remove the bucket ID
       }
     });
   }
@@ -71,7 +75,7 @@ $(function () {
         }
         break;
     }
-    number = commaSeparateNumber(number + (value * multiplier));
+    number = number + (value * multiplier);
     return number;
   }
 
@@ -80,7 +84,7 @@ $(function () {
 
     // Only update if a glyph has moved or left the bucket
     var value = $item.attr('data-glyph-value');
-    var updatedNumber = updateNumber(value, op, bucketID);
+    var updatedNumber = commaSeparateNumber(updateNumber(value, op, bucketID));
 
     // Update the total
     $('div#total').html('= ' + updatedNumber);
