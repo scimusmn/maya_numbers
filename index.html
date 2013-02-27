@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
+    <!-- @TODO: For production, minify everything and put together in 1 file -->
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">    
@@ -30,6 +31,7 @@
           <li class="level-1">Drag the correct glyph from below into the value box.</li>
           <li class="level-2">Using the glyphs and the value boxes, generate the number shown.</li> 
           <li>You'll need <span id="required"></span> correct answers to move on to the next level.</li>
+          <!-- @TODO: Directions for level 3 -->
         </ul>
       </div>
 
@@ -41,6 +43,7 @@
           <div id="bucket-3" class="bucket level-2 level-3"></div>
           <div id="bucket-2" class="bucket level-2 level-3"></div>          
           <div id="bucket-1" class="bucket"></div>
+          <!-- @TODO: Text to indicate how much each bucket's worth -->
         </div>
 
         <div id="live_sum" class="section">
@@ -56,6 +59,7 @@
 
       <div id="glyphs">
         <ul>
+          <!-- @TODO: Go back to PNGs, the transparency is nicer for the rounded corners when they're stacked -->
           <li id="glyph-0"><img data-glyph-value="0" alt="0" src="media/images/numbers/0.gif"</li>
           <li id="glyph-1"><img data-glyph-value="1" alt="1" src="media/images/numbers/1.gif"></li>
           <li id="glyph-2"><img data-glyph-value="2" alt="2" src="media/images/numbers/2.gif"></li>
@@ -80,9 +84,11 @@
       </div>
 
       <!-- @TODO: Add a progress bar to show # correct / 10 -->
+      <!-- @TODO: Show current level somewhere -->
       <div id="help" class="btn-link btn">Help?</div>
 
       <!-- Help text, displayed in overlays, usually hidden. -->
+      <!-- @TODO: Style these, maybe add images or something -->
       <div class="help_overlay" id="level-1-help">
         <p>The Maya developed glyphs that visually express the numeric values they represent.</p>
         <ul>

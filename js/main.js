@@ -21,6 +21,9 @@ $(function () {
   // When a draggable goes into the bucket, add points.
   // When it returns to the origin, subtract those points.
   // The "math" data attribute checks if the appropriate math has already happened.
+
+  // @TODO: Some numbers require the same block to be supplied twice - will need to adjust this approach. Stack 4 copies of each block?
+  // @TODO: You can't move a glyph to another bucket yet (unless you first put it back in the glyphs div, then move it)
   var bucketInit = function() {
     $('.bucket').droppable({
       drop: function (event, ui) {
@@ -160,7 +163,7 @@ $(function () {
 var levelChange = function(level) {
 
   if (level != 1) {
-    alert('Good job! On to level ' + level);
+    alert('Good job! On to level ' + level); // @TODO - Remove all alerts and replace with styled dialogs
     targetValues.length = 0; // Empty out the targetValues array so we can put new values up in it
   }
 
