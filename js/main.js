@@ -34,6 +34,7 @@ $(function () {
     });
     $('#glyphs').droppable({
       drop: function (event, ui) {
+        var bucketID = 1; // need to figure out a way to get this
         if (ui.draggable.data('math') == true) {
           displayNumber(ui.draggable, 'subtract', bucketID);
         }
@@ -119,6 +120,7 @@ $(function () {
   // When the reset button is clicked, reset all the things
   $('#reset').click(function() {
     resetGlyphs($glyphs);
+    $glyphs.data('math', false);
   });
 
   // Note original positions of glyphs; will use for resetting later
