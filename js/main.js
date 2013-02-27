@@ -27,8 +27,10 @@ $(function () {
   var bucketInit = function() {
     $('.bucket').droppable({
       drop: function (event, ui) {
+        // Make note of which bucket we're dropping in
+        var bucketID = $(this).attr('id').match(/\d+/);
         if (ui.draggable.data('math') != true) {
-          displayNumber(ui.draggable, 'addition');
+          displayNumber(ui.draggable, 'addition', bucketID);
         }
         ui.draggable.data('math', true);
       }
@@ -47,33 +49,40 @@ $(function () {
   bucketInit();
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
-  var updateNumber = function(value, op) {
+  var updateNumber = function(value, op, bucketID) {
     var value = parseInt(value, 10),
+        bucketID = parseInt(bucketID, 10),
         multiplier = 0;
+
     switch (op) {
       case 'addition':
-        multiplier = 1;
+        switch (bucketID) {
+          case 1: multiplier = 1; break;
+          case 2: multiplier = 20; break;
+          case 3: multiplier = 400; break;
+          case 4: multiplier = 8000; break;
+        }
         break;
+
       case 'subtract':
-        multiplier = -1;
+        switch (bucketID) {
+          case 1: multiplier = -1; break;
+          case 2: multiplier = -20; break;
+          case 3: multiplier = -400; break;
+          case 4: multiplier = -8000; break;
+        }
         break;
     }
-    number = number + (value * multiplier);
+    number = commaSeparateNumber(number + (value * multiplier));
     return number;
   }
 
   // Show the active numbers.
-  var displayNumber = function($item, op) {
+  var displayNumber = function($item, op, bucketID) {
+
     // Only update if a glyph has moved or left the bucket
     var value = $item.attr('data-glyph-value');
-    var updatedNumber = updateNumber(value, op);
-
-      // Show numbers currently in the bucket above the total
-      /*if (op == 'addition') {
-        $('#live_sum').prepend('<div class="value" id="value-'+ value +'">'+ value +'</div>');
-      } else {
-        $('#value-' + value).remove();
-      }*/
+    var updatedNumber = updateNumber(value, op, bucketID);
 
     // Update the total
     $('div#total').html('= ' + updatedNumber);
