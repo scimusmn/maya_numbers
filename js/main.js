@@ -106,6 +106,7 @@ $(function () {
       if (totalCorrect == required) {
         level++;
         levelChange(level);
+        totalCorrect = 0;
       }
 
       // Load a new target value
@@ -128,7 +129,6 @@ $(function () {
   $glyphs.each(function() {
     $(this).data('left', $(this).position().left).data('top', $(this).position().top);
   });
-
 
   // Put the glyphs back where they started, and clear out the live sum
   var resetGlyphs = function($glyphs) {
@@ -214,8 +214,6 @@ var levelChange = function(level) {
   // Open the level's help dialog - @TODO - Re-enable later
   // helpDialogs(level, dialogTitle);
 
-  // Display the level below the glyphs
-  // $('#wrapper').append('Level ' + level + '<br />');
 }
 
 /*
