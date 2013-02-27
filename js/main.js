@@ -42,7 +42,6 @@ $(function () {
           displayNumber(ui.draggable, 'subtract', bucketID);
         }
         ui.draggable.data('math', false); // Note that this glyph is not part of the total.
-        ui.draggable.removeData('bucketID'); // Remove the bucket ID
       }
     });
   }
@@ -81,19 +80,17 @@ $(function () {
 
   // Show the active numbers.
   var displayNumber = function($item, op, bucketID) {
-
-    // Only update if a glyph has moved or left the bucket
     var value = $item.attr('data-glyph-value');
+    // Run addition/subtraction
     var updatedNumber = commaSeparateNumber(updateNumber(value, op, bucketID));
-
-    // Update the total
-    $('div#total').html('= ' + updatedNumber);
+    $('div#total').html('= ' + updatedNumber); // Update the total
   }
 
   // When the Enter button is clicked, see if the answer is correct
   $('#enter').click(function() {
-    var target = $('div#target_value').text(),
-        value = $('div#total').text().match(/\d+/); // Look at integers in the div only
+    // Just look at integers, not commas/equals sign
+    var target = parseInt($('div#target_value').text().match(/\d+/), 10),
+        value = parseInt($('div#total').text().match(/\d+/), 10);
 
     // Correct answer
     if (value == target) {
