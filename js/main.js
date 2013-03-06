@@ -15,35 +15,21 @@ $(function () {
 
   // Let the glyphs be draggable
   $glyphs.draggable({
+    helper: 'clone',
     revert: 'invalid' // Revert back to the original location if dropped outside the targets
   });
 
   // When a draggable goes into the bucket, add points.
-  // When it returns to the origin, subtract those points.
-  // The "math" data attribute checks if the appropriate math has already happened.
-
-  // @TODO: You can't move a glyph to another bucket yet unless you first put it back in the glyphs div
   var bucketInit = function() {
     $('.bucket .dropzone').droppable({
       drop: function (event, ui) {
         // Make note of which bucket we're dropping in
         var bucketID = $(this).attr('id').match(/\d+/);
         ui.draggable.data('bucketID', bucketID);
-        // Run the addition function if we haven't already
-        if (ui.draggable.data('math') != true) {
-          displayNumber(ui.draggable, 'addition', bucketID);
-        }
-        ui.draggable.data('math', true); // Note that this glyph has been added to the total.
-      }
-    });
-    $('#glyphs').droppable({
-      drop: function (event, ui) {
-        var bucketID = ui.draggable.data('bucketID');
-        // Run the subtraction function if we haven't already
-        if (ui.draggable.data('math') == true) {
-          displayNumber(ui.draggable, 'subtract', bucketID);
-        }
-        ui.draggable.data('math', false); // Note that this glyph is not part of the total.
+        displayNumber(ui.draggable, 'addition', bucketID);
+        // Show the dropped block as the bucket's background image so it appears full
+        var glyphVal = ui.draggable.attr('data-glyph-value');
+        $(this).css('background', 'url(media/images/numbers/' + glyphVal + '.png) 8px 8px no-repeat');
       }
     });
   }
