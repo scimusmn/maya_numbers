@@ -20,22 +20,17 @@ $(function () {
   });
 
   // When a draggable goes into the bucket, add points.
-  var bucketInit = function() {
-    $('.bucket .dropzone').droppable({
-      drop: function (event, ui) {
-        // Make note of which bucket we're dropping in
-        var bucketID = $(this).attr('id').match(/\d+/);
-        ui.draggable.data('bucketID', bucketID);
-        displayNumber(ui.draggable, 'addition', bucketID);
-        // Show the dropped block as the bucket's background image so it appears full
-        var glyphVal = ui.draggable.attr('data-glyph-value');
-        $(this).css('background', 'url(media/images/numbers/' + glyphVal + '.png) 8px 8px no-repeat');
-      }
-    });
-  }
-
-  // Initialize the droppables
-  bucketInit();
+  $('.bucket .dropzone').droppable({
+    drop: function (event, ui) {
+      // Make note of which bucket we're dropping in
+      var bucketID = $(this).attr('id').match(/\d+/);
+      ui.draggable.data('bucketID', bucketID);
+      displayNumber(ui.draggable, 'addition', bucketID);
+      // Show the dropped block as the bucket's background image so it appears full
+      var glyphVal = ui.draggable.attr('data-glyph-value');
+      $(this).css('background', 'url(media/images/numbers/' + glyphVal + '.png) 8px 8px no-repeat').addClass('full');
+    }
+  });
 
   // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
   var updateNumber = function(value, op, bucketID) {
@@ -63,7 +58,7 @@ $(function () {
         break;
     }
     number = number + (value * multiplier);
-    console.log(op + ' ' + value + ' from bucket ' + bucketID);
+    console.log(op + ' ' + number + ' from bucket ' + bucketID);
     return number;
   }
 
@@ -113,7 +108,6 @@ $(function () {
   // When the reset button is clicked, reset all the things
   $('#reset').click(function() {
     resetGlyphs($glyphs);
-    $glyphs.data('math', false);
     console.log('Reset glyphs');
   });
 
@@ -122,24 +116,11 @@ $(function () {
     $(this).data('left', $(this).position().left).data('top', $(this).position().top);
   });
 
-  // Put the glyphs back where they started, and clear out the live sum
-  var resetGlyphs = function($glyphs) {
-    $glyphs.each(function() {
-      $('#live_sum div').text('');
-      // Removes the "position: relative" added by jqUI draggable.
-      // Without this, the glyphs end up at the bottom of the page. There's probably a better fix for this.
-      $(this).removeAttr('style');
-      // Put the glyphs back home
-      $(this).animate({
-        'left': $(this).data('left'),
-        'top':  $(this).data('top'),
-      }, 'slow',  function() {
-        // Reinstate draggble CSS attributes and behavior once the animation's done
-        $glyphs.removeAttr('style').css('position', 'relative');
-        bucketInit();
-        number = 0;
-      });
-    });
+  // Clear out the buckets and the live sum
+  var resetGlyphs = function() {
+    $('#live_sum div').text('');
+    $('.dropzone').css('background', '');
+    number = 0;
   }
 
 });
