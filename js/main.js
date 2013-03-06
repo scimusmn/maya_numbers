@@ -99,7 +99,7 @@ $(function () {
     if (value == target) {
       totalCorrect++;
       if (totalCorrect < required) {
-        alert('Correct! ' + totalCorrect + ' so far');
+        $('span#correct').text(totalCorrect);
       }
 
       // Reset the glyphs
