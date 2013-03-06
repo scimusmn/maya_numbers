@@ -15,6 +15,8 @@ $(function () {
 
   // Let the glyphs be draggable
   $glyphs.draggable({
+    // @TODO: Some numbers require the same block to be supplied twice - this clone option could solve that?
+    // helper: 'clone',
     revert: 'invalid' // Revert back to the original location if dropped outside the targets
   });
 
@@ -22,8 +24,7 @@ $(function () {
   // When it returns to the origin, subtract those points.
   // The "math" data attribute checks if the appropriate math has already happened.
 
-  // @TODO: Some numbers require the same block to be supplied twice - will need to adjust this approach. Stack 4 copies of each block?
-  // @TODO: You can't move a glyph to another bucket yet (unless you first put it back in the glyphs div, then move it)
+  // @TODO: You can't move a glyph to another bucket yet unless you first put it back in the glyphs div
   var bucketInit = function() {
     $('.bucket .dropzone').droppable({
       drop: function (event, ui) {
