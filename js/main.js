@@ -172,7 +172,7 @@ var levelChange = function(level) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 1; // @TODO This will really be 10, but 1's easier for testing.
+      required = 10; // @TODO This will really be 10, but 1's easier for testing.
       var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
@@ -258,7 +258,7 @@ var helpDialogs = function(level, dialogTitle) {
   $('#level-'+ level +'-help').dialog(options);
 
   // Open the dialog from the help link
-  // @BUG On level 2, it opens both dialogs
+  // @TODO Bug - On level 2, it opens both dialogs
   $('.level-'+ level +' #help').click(function() {
     $('#level-'+ level +'-help').dialog('open');
   });
