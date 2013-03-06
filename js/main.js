@@ -77,6 +77,7 @@ $(function () {
         break;
     }
     number = number + (value * multiplier);
+    console.log(op + ' ' + value + ' from bucket ' + bucketID);
     return number;
   }
 
@@ -97,6 +98,7 @@ $(function () {
     // Correct answer
     if (value == target) {
       totalCorrect++;
+      console.log('Correct answer');
       if (totalCorrect < required) {
         $('span#correct').text(totalCorrect);
       }
@@ -109,6 +111,7 @@ $(function () {
         level++;
         levelChange(level);
         totalCorrect = 0;
+        console.log('Moving to level ' + level);
       }
 
       // Load a new target value
@@ -125,6 +128,7 @@ $(function () {
   $('#reset').click(function() {
     resetGlyphs($glyphs);
     $glyphs.data('math', false);
+    console.log('Reset glyphs');
   });
 
   // Note original positions of glyphs; will use for resetting later
