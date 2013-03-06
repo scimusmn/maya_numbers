@@ -11,11 +11,11 @@ h1 {
   margin-bottom: .5em;
 }
 div#wrapper {
-  margin: 16px auto;
+  margin: 0 auto;
   width: 1200px;
   padding: 10px 40px;
-  border-radius: 10px;
   background: #FFFFFF;
+  height: 100%;
 }
 
 /* Layout */
@@ -27,7 +27,7 @@ div#instructions {
   font-size: 20px;
 }
 div#activity {
-  min-height: 160px;
+  min-height: 140px;
   margin: 0 auto;
   padding-left: 40px;
 }
@@ -44,8 +44,26 @@ div#glyphs {
   margin: 0 auto;
   text-align: center;
 }
+span#progress {
+  padding: 0 20px;
+  margin: 0 10px;
+}
 
 /* Content */
+span#level {
+  color: #FFFFFF;
+  background: #f89406;
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+span#level:before {
+  content: "Level ";
+}
+span#correct {
+  color: #387038;
+}
+span#level,
+span#correct,
 span#required {
   font-weight: bold;
 }
@@ -66,6 +84,7 @@ div#total {
 #glyphs ul {
   clear: both;
   padding: 0;
+  margin: 0 0 20px 0;
 }
 #glyphs li {
   list-style-type: none;
