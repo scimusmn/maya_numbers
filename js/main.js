@@ -94,6 +94,10 @@ $(function () {
     var target = parseInt($('div#target_value').text().match(/\d+/), 10),
         value = parseInt($('div#total').text().match(/\d+/), 10);
 
+    // @TODO - You could still get the total correct while not doing the glyphs correctly.
+    // For example, you could add 20 "1" glyphs instead of a 20-value glyph.
+    // There needs to be a function to calculate and return not only the correct total, but also the correct combination of bricks,
+    // maybe as an array, and then we'd run a check against the result of that function here.
     // Correct answer
     if (value == target) {
       totalCorrect++;
