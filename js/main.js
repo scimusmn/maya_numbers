@@ -25,7 +25,7 @@ $(function () {
   // @TODO: Some numbers require the same block to be supplied twice - will need to adjust this approach. Stack 4 copies of each block?
   // @TODO: You can't move a glyph to another bucket yet (unless you first put it back in the glyphs div, then move it)
   var bucketInit = function() {
-    $('.bucket').droppable({
+    $('.bucket .dropzone').droppable({
       drop: function (event, ui) {
         // Make note of which bucket we're dropping in
         var bucketID = $(this).attr('id').match(/\d+/);
