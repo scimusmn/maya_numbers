@@ -31,6 +31,9 @@ div#activity {
   margin: 0 auto;
   padding-left: 40px;
 }
+body.level-3 div#activity {
+  padding-left: 20px;
+}
 div#activity div.section {
   float: left;
 }
@@ -43,11 +46,6 @@ div#activity div.section {
 div#glyphs {
   margin: 0 auto;
   text-align: center;
-}
-footer,
-#glyphs ul.copy {
-  position: relative;
-  top: -230px;
 }
 span#progress {
   padding: 0 20px;
@@ -77,9 +75,12 @@ div#target_value {
   font-weight: bold;
   width: 250px;
 }
+body.level-3 div#target_value {
+  width: 260px;
+}
 div#live_sum {
   font-size: 50px;
-  width: 250px;
+  width: 240px;
   text-align: center;
   min-height: 160px;
 }
