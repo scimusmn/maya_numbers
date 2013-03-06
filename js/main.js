@@ -163,8 +163,8 @@ $(function () {
 var levelChange = function(level) {
 
   if (level != 1) {
-    alert('Good job! On to level ' + level); // @TODO - Remove all alerts and replace with styled dialogs
     targetValues.length = 0; // Empty out the targetValues array so we can put new values up in it
+    $('span#level').text(level);
   }
 
   // Set level-specific values
@@ -172,7 +172,7 @@ var levelChange = function(level) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 10; // @TODO This will really be 10, but 1's easier for testing.
+      required = 2; // @TODO This will really be 10, but 1's easier for testing.
       var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
