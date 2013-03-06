@@ -175,7 +175,7 @@ var levelChange = function(level) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 2; // @TODO This will really be 10, but 1's easier for testing.
+      required = 2; // @TODO - Change this to 10 for production
       var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
@@ -196,7 +196,7 @@ var levelChange = function(level) {
   // See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random
   // And http://stackoverflow.com/a/2380113/1940172
   targetValues = [];
-  while (targetValues.length < 10) {
+  while (targetValues.length < required) {
     var rando = Math.floor(Math.random() * (max - min + 1)) + min;
     var found = false;
     for (var i=0; i<targetValues.length; i++) {
@@ -207,6 +207,7 @@ var levelChange = function(level) {
     }
     if(!found)targetValues[targetValues.length]=rando;
   }
+  console.log('New array of target values generated for level ' + level + ': ' + targetValues);
 
   // Update body class
   var lastLevel = level - 1;
@@ -217,9 +218,7 @@ var levelChange = function(level) {
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
 
-  // Open the level's help dialog - @TODO - Re-enable later
-  // helpDialogs(level, dialogTitle);
-
+  helpDialogs(level, dialogTitle);
 }
 
 /*
@@ -261,9 +260,10 @@ var helpDialogs = function(level, dialogTitle) {
   $('#level-'+ level +'-help').dialog(options);
 
   // Open the dialog from the help link
-  // @TODO Bug - On level 2, it opens both dialogs
-  $('.level-'+ level +' #help').click(function() {
+  $('#help').click(function() {
     $('#level-'+ level +'-help').dialog('open');
+    // @TODO - Why does this fire twice and open both dialogs on level 2?
+    console.log('Level ' + level + ' help dialog opened');
   });
 
 }
@@ -278,4 +278,3 @@ var commaSeparateNumber = function(val) {
   }
   return val;
 }
-
