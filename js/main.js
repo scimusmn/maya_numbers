@@ -15,8 +15,6 @@ $(function () {
 
   // Let the glyphs be draggable
   $glyphs.draggable({
-    // @TODO: Some numbers require the same block to be supplied twice - this clone option could solve that?
-    // helper: 'clone',
     revert: 'invalid' // Revert back to the original location if dropped outside the targets
   });
 

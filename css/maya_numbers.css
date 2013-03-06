@@ -44,6 +44,11 @@ div#glyphs {
   margin: 0 auto;
   text-align: center;
 }
+footer,
+#glyphs ul.copy {
+  position: relative;
+  top: -230px;
+}
 span#progress {
   padding: 0 20px;
   margin: 0 10px;
