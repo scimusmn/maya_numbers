@@ -91,13 +91,9 @@ $(function () {
   // When the Enter button is clicked, see if the answer is correct
   $('#enter').click(function() {
     // Just look at integers, not commas/equals sign
-    var target = parseInt($('div#target_value').text().match(/\d+/), 10),
+    var target = solve(), // Calculates and returns the correct answer
         value = parseInt($('div#total').text().match(/\d+/), 10);
 
-    // @TODO - You could still get the total correct while not doing the glyphs correctly.
-    // For example, you could add 20 "1" glyphs instead of a 20-value glyph.
-    // There needs to be a function to calculate and return not only the correct total, but also the correct combination of bricks,
-    // maybe as an array, and then we'd run a check against the result of that function here.
     // Correct answer
     if (value == target) {
       totalCorrect++;
@@ -277,4 +273,13 @@ var commaSeparateNumber = function(val) {
     val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
   }
   return val;
+}
+
+// @TODO - You could still get the total correct while not doing the glyphs correctly.
+// For example, you could add 20 "1" glyphs instead of a 20-value glyph.
+// This needs to calculate and return not the correct total, but really the correct combination of bricks,
+// maybe as an array, and then we'd run a check against the result of that function here.
+var solve = function() {
+  solution = parseInt($('div#target_value').text().match(/\d+/), 10);
+  return solution;
 }
