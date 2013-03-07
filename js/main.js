@@ -7,14 +7,13 @@ $(function () {
   var level = 1,
       totalCorrect = 0,
       number = 0,
-      $glyphs = $('#glyphs img');
 
   // Initialize the level
   levelChange(level);
   updateTarget(targetValues, totalCorrect);
 
   // Let the glyphs be draggable
-  $glyphs.draggable({
+  $('#glyphs img').draggable({
     helper: 'clone',
     revert: 'invalid' // Revert back to the original location if dropped outside the targets
   });
@@ -161,6 +160,7 @@ var levelChange = function(level) {
       var min = 0;
       var max = 19;
       required = 2; // @TODO - Change this to 10 for production
+      // @TODO - This should change to "Touch the screen to resume game" after initial open
       var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
@@ -251,6 +251,8 @@ var helpDialogs = function(level, dialogTitle) {
     // @TODO - Why does this fire twice and open both dialogs on level 2?
     console.log('Level ' + level + ' help dialog opened');
   });
+
+  // @TODO - End the game with a dialog that'll restart the game on close.
 
 }
 
