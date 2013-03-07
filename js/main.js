@@ -20,29 +20,38 @@ $(function () {
   });
 
   // When a draggable goes into the bucket, add points.
-  // @TODO: If you drop another glyph into a filled bucket, it should really be replacing the previous glyph (subtract that one's value first).
   $('.bucket .dropzone').droppable({
     drop: function (event, ui) {
       var value = ui.draggable.attr('data-glyph-value'); // How many points?
-      // Make note of which bucket we're dropping in and the new value of the bucket
-      var bucketID = $(this).attr('id').match(/\d+/);
+      var bucketID = $(this).attr('id').match(/\d+/); // Which bucket?
+
+      // If the bucket already had a glyph in it, remove that one's value from the total
+      if ($(this).data('bucketValue')) {
+        var firstValue = $(this).data('bucketValue');
+        displayNumber(firstValue, 'subtract', bucketID);
+      }
+
+      // Set the bucket ID as data on the glyph and the glyph value as data on the bucket
       ui.draggable.data('bucketID', bucketID);
       $(this).data('bucketValue', value);
+
       // Add the glyph's value to the total
-      displayNumber(value, 'addition', bucketID);
+      displayNumber(value, 'add', bucketID);
+
       // Show the dropped block as the bucket's background image
       $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat');
     }
   });
 
-  // Calculate the total sum value. This runs when a glyph is dropped in the bucket.
+  // Calculate the total sum value.
+  // This runs when a glyph is dropped in the bucket or when a glyph is removed.
   var updateNumber = function(value, op, bucketID) {
     var value = parseInt(value, 10),
         bucketID = parseInt(bucketID, 10),
         multiplier = 0;
 
     switch (op) {
-      case 'addition':
+      case 'add':
         switch (bucketID) {
           case 1: multiplier = 1; break;
           case 2: multiplier = 20; break;
@@ -61,7 +70,7 @@ $(function () {
         break;
     }
     number = number + (value * multiplier);
-    console.log(op + ' ' + (value * multiplier) + ' from bucket ' + bucketID);
+    console.log(op + ' ' + Math.abs(value * multiplier) + ' from bucket ' + bucketID);
     return number;
   }
 
@@ -119,7 +128,6 @@ $(function () {
     var bucketValue = $(this).data('bucketValue');
     // Clear bucket and run subtract function
     resetGlyphs(bucketID, bucketValue);
-    console.log('Cleared '+ bucketValue +' from bucket ' + bucketID);
     $(this).removeData('bucketValue'); // Reset the bucket value
   });
 
