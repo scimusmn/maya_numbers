@@ -131,7 +131,7 @@ $(function () {
       // subtract the glyph's value from the total
       displayNumber(value, 'subtract', bucketID);
     } else {
-      $('#live_sum div').text('');
+      $('#live_sum div#total').text('');
       $('.dropzone').css('background', '');
       number = 0;
     }
@@ -208,7 +208,7 @@ var levelChange = function(level) {
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
 
-  helpDialogs(level);
+  // helpDialogs(level);
 }
 
 /*

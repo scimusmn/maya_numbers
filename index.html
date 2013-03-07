@@ -26,62 +26,73 @@
 
       <h1>Can you match numbers with the corresponding glyphs?</h1>
 
-      <div id="instructions">
-        <ul>
-          <li class="level-1">Drag the correct glyph from below into the value box. Double-tap the glyph to put it back.</li>
-          <li class="level-2 level-3">Using the glyphs and the value boxes, generate the number shown. Double-tap the glyph to put it back.</li>
-          <li>You'll need <span id="required"></span> correct answers to move on to the next level.</li>
-        </ul>
-      </div>
+      <div id="column-left">
+        <div id="instructions">
+          <p class="level-1">Drag the correct glyph from below into the value box. Double-tap the glyph to put it back.</p>
+          <p class="level-2 level-3">Using the glyphs and the value boxes, generate the number shown. Double-tap the glyph to put it back.</p>
+        </div>
+        <div id="glyphs">
+          <ul>
+            <li id="glyph-0"><img data-glyph-value="0" alt="0" src="media/images/numbers/0.png"></li>
+            <li id="glyph-1"><img data-glyph-value="1" alt="1" src="media/images/numbers/1.png"></li>
+            <li id="glyph-2"><img data-glyph-value="2" alt="2" src="media/images/numbers/2.png"></li>
+            <li id="glyph-3"><img data-glyph-value="3" alt="3" src="media/images/numbers/3.png"></li>
+            <li id="glyph-4"><img data-glyph-value="4" alt="4" src="media/images/numbers/4.png"></li>
+            <li id="glyph-5" class="new-row"><img data-glyph-value="5" alt="5" src="media/images/numbers/5.png"></li>
+            <li id="glyph-6"><img data-glyph-value="6" alt="6" src="media/images/numbers/6.png"></li>
+            <li id="glyph-7"><img data-glyph-value="7" alt="7" src="media/images/numbers/7.png"></li>
+            <li id="glyph-8"><img data-glyph-value="8" alt="8" src="media/images/numbers/8.png"></li>
+            <li id="glyph-9"><img data-glyph-value="9" alt="9" src="media/images/numbers/9.png"></li>
+            <li id="glyph-10" class="new-row"><img data-glyph-value="10" alt="10" src="media/images/numbers/10.png"></li>
+            <li id="glyph-11"><img data-glyph-value="11" alt="11" src="media/images/numbers/11.png"></li>
+            <li id="glyph-12"><img data-glyph-value="12" alt="12" src="media/images/numbers/12.png"></li>
+            <li id="glyph-13"><img data-glyph-value="13" alt="13" src="media/images/numbers/13.png"></li>
+            <li id="glyph-14"><img data-glyph-value="14" alt="14" src="media/images/numbers/14.png"></li>
+            <li id="glyph-15" class="new-row"><img data-glyph-value="15" alt="15" src="media/images/numbers/15.png"></li>
+            <li id="glyph-16"><img data-glyph-value="16" alt="16" src="media/images/numbers/16.png"></li>
+            <li id="glyph-17"><img data-glyph-value="17" alt="17" src="media/images/numbers/17.png"></li>
+            <li id="glyph-18"><img data-glyph-value="18" alt="18" src="media/images/numbers/18.png"></li>
+            <li id="glyph-19"><img data-glyph-value="19" alt="19" src="media/images/numbers/19.png"></li>
+          </ul>
+        </div> 
+      </div><!--/column-left-->
 
-      <div id="activity">
-        <div id="target_value" class="section"></div>
-
-        <div id="buckets" class="section">
-          <div class="bucket level-3"><div id="bucket-4" class="dropzone"></div>8,000x</div>
-          <div class="plus level-3">+</div>
-          <div class="bucket level-2 level-3"><div id="bucket-3" class="dropzone"></div>400x</div>
-          <div class="plus level-2 level-3">+</div>
-          <div class="bucket level-2 level-3"><div id="bucket-2" class="dropzone"></div>20x</div>
-          <div class="plus level-2 level-3">+</div>
-          <div class="bucket"><div id="bucket-1" class="dropzone"></div>1x</div>
+      <div id="column-middle">
+        <div id="buckets">
+          <div class="bucket level-3">
+            <div class="multiplier">8,000 x</div>
+            <div id="bucket-4" class="dropzone"></div>
+          </div>
+          
+          <div class="bucket level-2 level-3">
+            <div class="multiplier">400 x</div>
+            <div id="bucket-3" class="dropzone"></div>
+          </div>
+          
+          <div class="bucket level-2 level-3">
+            <div class="multipler">20 x</div>
+            <div id="bucket-2" class="dropzone"></div>
+          </div>
+          
+          <div class="bucket">
+            <div class="multiplier">1 x</div>
+            <div id="bucket-1" class="dropzone"></div>
+          </div>
         </div>
 
-        <div id="live_sum" class="section">
-          <div id="total"></div>
+        <div id="live_sum">
+          <div id="total">= 0</div>
         </div>
+      </div><!--/column-middle-->
 
-        <div id="buttons" class="section">
+      <div id="column-right">
+        <div id="target_value"></div>
+        <div id="buttons">
+          <!-- @TODO disable "Enter" until the correct answer has been hit -->
           <a class="btn-large btn btn-primary" id="enter">Enter</a>
           <a class="btn" id="reset">Reset glyphs</a>
         </div>
-      
-      </div>
-
-      <div id="glyphs">
-        <ul>
-          <li id="glyph-0"><img data-glyph-value="0" alt="0" src="media/images/numbers/0.png"></li>
-          <li id="glyph-1"><img data-glyph-value="1" alt="1" src="media/images/numbers/1.png"></li>
-          <li id="glyph-2"><img data-glyph-value="2" alt="2" src="media/images/numbers/2.png"></li>
-          <li id="glyph-3"><img data-glyph-value="3" alt="3" src="media/images/numbers/3.png"></li>
-          <li id="glyph-4"><img data-glyph-value="4" alt="4" src="media/images/numbers/4.png"></li>
-          <li id="glyph-5"><img data-glyph-value="5" alt="5" src="media/images/numbers/5.png"></li>
-          <li id="glyph-6"><img data-glyph-value="6" alt="6" src="media/images/numbers/6.png"></li>
-          <li id="glyph-7"><img data-glyph-value="7" alt="7" src="media/images/numbers/7.png"></li>
-          <li id="glyph-8"><img data-glyph-value="8" alt="8" src="media/images/numbers/8.png"></li>
-          <li id="glyph-9"><img data-glyph-value="9" alt="9" src="media/images/numbers/9.png"></li>
-          <li id="glyph-10"><img data-glyph-value="10" alt="10" src="media/images/numbers/10.png"></li>
-          <li id="glyph-11"><img data-glyph-value="11" alt="11" src="media/images/numbers/11.png"></li>
-          <li id="glyph-12"><img data-glyph-value="12" alt="12" src="media/images/numbers/12.png"></li>
-          <li id="glyph-13"><img data-glyph-value="13" alt="13" src="media/images/numbers/13.png"></li>
-          <li id="glyph-14"><img data-glyph-value="14" alt="14" src="media/images/numbers/14.png"></li>
-          <li id="glyph-15"><img data-glyph-value="15" alt="15" src="media/images/numbers/15.png"></li>
-          <li id="glyph-16"><img data-glyph-value="16" alt="16" src="media/images/numbers/16.png"></li>
-          <li id="glyph-17"><img data-glyph-value="17" alt="17" src="media/images/numbers/17.png"></li>
-          <li id="glyph-18"><img data-glyph-value="18" alt="18" src="media/images/numbers/18.png"></li>
-          <li id="glyph-19"><img data-glyph-value="19" alt="19" src="media/images/numbers/19.png"></li>
-        </ul>
-      </div>
+      </div><!--/column-right--> 
 
       <footer>
         <span id="level">1</span>
@@ -103,13 +114,13 @@
 
       <div class="help_overlay" id="level-2-help">
         <p>The Maya employed a vertically structured "base 20" value system.</p>
-        <img src="media/images/help-level2.png">
+        <!--<img src="media/images/help-level2.png">-->
         <p>The stacked rows are added together to obtain a sum.</p>
       </div>
 
       <div class="help_overlay" id="level-3-help">
         <p>Now things get a little tougher!</p>
-        <img src="media/images/help-level3.png">
+        <!--<img src="media/images/help-level3.png">-->
         <p>The stacked rows are added together to obtain a sum.</p>
       </div>
 
