@@ -140,6 +140,12 @@ $(function () {
     location.reload();
   });
 
+  // Open the dialog from the help link
+  $('#help').click(function() {
+    $('#level-'+ level +'-help').dialog('open');
+    console.log('Level ' + level + ' help dialog opened');
+  });
+
 });
 
 /*
@@ -160,20 +166,16 @@ var levelChange = function(level) {
       var min = 0;
       var max = 19;
       required = 2; // @TODO - Change this to 10 for production
-      // @TODO - This should change to "Touch the screen to resume game" after initial open
-      var dialogTitle = 'Touch the screen to start';
       break;
     case 2:
       var min = 20;
       var max = 7999;
       required = 3;
-      var dialogTitle = 'Level 2';
       break;
     case 3:
       var min = 8000;
       var max = 159999;
       required = 3;
-      var dialogTitle = 'Level 3';
       break;
   }
 
@@ -204,7 +206,7 @@ var levelChange = function(level) {
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
 
-  helpDialogs(level, dialogTitle);
+  helpDialogs(level);
 }
 
 /*
@@ -239,20 +241,11 @@ var helpDialogs = function(level, dialogTitle) {
       })
     },
     dialogClass: "no-close",
-    title: dialogTitle
+    title: "Level " + level
   }
 
   // Initialize dialogs
   $('#level-'+ level +'-help').dialog(options);
-
-  // Open the dialog from the help link
-  $('#help').click(function() {
-    $('#level-'+ level +'-help').dialog('open');
-    // @TODO - Why does this fire twice and open both dialogs on level 2?
-    console.log('Level ' + level + ' help dialog opened');
-  });
-
-  // @TODO - End the game with a dialog that'll restart the game on close.
 
 }
 
