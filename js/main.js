@@ -39,7 +39,7 @@ $(function () {
       displayNumber(value, 'add', bucketID);
 
       // Show the dropped block as the bucket's background image
-      $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat');
+      $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
     }
   });
 
@@ -90,6 +90,7 @@ $(function () {
     // Correct answer
     if (value == target) {
       totalCorrect++;
+      $('.dropzone').removeClass('full');
       console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
       $('span#correct').text(totalCorrect);
 
@@ -128,7 +129,7 @@ $(function () {
     var bucketValue = $(this).data('bucketValue');
     // Clear bucket and run subtract function
     resetGlyphs(bucketID, bucketValue);
-    $(this).removeData('bucketValue'); // Reset the bucket value
+    $(this).removeData('bucketValue').removeClass('full'); // Reset the bucket value
   });
 
   // Clear out the buckets and the live sum

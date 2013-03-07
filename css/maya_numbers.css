@@ -32,8 +32,7 @@ div#instructions {
 }
 #column-right {
   float: right;
-}
-#buttons {
+  width: 250px;
 }
 #buttons #reset {
   margin-left: 6px;
@@ -50,6 +49,11 @@ div#glyphs {
 }
 footer {
   clear: both;
+  float: left;
+  margin-top: 30px;
+  width: 100%;
+  padding: 16px 4px;
+  border-top: 1px solid #CECECE;
 }
 span#progress {
   padding: 0 20px;
@@ -87,14 +91,13 @@ span#required {
   font-weight: bold;
 }
 div#target_value {
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bold;
   width: 250px;
   clear: both;
 }
-body.level-3 div#target_value {
-  width: 250px;
-  font-size: 50px;
+#column-right p {
+  width: 200px;
 }
 div#live_sum {
   clear: both;
@@ -139,6 +142,8 @@ div#total {
   color: #777;
   height: 95px;
   width: 95px;
+}
+.bucket div.dropzone.full {
   opacity: .7;
 }
 
