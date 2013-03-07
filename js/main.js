@@ -36,7 +36,7 @@ $(function () {
       $(this).data('bucketValue', value);
 
       // Add the glyph's value to the total
-      displayNumber(value, 'addition', bucketID);
+      displayNumber(value, 'add', bucketID);
 
       // Show the dropped block as the bucket's background image
       $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat');
@@ -51,7 +51,7 @@ $(function () {
         multiplier = 0;
 
     switch (op) {
-      case 'addition':
+      case 'add':
         switch (bucketID) {
           case 1: multiplier = 1; break;
           case 2: multiplier = 20; break;
