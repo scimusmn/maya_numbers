@@ -1,3 +1,7 @@
+/*
+ * @TODO - Vertical layout for buckets?
+ * @TODO - Add a plus sign between the buckets
+ */
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333333;
@@ -123,8 +127,6 @@ div#total {
   color: #777;
   height: 95px;
   width: 95px;
-}
-.bucket div.full {
   opacity: .7;
 }
 

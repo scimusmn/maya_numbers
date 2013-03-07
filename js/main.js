@@ -30,7 +30,7 @@ $(function () {
       // Add the glyph's value to the total
       displayNumber(value, 'addition', bucketID);
       // Show the dropped block as the bucket's background image
-      $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
+      $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat');
     }
   });
 
@@ -125,7 +125,7 @@ $(function () {
   });
 
   // Clear out the buckets and the live sum
-  // If a bucketID exists, clear that bucket only, otherwise (bucketID = 0) clear them all
+  // If a bucketID exists, clear that bucket only, otherwise clear them all
   var resetGlyphs = function(bucketID, value) {
     if (bucketID > 0) {
       $('#bucket-'+ bucketID).css('background', ''); // Remove the background image of the glyph
