@@ -6,7 +6,7 @@ $(function () {
 
   var level = 1,
       totalCorrect = 0,
-      number = 0,
+      number = 0;
 
   // Initialize the level
   levelChange(level);
