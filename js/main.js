@@ -136,6 +136,11 @@ $(function () {
     }
   }
 
+  // Restart the game if you click the "Restart game" link
+  $('#restart').click(function() {
+    location.reload();
+  });
+
 });
 
 /*
