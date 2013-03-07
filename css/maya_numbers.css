@@ -1,6 +1,5 @@
 /*
  * @TODO - Vertical layout for buckets?
- * @TODO - Add a plus sign between the buckets
  */
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -58,6 +57,15 @@ span#progress {
 span#restart {
   float: right;
 }
+div.plus {
+  float: left;
+  width: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  top: 20px;
+  text-align: center;
+}
 
 /* Content */
 span#level {
@@ -83,7 +91,8 @@ div#target_value {
   width: 250px;
 }
 body.level-3 div#target_value {
-  width: 270px;
+  width: 250px;
+  font-size: 50px;
 }
 div#live_sum {
   font-size: 44px;
@@ -117,7 +126,6 @@ div#total {
 .bucket {
   float: left;
   text-align: center;
-  margin-right: 20px;
 }
 .bucket div {
   border: 1px solid #444;
