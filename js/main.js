@@ -85,7 +85,7 @@ $(function () {
       }
 
       // Reset the glyphs
-      resetGlyphs($glyphs);
+      resetGlyphs(0);
 
       // Move to the next level after required number of correct answers
       if (totalCorrect == required) {
@@ -107,8 +107,15 @@ $(function () {
 
   // When the reset button is clicked, reset all the things
   $('#reset').click(function() {
-    resetGlyphs($glyphs);
+    resetGlyphs(0);
     console.log('Reset glyphs');
+  });
+
+  // When a bucket is double-tapped, clear out that bucket and remove it's value from the total
+  $('.bucket .dropzone').dblclick(function() {
+    var bucketID = $(this).attr('id').match(/\d+/);
+    resetGlyphs(bucketID);
+    console.log('Cleared bucket ' + bucketID);
   });
 
   // Note original positions of glyphs; will use for resetting later
@@ -117,10 +124,15 @@ $(function () {
   });
 
   // Clear out the buckets and the live sum
-  var resetGlyphs = function() {
-    $('#live_sum div').text('');
-    $('.dropzone').css('background', '');
-    number = 0;
+  // If a bucketID exists, clear that bucket only, otherwise (bucketID = 0) clear them all
+  var resetGlyphs = function(bucketID) {
+    if (bucketID > 0) {
+      // clear one bucket
+    } else {
+      $('#live_sum div').text('');
+      $('.dropzone').css('background', '');
+      number = 0;
+    }
   }
 
 });
