@@ -122,11 +122,6 @@ $(function () {
     $(this).removeData('bucketValue'); // Reset the bucket value
   });
 
-  // Note original positions of glyphs; will use for resetting later
-  $glyphs.each(function() {
-    $(this).data('left', $(this).position().left).data('top', $(this).position().top);
-  });
-
   // Clear out the buckets and the live sum
   // If a bucketID exists, clear that bucket only, otherwise (bucketID = 0) clear them all
   var resetGlyphs = function(bucketID, value) {
