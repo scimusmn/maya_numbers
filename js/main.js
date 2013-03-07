@@ -113,7 +113,7 @@ $(function () {
     console.log('Reset glyphs');
   });
 
-  // When a bucket is double-tapped, clear out that bucket and remove it's value from the total
+  // When a bucket is double-tapped, clear out that bucket and remove its value from the total
   $('.bucket .dropzone').dblclick(function() {
     // Get the bucket ID and the value from the clicked object
     var bucketID = $(this).attr('id').match(/\d+/);
