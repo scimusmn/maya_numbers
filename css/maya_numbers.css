@@ -121,6 +121,9 @@ div#total {
   height: 95px;
   width: 95px;
 }
+.bucket div.full {
+  opacity: .7;
+}
 
 /* Modal overlays */
 .help_overlay {
