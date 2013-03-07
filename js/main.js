@@ -80,7 +80,7 @@ $(function () {
     // Correct answer
     if (value == target) {
       totalCorrect++;
-      console.log('Correct answer');
+      console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
       if (totalCorrect < required) {
         $('span#correct').text(totalCorrect);
       }
@@ -100,7 +100,9 @@ $(function () {
       $('div#target_value').html('');
       updateTarget(targetValues, totalCorrect);
 
-    } else { // Incorrect answer
+    } else {
+      // Incorrect answer
+      // @TODO - replace this with something within the UI
       alert('Try again');
     }
   });
@@ -268,6 +270,7 @@ var commaSeparateNumber = function(val) {
 // For example, you could add 20 "1" glyphs instead of a 20-value glyph.
 // This needs to calculate and return not the correct total, but really the correct combination of bricks,
 // maybe as an array, and then we'd run a check against the result of that function here.
+// @TODO - it could be cool to show if a bucket is correct or not each time the user adds a block
 var solve = function() {
   solution = parseInt($('div#target_value').text().match(/\d+/), 10);
   return solution;
