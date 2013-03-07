@@ -1,3 +1,4 @@
+// @TODO: Develop a mechanism for selecting English or Spanish directions.
 $(function () {
   "use strict";
 
@@ -19,6 +20,7 @@ $(function () {
   });
 
   // When a draggable goes into the bucket, add points.
+  // @TODO: If you drop another glyph into a filled bucket, it should really be replacing the previous glyph (subtract that one's value first).
   $('.bucket .dropzone').droppable({
     drop: function (event, ui) {
       var value = ui.draggable.attr('data-glyph-value'); // How many points?
