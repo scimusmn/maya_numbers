@@ -60,7 +60,7 @@ $(function () {
         break;
     }
     number = number + (value * multiplier);
-    console.log(op + ' ' + number + ' from bucket ' + bucketID);
+    console.log(op + ' ' + (value * multiplier) + ' from bucket ' + bucketID);
     return number;
   }
 
@@ -81,9 +81,7 @@ $(function () {
     if (value == target) {
       totalCorrect++;
       console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
-      if (totalCorrect < required) {
-        $('span#correct').text(totalCorrect);
-      }
+      $('span#correct').text(totalCorrect);
 
       // Reset the glyphs
       resetGlyphs();
@@ -201,6 +199,7 @@ var levelChange = function(level) {
   $('body').removeClass('level-' + lastLevel).addClass('level-' + level);
 
   // Update directions
+  $('span#correct').text('0');
   $('span#required').text(required);
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
