@@ -22,13 +22,15 @@ $(function () {
   // When a draggable goes into the bucket, add points.
   $('.bucket .dropzone').droppable({
     drop: function (event, ui) {
-      // Make note of which bucket we're dropping in
+      var value = ui.draggable.attr('data-glyph-value'); // How many points?
+      // Make note of which bucket we're dropping in and the new value of the bucket
       var bucketID = $(this).attr('id').match(/\d+/);
       ui.draggable.data('bucketID', bucketID);
-      displayNumber(ui.draggable, 'addition', bucketID);
-      // Show the dropped block as the bucket's background image so it appears full
-      var glyphVal = ui.draggable.attr('data-glyph-value');
-      $(this).css('background', 'url(media/images/numbers/' + glyphVal + '.png) 8px 8px no-repeat').addClass('full');
+      $(this).data('bucketValue', value);
+      // Add the glyph's value to the total
+      displayNumber(value, 'addition', bucketID);
+      // Show the dropped block as the bucket's background image
+      $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
     }
   });
 
@@ -63,8 +65,7 @@ $(function () {
   }
 
   // Show the active numbers.
-  var displayNumber = function($item, op, bucketID) {
-    var value = $item.attr('data-glyph-value');
+  var displayNumber = function(value, op, bucketID) {
     // Run addition/subtraction
     var updatedNumber = commaSeparateNumber(updateNumber(value, op, bucketID));
     $('div#total').html('= ' + updatedNumber); // Update the total
@@ -85,7 +86,7 @@ $(function () {
       }
 
       // Reset the glyphs
-      resetGlyphs(0);
+      resetGlyphs();
 
       // Move to the next level after required number of correct answers
       if (totalCorrect == required) {
@@ -99,7 +100,6 @@ $(function () {
       $('div#target_value').html('');
       updateTarget(targetValues, totalCorrect);
 
-
     } else { // Incorrect answer
       alert('Try again');
     }
@@ -107,15 +107,19 @@ $(function () {
 
   // When the reset button is clicked, reset all the things
   $('#reset').click(function() {
-    resetGlyphs(0);
+    resetGlyphs();
     console.log('Reset glyphs');
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove it's value from the total
   $('.bucket .dropzone').dblclick(function() {
+    // Get the bucket ID and the value from the clicked object
     var bucketID = $(this).attr('id').match(/\d+/);
-    resetGlyphs(bucketID);
-    console.log('Cleared bucket ' + bucketID);
+    var bucketValue = $(this).data('bucketValue');
+    // Clear bucket and run subtract function
+    resetGlyphs(bucketID, bucketValue);
+    console.log('Cleared '+ bucketValue +' from bucket ' + bucketID);
+    $(this).removeData('bucketValue'); // Reset the bucket value
   });
 
   // Note original positions of glyphs; will use for resetting later
@@ -125,9 +129,11 @@ $(function () {
 
   // Clear out the buckets and the live sum
   // If a bucketID exists, clear that bucket only, otherwise (bucketID = 0) clear them all
-  var resetGlyphs = function(bucketID) {
+  var resetGlyphs = function(bucketID, value) {
     if (bucketID > 0) {
-      // clear one bucket
+      $('#bucket-'+ bucketID).css('background', ''); // Remove the background image of the glyph
+      // subtract the glyph's value from the total
+      displayNumber(value, 'subtract', bucketID);
     } else {
       $('#live_sum div').text('');
       $('.dropzone').css('background', '');
