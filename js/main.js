@@ -171,7 +171,7 @@ var levelChange = function(level, $dropzone) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 10;
+      required = 1;
       break;
     case 2:
       var min = 20;
@@ -191,7 +191,7 @@ var levelChange = function(level, $dropzone) {
     // Levels 2-3 only
     if (level != 1) {
       targetValues.length = 0; // Empty out target values array
-      $('span#level').text(level); // Update the level text
+      $('span#level-num').text(level); // Update the level text
     }
 
     // Randomly choose values from the acceptable range
