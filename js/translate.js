@@ -1,6 +1,7 @@
 /*
  * Change the language of text strings on the page.
  * Based on http://stackoverflow.com/a/13427846/1940172
+ * @TODO: Get at the last few strings - "Level" comes from CSS, and the dialog titles and buttons come from main.js
 */
 
 var dictionary, set_lang;
@@ -18,8 +19,15 @@ dictionary = {
       "reset_button": "Reset glyphs",
       "help_link": "Help",
       "level": "Level",
-      "restart": "Restart game"
-      // @TODO Add text from help dialogs
+      "restart": "Restart game",
+      "help_1": "The Maya developed glyphs that visually express the numeric values they represent.",
+      "help_1_a": "Dots indicate values of one.",
+      "help_1_b": "Lines indicate values of five.",
+      "help_1_c": "A glyph with one dot and one line represents the value six.",
+      "help_intro": "Can you match numbers with the corresponding glyphs? Touch the screen to begin.",
+      "help_2": "The Maya employed a vertically structured \"base 20\" value system.",
+      "help_3": "Now things get a little tougher!",
+      "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit."
   },
   // @TODO: These came from Google Translate and are probably not that good. Get real translations.
   "spanish": {
@@ -31,9 +39,17 @@ dictionary = {
       "buttons": "A continuación, pulse Entrar para comprobar su respuesta:",
       "enter_button": "Entrar",
       "reset_button": "Cambiar glifos",
-      "help_link": "Help",
+      "help_link": "Ayuda",
       "level": "Nivel",
-      "restart": "Reinicie juego"
+      "restart": "Reinicie juego",
+      "help_1": "Los glifos mayas desarrollaron visualmente que expresan los valores numéricos que representan.",
+      "help_1_a": "Los puntos indican los valores de uno.",
+      "help_1_b": "Las líneas indican los valores de cinco.",
+      "help_1_c": "Un glifo con un punto y una línea representa el valor de seis.",
+      "help_intro": "Puede coincidir con los números con los glifos correspondientes? Toque la pantalla para comenzar.",
+      "help_2": "Los mayas emplearon una base de estructura vertical 20 sistema de valores.",
+      "help_3": "Ahora las cosas se ponen un poco más difícil!",
+      "win": "Éxito! Usted ha dominado números mayas. Búscalos por toda la instalación."
   }
 };
 
