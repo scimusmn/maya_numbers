@@ -1,4 +1,3 @@
-// @TODO: Develop a mechanism for selecting English or Spanish directions.
 $(function () {
   "use strict";
 
