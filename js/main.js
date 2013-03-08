@@ -275,11 +275,9 @@ var commaSeparateNumber = function(val) {
   return val;
 }
 
-// @TODO - You could still get the total correct while not doing the glyphs correctly.
-// For example, you could add 20 "1" glyphs instead of a 20-value glyph.
-// This needs to calculate and return not the correct total, but really the correct combination of bricks,
-// maybe as an array, and then we'd run a check against the result of that function here.
-// @TODO - it could be cool to show if a bucket is correct or not each time the user adds a block
+// Find the correct answer to the current problem.
+// @TODO - Might be cool to return an array that contains the correct block for each bucket.
+// With that, we could show more hints besides just correct/incorrect.
 var solve = function() {
   solution = parseInt($('div#target_value').text().match(/\d+/), 10);
   return solution;
