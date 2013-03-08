@@ -90,7 +90,6 @@ $(function () {
     // Correct answer
     if (value == target) {
       totalCorrect++;
-      $('.dropzone').removeClass('full');
       console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
       $('span#correct').text(totalCorrect);
 
@@ -111,15 +110,8 @@ $(function () {
 
     } else {
       // Incorrect answer
-      // @TODO - replace this with something within the UI
       alert('Try again');
     }
-  });
-
-  // When the reset button is clicked, reset all the things
-  $('#reset').click(function() {
-    resetGlyphs();
-    console.log('Reset glyphs');
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
@@ -136,14 +128,23 @@ $(function () {
   // If a bucketID exists, clear that bucket only, otherwise clear them all
   var resetGlyphs = function(bucketID, value) {
     if (bucketID > 0) {
-      $('#bucket-'+ bucketID).css('background', '').removeClass('full'); // Remove the background image of the glyph
-      // subtract the glyph's value from the total
-      displayNumber(value, 'subtract', bucketID);
+      // For one bucket - run this on a double-click
+      $('#bucket-'+ bucketID +'.dropzone').css('background', '').removeClass('full'); // Make buckets appear empty
+      displayNumber(value, 'subtract', bucketID); // subtract the glyph's value from the total
     } else {
+      // For all buckets - run this on "Clear glyphs" button or after a correct answer
       $('#live_sum div#total').text('');
-      $('.dropzone').css('background', '').removeClass('full');
+      $('.dropzone').removeData('bucketValue');
+      $('.dropzone').css('background', '').removeClass('full'); // Make buckets appear empty
+      number = 0;
     }
   }
+
+  // When the reset button is clicked, reset all the things
+  $('#reset').click(function() {
+    resetGlyphs();
+    console.log('Reset glyphs');
+  });
 
   // Restart the game if you click the "Restart game" link
   $('#restart').click(function() {
@@ -215,6 +216,8 @@ var levelChange = function(level) {
   $('span#required').text(required);
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
+
+  $('.dropzone').removeData('bucketValue');
 
   // helpDialogs(level);
 }
