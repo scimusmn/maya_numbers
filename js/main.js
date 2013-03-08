@@ -7,10 +7,11 @@ $(function () {
 
   var level = 1,
       totalCorrect = 0,
-      number = 0;
+      number = 0,
+      $dropzone = $('.dropzone');
 
   // Initialize the level
-  levelChange(level);
+  levelChange(level, $dropzone);
   updateTarget(targetValues, totalCorrect);
 
   // Let the glyphs be draggable
@@ -20,7 +21,7 @@ $(function () {
   });
 
   // When a draggable goes into the bucket, add points.
-  $('.bucket .dropzone').droppable({
+  $dropzone.droppable({
     drop: function (event, ui) {
       var value = ui.draggable.attr('data-glyph-value'); // How many points?
       var bucketID = $(this).attr('id').match(/\d+/); // Which bucket?
@@ -99,7 +100,7 @@ $(function () {
       // Move to the next level after required number of correct answers
       if (totalCorrect == required) {
         level++;
-        levelChange(level);
+        levelChange(level, $dropzone);
         totalCorrect = 0;
         console.log('Moving to level ' + level);
       }
@@ -115,7 +116,7 @@ $(function () {
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
-  $('.bucket .dropzone').dblclick(function() {
+  $dropzone.dblclick(function() {
     // Get the bucket ID and the value from the clicked object
     var bucketID = $(this).attr('id').match(/\d+/);
     var bucketValue = $(this).data('bucketValue');
@@ -134,8 +135,8 @@ $(function () {
     } else {
       // For all buckets - run this on "Clear glyphs" button or after a correct answer
       $('#live_sum div#total').text('');
-      $('.dropzone').removeData('bucketValue');
-      $('.dropzone').css('background', '').removeClass('full'); // Make buckets appear empty
+      $dropzone.removeData('bucketValue');
+      $dropzone.css('background', '').removeClass('full'); // Make buckets appear empty
       number = 0;
     }
   }
@@ -164,7 +165,7 @@ $(function () {
  * Load and show the help dialog, update that link, and generate a new array of potential target values.
  * @param level - integer - current game level
 */
-var levelChange = function(level) {
+var levelChange = function(level, $dropzone) {
 
   if (level != 1) {
     targetValues.length = 0; // Empty out the targetValues array so we can put new values up in it
@@ -217,7 +218,7 @@ var levelChange = function(level) {
   $('.level-' + lastLevel).hide();
   $('.level-' + level).show();
 
-  $('.dropzone').removeData('bucketValue');
+  $dropzone.removeData('bucketValue');
 
   helpDialogs(level);
 }
