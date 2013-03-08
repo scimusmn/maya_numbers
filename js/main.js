@@ -136,12 +136,12 @@ $(function () {
   // If a bucketID exists, clear that bucket only, otherwise clear them all
   var resetGlyphs = function(bucketID, value) {
     if (bucketID > 0) {
-      $('#bucket-'+ bucketID).css('background', ''); // Remove the background image of the glyph
+      $('#bucket-'+ bucketID).css('background', '').removeClass('full'); // Remove the background image of the glyph
       // subtract the glyph's value from the total
       displayNumber(value, 'subtract', bucketID);
     } else {
       $('#live_sum div#total').text('');
-      $('.dropzone').css('background', '');
+      $('.dropzone').css('background', '').removeClass('full');
       number = 0;
     }
   }
