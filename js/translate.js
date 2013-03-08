@@ -18,9 +18,7 @@ dictionary = {
       "reset_button": "Reset glyphs",
       "help_link": "Help",
       "level": "Level",
-      "restart": "Restart game",
-      "lang_eng": "English",
-      "lang_es": "Spanish"
+      "restart": "Restart game"
       // @TODO Add text from help dialogs
   },
   // @TODO: These came from Google Translate and are probably not that good. Get real translations.
@@ -35,9 +33,7 @@ dictionary = {
       "reset_button": "Cambiar glifos",
       "help_link": "Help",
       "level": "Nivel",
-      "restart": "Reinicie juego",
-      "lang_eng": "Inglés",
-      "lang_es": "Español"
+      "restart": "Reinicie juego"
   }
 };
 
@@ -56,16 +52,24 @@ $(function () {
   };
 
   // Swap languages when menu changes
-  $('#es').click(function() {
+  $('span.lang').click(function() {
+    $('span.lang').not(this).removeClass('selected');
     var language = $(this).text().toLowerCase();
     if (dictionary.hasOwnProperty(language)) {
       set_lang(dictionary[language]);
     }
+    $(this).addClass('selected'); // Toggle button class
+
+    // Swap images in the help dialogs
+    if (language == 'english') {
+      var helpImages = ['help-level2.png', 'help-level3.png'];
+    } else {
+      var helpImages = ['help-level2-spanish.png', 'help-level3-spanish.png'];
+    }
+    var path = 'media/images/';
+    $('#level-2-help img').attr('src', path + helpImages[0]);
+    $('#level-3-help img').attr('src', path + helpImages[1]);
   });
-
-  // @TODO Update the button class
-
-  // @TODO Add a body class to use for swapping images
 
   // Set initial language to English
   set_lang(dictionary.english);
