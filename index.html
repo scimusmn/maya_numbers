@@ -28,8 +28,8 @@
 
       <div id="column-left">
         <div id="instructions">
-          <p class="level-1">Drag the correct glyph from below into the value box. Double-tap the glyph to put it back.</p>
-          <p class="level-2 level-3">Using the glyphs and the value boxes, generate the number shown. Double-tap the glyph to put it back.</p>
+          <p class="level-1">Drag the correct glyph from below into the value box. Double-tap a glyph to put it back.</p>
+          <p class="level-2 level-3">Using the glyphs and the value boxes, generate the number shown. Double-tap a glyph to put it back.</p>
         </div>
         <div id="glyphs">
           <ul>
@@ -86,14 +86,15 @@
       </div><!--/column-middle-->
 
       <div id="column-right">
-        <p>Add a glyph to the box that equals this number:</p>
+        <p class="level-1">Add a glyph to the box that equals this number:</p>
+        <p class="level-2 level-3">Add glyphs to the boxes that add up to this number:</p>
         <div id="target_value"></div>
         <p>Then press Enter to check your answer:</p>        
         <div id="buttons">
-          <!-- @TODO disable "Enter" until the correct answer has been hit -->
           <a class="btn-large btn btn-primary" id="enter">Enter</a>
           <a class="btn" id="reset">Reset glyphs</a>
         </div>
+        <div id="notifications"></div>
       </div><!--/column-right--> 
 
       <footer>
@@ -104,7 +105,6 @@
       </footer>
 
       <!-- Help text, displayed in overlays, usually hidden. -->
-      <!-- @TODO: Style these, maybe add images or something -->
       <div class="help_overlay" id="level-1-help">
         <p>The Maya developed glyphs that visually express the numeric values they represent.</p>
         <ul>
@@ -112,18 +112,17 @@
           <li class="lines">Lines indicate values of five.</li>
           <li class="six">A glyph with one dot and one line represents the value "six."</li>
         </ul>
+        <p id="intro">Can you match numbers with the corresponding glyphs? Touch the screen to begin.</p>
       </div>
 
       <div class="help_overlay" id="level-2-help">
         <p>The Maya employed a vertically structured "base 20" value system.</p>
-        <!--<img src="media/images/help-level2.png">-->
-        <p>The stacked rows are added together to obtain a sum.</p>
+        <img src="media/images/help-level2.png">
       </div>
 
       <div class="help_overlay" id="level-3-help">
         <p>Now things get a little tougher!</p>
-        <!--<img src="media/images/help-level3.png">-->
-        <p>The stacked rows are added together to obtain a sum.</p>
+        <img src="media/images/help-level3.png">
       </div>
 
       <div class="help_overlay" id="level-4-help">

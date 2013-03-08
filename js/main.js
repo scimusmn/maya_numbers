@@ -176,7 +176,7 @@ var levelChange = function(level) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 2; // @TODO - Change this to 10 for production
+      required = 10;
       break;
     case 2:
       var min = 20;
@@ -219,7 +219,7 @@ var levelChange = function(level) {
 
   $('.dropzone').removeData('bucketValue');
 
-  // helpDialogs(level);
+  helpDialogs(level);
 }
 
 /*
@@ -240,6 +240,7 @@ var helpDialogs = function(level, dialogTitle) {
       text: "Go!",
       click: function() {
         $(this).dialog('close');
+        $('p#intro').hide(); // Only show this message on the initial page load
       }
     }],
     modal: true,
