@@ -50,7 +50,7 @@ div#glyphs {
 footer {
   clear: both;
   float: left;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 100%;
   padding: 16px 4px;
   border-top: 1px solid #CECECE;
@@ -102,7 +102,7 @@ div#target_value {
 div#live_sum {
   clear: both;
   float: left;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 div#total {
   font-weight: bold;
@@ -112,7 +112,7 @@ div#total {
   border-top: 1px solid #000;
   clear: both;
   float: left;
-  margin-right: 20px;
+  text-align: center;
 }
 #glyphs ul {
   clear: both;
@@ -125,6 +125,12 @@ div#total {
 }
 #glyphs li img {
   cursor: pointer;
+  z-index: 99;
+}
+.bucket {
+  clear: both;
+  float: left;
+  margin-bottom: 7px;
 }
 .bucket .multiplier {
   float: left;
@@ -132,6 +138,8 @@ div#total {
   font-size: 24px;
   position: relative;
   top: 10px;
+  text-align: right;
+  width: 80px;
 }
 .bucket div.dropzone {
   float: left;
@@ -145,6 +153,15 @@ div#total {
 }
 .bucket div.dropzone.full {
   opacity: .7;
+}
+body.level-1 .bucket {
+  position: relative;
+  left: 65px;
+  z-index: 0;
+}
+body.level-3 #column-middle {
+  padding-top: 20px;
+  min-height: 500px;
 }
 
 /* Modal overlays */
