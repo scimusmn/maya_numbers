@@ -142,7 +142,6 @@ $(function () {
     } else {
       $('#live_sum div#total').text('');
       $('.dropzone').css('background', '').removeClass('full');
-      number = 0;
     }
   }
 
