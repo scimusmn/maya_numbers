@@ -167,11 +167,6 @@ $(function () {
 */
 var levelChange = function(level, $dropzone) {
 
-  if (level != 1) {
-    targetValues.length = 0; // Empty out the targetValues array so we can put new values up in it
-    $('span#level').text(level);
-  }
-
   // Set level-specific values
   switch (level) {
     case 1:
@@ -191,36 +186,49 @@ var levelChange = function(level, $dropzone) {
       break;
   }
 
-  // Randomly choose values from the acceptable range
-  // See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random
-  // And http://stackoverflow.com/a/2380113/1940172
-  targetValues = [];
-  while (targetValues.length < required) {
-    var rando = Math.floor(Math.random() * (max - min + 1)) + min;
-    var found = false;
-    for (var i=0; i<targetValues.length; i++) {
-      if (targetValues[i] == rando) {
-        found=true;
-        break
-      }
+  // Run functions for levels 1-3 (if you're at level 4, you won)
+  if (level < 4) {
+
+    // Levels 2-3 only
+    if (level != 1) {
+      targetValues.length = 0; // Empty out target values array
+      $('span#level').text(level); // Update the level text
     }
-    if(!found)targetValues[targetValues.length]=rando;
+
+    // Randomly choose values from the acceptable range
+    // See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random
+    // And http://stackoverflow.com/a/2380113/1940172
+    targetValues = [];
+    while (targetValues.length < required) {
+      var rando = Math.floor(Math.random() * (max - min + 1)) + min;
+      var found = false;
+      for (var i=0; i<targetValues.length; i++) {
+        if (targetValues[i] == rando) {
+          found=true;
+          break
+        }
+      }
+      if(!found)targetValues[targetValues.length]=rando;
+    }
+    console.log('New array of target values generated for level ' + level + ': ' + targetValues);
+
+    // Update body class
+    var lastLevel = level - 1;
+    $('body').removeClass('level-' + lastLevel).addClass('level-' + level);
+
+    // Update directions
+    $('span#correct').text('0');
+    $('span#required').text(required);
+    $('.level-' + lastLevel).hide();
+    $('.level-' + level).show();
+    // Clear out the bucket
+    $dropzone.removeData('bucketValue');
+
+  } else {
+    $('h1, .column, footer').hide(); // When the game ends, just hide everything except the dialog
   }
-  console.log('New array of target values generated for level ' + level + ': ' + targetValues);
 
-  // Update body class
-  var lastLevel = level - 1;
-  $('body').removeClass('level-' + lastLevel).addClass('level-' + level);
-
-  // Update directions
-  $('span#correct').text('0');
-  $('span#required').text(required);
-  $('.level-' + lastLevel).hide();
-  $('.level-' + level).show();
-
-  $dropzone.removeData('bucketValue');
-
-  helpDialogs(level);
+  helpDialogs(level); // Launch dialogs
 }
 
 /*
@@ -236,9 +244,18 @@ var updateTarget = function(targetValues, totalCorrect) {
 */
 var helpDialogs = function(level, dialogTitle) {
 
+  // Level-specific text
+  if (level < 4) {
+    var text = 'Go!';
+    var dialogTitle = 'Level ' + level;
+  } else {
+    var text = 'Play again';
+    var dialogTitle = 'Nice work!';
+  }
+
   var options = {
     buttons: [{
-      text: "Go!",
+      text: text,
       click: function() {
         $(this).dialog('close');
         $('p#intro').hide(); // Only show this message on the initial page load
@@ -256,7 +273,14 @@ var helpDialogs = function(level, dialogTitle) {
       })
     },
     dialogClass: "no-close",
-    title: "Level " + level
+    title: dialogTitle,
+    close: function(event, ui) {
+      if (level == 4) {
+        location.reload(); // Restart the game after the last dialog is closed.
+      } else {
+        $(this).dialog('close');
+      }
+    }
   }
 
   // Initialize dialogs
