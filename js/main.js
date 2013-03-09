@@ -84,11 +84,11 @@ $(function () {
   // When the Enter button is clicked, see if the answer is correct
   $('#enter').click(function() {
     // Just look at integers, not commas/equals sign
-    var target = solve(), // Calculates and returns the correct answer
-        value = parseInt($('div#total').text().match(/\d+/), 10);
+    var value = parseInt($('div#total').text().match(/\d+/), 10),
+        correct = solve(value); // Calculates answer and returns true or false
 
     // Correct answer
-    if (value == target) {
+    if (correct == true) {
       totalCorrect++;
       console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
       $('span#correct').text(totalCorrect);
@@ -299,9 +299,15 @@ var commaSeparateNumber = function(val) {
 }
 
 // Find the correct answer to the current problem.
-// @TODO - Might be cool to return an array that contains the correct block for each bucket.
-// With that, we could show more hints besides just correct/incorrect.
-var solve = function() {
-  solution = parseInt($('div#target_value').text().match(/\d+/), 10);
-  return solution;
+// @return - array with the correct value for each bucket in increasing order
+var solve = function(value) {
+  //var solution = [];
+
+  // solution[1] = parseInt($('div#target_value').text().match(/\d+/), 10);
+  var target = parseInt($('div#target_value').text().match(/\d+/), 10);
+  if (value == target) {
+    correct = true
+  }
+
+  return correct;
 }
