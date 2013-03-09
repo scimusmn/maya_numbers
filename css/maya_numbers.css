@@ -7,7 +7,7 @@ body {
   overflow: hidden;
 }
 h1 {
-  margin-bottom: .5em;
+  margin: 4px 0 .5em;
 }
 div#wrapper {
   margin: 0 auto;
