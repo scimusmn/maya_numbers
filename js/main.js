@@ -33,7 +33,8 @@ $(function () {
 
       // Set the bucket ID as data on the glyph and the glyph value as data on the bucket
       ui.draggable.data('bucketID', bucketID);
-      $(this).data('bucketValue', value);
+      $(this).data('bucketValue', value).attr('data-glyph-value', value);
+      console.log('Bucket ' + bucketID + ' now holds ' + $(this).data('bucketValue'));
 
       // Add the glyph's value to the total
       displayNumber(value, 'add', bucketID);
@@ -83,9 +84,15 @@ $(function () {
 
   // When the Enter button is clicked, see if the answer is correct
   $('#enter').click(function() {
-    // Just look at integers, not commas/equals sign
-    var value = parseInt($('div#total').text().match(/\d+/), 10),
-        correct = solve(value); // Calculates answer and returns true or false
+
+    // Make array of values in the buckets
+    var values = [];
+    $.each($('.dropzone:visible'), function(index, value) {
+      values.push($(this).attr('data-glyph-value'));
+    });
+
+    console.log('Checking values: ' + values);
+    correct = solve(values); // Calculates answer and returns true or false
 
     // Correct answer
     if (correct == true) {
@@ -171,7 +178,7 @@ var levelChange = function(level, $dropzone) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 1;
+      required = 3;
       break;
     case 2:
       var min = 20;
@@ -227,7 +234,7 @@ var levelChange = function(level, $dropzone) {
     $('h1, .column, footer').hide(); // When the game ends, just hide everything except the dialog
   }
 
-  helpDialogs(level); // Launch dialogs
+  // helpDialogs(level); // Launch dialogs
 }
 
 /*
@@ -299,14 +306,23 @@ var commaSeparateNumber = function(val) {
 }
 
 // Find the correct answer to the current problem.
-// @return - array with the correct value for each bucket in increasing order
-var solve = function(value) {
-  //var solution = [];
+// @param - values - array containing the glyph value that's in each bucket
+// @return - boolean - true for correct, false for incorrect
+var solve = function(values) {
+  var target = parseInt($('div#target_value').text().match(/\d+/), 10),
+      solution = [];
 
-  // solution[1] = parseInt($('div#target_value').text().match(/\d+/), 10);
-  var target = parseInt($('div#target_value').text().match(/\d+/), 10);
-  if (value == target) {
-    correct = true
+  // @TODO Fill solution array with the correct value for each bucket. MATH!
+
+  solution[0] = target; // Test -- works on level 1 only
+
+  console.log('Comparing values ' + values + ' to target values ' + solution)
+
+  // Level 1
+  if (values[0] == solution[0]) {
+    correct = true;
+  } else {
+    correct = false;
   }
 
   return correct;
