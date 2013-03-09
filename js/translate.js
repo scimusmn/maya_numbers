@@ -27,7 +27,8 @@ dictionary = {
       "help_intro": "Can you match numbers with the corresponding glyphs? Touch the screen to begin.",
       "help_2": "The Maya employed a vertically structured \"base 20\" value system.",
       "help_3": "Now things get a little tougher!",
-      "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit."
+      "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit.",
+      "dialog_btn_1": "Go!"
   },
   // @TODO: These came from Google Translate and are probably not that good. Get real translations.
   "spanish": {
@@ -49,7 +50,8 @@ dictionary = {
       "help_intro": "Puede coincidir con los números con los glifos correspondientes? Toque la pantalla para comenzar.",
       "help_2": "Los mayas emplearon una base de estructura vertical 20 sistema de valores.",
       "help_3": "Ahora las cosas se ponen un poco más difícil!",
-      "win": "Éxito! Usted ha dominado números mayas. Búscalos por toda la instalación."
+      "win": "Éxito! Usted ha dominado números mayas. Búscalos por toda la instalación.",
+      "dialog_btn_1": "Ir!"
   }
 };
 
@@ -85,6 +87,12 @@ $(function () {
     var path = 'media/images/';
     $('#level-2-help img').attr('src', path + helpImages[0]);
     $('#level-3-help img').attr('src', path + helpImages[1]);
+
+    // Update jQuery UI dialog titles and buttonset
+    var btn = $('#btn-1').text();
+    $('#level-1-help .ui-dialog-buttonset .ui-button-text').text(btn);
+
+
   });
 
   // Set initial language to English

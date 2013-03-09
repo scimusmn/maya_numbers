@@ -245,11 +245,11 @@ var helpDialogs = function(level, dialogTitle) {
 
   // Level-specific text
   if (level < 4) {
-    var text = 'Go!';
-    var dialogTitle = 'Level ' + level;
+    var text = $('#btn-1').text();
+    var dialogTitle = $('#dialog-title').text() + ' ' + level;
   } else {
-    var text = 'Play again';
-    var dialogTitle = 'Nice work!';
+    var text = $('#btn-win').text();
+    var dialogTitle = $('#dialog-title-win').text();
   }
 
   var options = {
