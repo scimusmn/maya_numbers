@@ -3,7 +3,6 @@ body {
   color: #333333;
   background: url(../media/images/bg.png) repeat;
   height: 768px;
-  width: 1366px;
   overflow: hidden;
 }
 h1 {
@@ -102,6 +101,9 @@ body.level-1 #instructions {
 }
 #notifications {
   margin-top: 20px;
+}
+#notifications div p:first-child {
+  font-weight: bold;
 }
 #instructions p {
   margin: 0;

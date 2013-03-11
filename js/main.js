@@ -42,8 +42,6 @@ $(function () {
       // Show the dropped block as the bucket's background image
       $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
 
-      // @TODO Run solve function on each drop then indicate if the drop was correct or not.
-      // Maybe turn the live sum figure green when it's correct, and red if it's too high.
     }
   });
 
@@ -103,16 +101,21 @@ $(function () {
       console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
       $('span#correct').text(totalCorrect);
 
-      // Reset the glyphs
-      resetGlyphs();
-
       // Move to the next level after required number of correct answers
       if (totalCorrect == required) {
         level++;
         levelChange(level, $dropzone);
         totalCorrect = 0;
         console.log('Moving to level ' + level);
+      } else {
+        $('#notifications .alert-success').fadeIn('fast');
+        setTimeout(function() {
+          $('#notifications .alert-success').fadeOut(800);
+        }, 3600);
       }
+
+      // Reset the glyphs
+      resetGlyphs();
 
       // Load a new target value
       $('div#target_value').html('');
@@ -120,8 +123,10 @@ $(function () {
 
     } else {
       // Incorrect answer
-      // @TODO - Turn the number red, add a hint below the buttons
-      alert('Try again');
+      $('#total').animate({
+        color: "#880606"
+      }, 400);
+      $('#notifications .alert-error').fadeIn(800);
     }
   });
 
@@ -151,6 +156,8 @@ $(function () {
       $dropzone.css('background', '').removeClass('full'); // Make buckets appear empty
       number = 0;
     }
+    $('#total').css('color', '#333333'); // Return text to black in case an error had turned it red
+    $('#notifications div.alert-error').fadeOut('slow'); // Remove error notification
   }
 
   // When the reset button is clicked, reset all the things
@@ -184,7 +191,7 @@ var levelChange = function(level, $dropzone) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 1;
+      required = 5;
       break;
     case 2:
       var min = 20;

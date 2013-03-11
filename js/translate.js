@@ -27,7 +27,11 @@ dictionary = {
       "help_2": "The Maya employed a vertically structured \"base 20\" value system.",
       "help_3": "Now things get a little tougher!",
       "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit.",
-      "dialog_btn_1": "Go!"
+      "dialog_btn_1": "Go!",
+      "alert_correct": "Correct!",
+      "alert_next": "more to reach the next level.",
+      "alert_incorrect": "Incorrect.",
+      "alert_tryagain": "Try again."
   },
   // @TODO: These came from Google Translate and are probably not that good. Get real translations.
   "spanish": {
@@ -51,7 +55,11 @@ dictionary = {
       "help_2": "Los mayas emplearon una base de estructura vertical 20 sistema de valores.",
       "help_3": "Ahora las cosas se ponen un poco más difícil!",
       "win": "Éxito! Usted ha dominado números mayas. Búscalos por toda la instalación.",
-      "dialog_btn_1": "Ir!"
+      "dialog_btn_1": "Ir!",
+      "alert_correct": "Correcto!",
+      "alert_next": "más para llegar al siguiente nivel.",
+      "alert_incorrect": "Incorrecta.",
+      "alert_tryagain": "Inténtelo de nuevo."
   }
 };
 
