@@ -1,4 +1,3 @@
-// @TODO - Reload the page after 3 minutes of no activity
 $(function () {
   "use strict";
 
@@ -13,9 +12,6 @@ $(function () {
   // Initialize the level
   levelChange(level, $dropzone);
   updateTarget(targetValues, totalCorrect);
-
-  // Fade in the level 1 directions
-  // $('#instructions .level-1 p:first-child').fadeIn('slow');
 
   // Let the glyphs be draggable
   $('#glyphs img').draggable({
