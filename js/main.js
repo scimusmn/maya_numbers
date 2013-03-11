@@ -1,3 +1,4 @@
+// @TODO - Reload the page after 3 minutes of no activity
 $(function () {
   "use strict";
 
@@ -41,6 +42,9 @@ $(function () {
 
       // Show the dropped block as the bucket's background image
       $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
+
+      // @TODO Run solve function on each drop then indicate if the drop was correct or not.
+      // Maybe turn the live sum figure green when it's correct, and red if it's too high.
     }
   });
 
@@ -117,11 +121,13 @@ $(function () {
 
     } else {
       // Incorrect answer
+      // @TODO - Turn the number red, add a hint below the buttons
       alert('Try again');
     }
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
+  // @TODO - Bug - double-tapping when there's no value makes the live_sum show "NaN"
   $dropzone.dblclick(function() {
     // Get the bucket ID and the value from the clicked object
     var bucketID = $(this).attr('id').match(/\d+/);
@@ -316,9 +322,10 @@ var solve = function(values) {
   // Fill solution array with the correct value for each bucket. MATH!
   var bucket4 = bucket3 = bucket2 = bucket1 = 0;
 
+  // @TODO - some of these need to be <= or =>
+
   // All 4 buckets in play
   if (target > 8000) {
-
     bucket4 = Math.floor(target / 8000);
     var remainder = target % 8000;
 
@@ -331,9 +338,8 @@ var solve = function(values) {
     bucket1 = remainder;
   }
 
-  // 3 buckets - test - 486
+  // 3 buckets
   if (target > 400 && target < 8000) {
-
     bucket3 = Math.floor(target / 400);
     var remainder = target % 400;
 

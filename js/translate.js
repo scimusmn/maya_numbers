@@ -1,9 +1,7 @@
 /*
  * Change the language of text strings on the page.
  * Based on http://stackoverflow.com/a/13427846/1940172
- * @TODO: Get at the last few strings - "Level" comes from CSS, and the dialog titles and buttons come from main.js
 */
-
 var dictionary, set_lang;
 
 // Object literal behaving as multi-dictionary
@@ -89,9 +87,9 @@ $(function () {
     $('#level-3-help img').attr('src', path + helpImages[1]);
 
     // Update jQuery UI dialog titles and buttonset
+    // @TODO - this doesn't work - might need to re-initialize the dialogs on a language switch
     var btn = $('#btn-1').text();
     $('#level-1-help .ui-dialog-buttonset .ui-button-text').text(btn);
-
 
   });
 
