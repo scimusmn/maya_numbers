@@ -327,10 +327,8 @@ var solve = function(values) {
   // Fill solution array with the correct value for each bucket. MATH!
   var bucket4 = bucket3 = bucket2 = bucket1 = 0;
 
-  // @TODO - some of these need to be <= or =>
-
   // All 4 buckets in play
-  if (target > 8000) {
+  if (target >= 8000) {
     bucket4 = Math.floor(target / 8000);
     var remainder = target % 8000;
 
@@ -344,7 +342,7 @@ var solve = function(values) {
   }
 
   // 3 buckets
-  if (target > 400 && target < 8000) {
+  if (target >= 400 && target < 8000) {
     bucket3 = Math.floor(target / 400);
     var remainder = target % 400;
 
@@ -355,7 +353,7 @@ var solve = function(values) {
   }
 
   // 2 buckets
-  if (target > 20 && target < 400) {
+  if (target >= 20 && target < 400) {
     bucket2 = Math.floor(target / 20);
     var remainder = target % 20;
     bucket1 = remainder;
