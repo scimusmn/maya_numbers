@@ -187,7 +187,7 @@ var levelChange = function(level, $dropzone) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 10;
+      required = 1;
       break;
     case 2:
       var min = 20;
@@ -237,7 +237,8 @@ var levelChange = function(level, $dropzone) {
     $('.level-' + lastLevel).hide();
     // Clear out the bucket
     $dropzone.removeData('bucketValue');
-    $('.bucket.level-' + level).show();
+    // Show the correct buckets and directions for this level (#instructions fades in after the dialog close)
+    $('.level-'+ level +':not(#instructions p)').show();
 
   } else {
     $('h1, .column, footer').hide(); // When the game ends, just hide everything except the dialog
@@ -298,7 +299,7 @@ var helpDialogs = function(level, dialogTitle) {
         $(this).dialog('close');
         // Fade in directions after the box closes
         $('#instructions p.level-' + level + ':eq(0)').fadeIn(800, function() {
-          $('#instructions p.level-' + level + ':eq(1)').fadeIn(800);
+          $('#instructions p.level-' + level + ':eq(1)').fadeIn(1200);
         });
       }
     }
