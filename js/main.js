@@ -126,7 +126,6 @@ $(function () {
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
-  // @TODO - Bug - double-tapping when there's no value makes the live_sum show "NaN"
   $dropzone.dblclick(function() {
     // Get the bucket ID and the value from the clicked object
     var bucketID = $(this).attr('id').match(/\d+/);
