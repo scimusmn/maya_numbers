@@ -14,6 +14,9 @@ $(function () {
   levelChange(level, $dropzone);
   updateTarget(targetValues, totalCorrect);
 
+  // Fade in the level 1 directions
+  // $('#instructions .level-1 p:first-child').fadeIn('slow');
+
   // Let the glyphs be draggable
   $('#glyphs img').draggable({
     helper: 'clone',
@@ -228,13 +231,13 @@ var levelChange = function(level, $dropzone) {
     var lastLevel = level - 1;
     $('body').removeClass('level-' + lastLevel).addClass('level-' + level);
 
-    // Update directions
+    // Update footer text
     $('span#correct').text('0');
     $('span#required').text(required);
     $('.level-' + lastLevel).hide();
-    $('.level-' + level).show();
     // Clear out the bucket
     $dropzone.removeData('bucketValue');
+    $('.bucket.level-' + level).show();
 
   } else {
     $('h1, .column, footer').hide(); // When the game ends, just hide everything except the dialog
@@ -293,6 +296,10 @@ var helpDialogs = function(level, dialogTitle) {
         location.reload(); // Restart the game after the last dialog is closed.
       } else {
         $(this).dialog('close');
+        // Fade in directions after the box closes
+        $('#instructions p.level-' + level + ':eq(0)').fadeIn(800, function() {
+          $('#instructions p.level-' + level + ':eq(1)').fadeIn(800);
+        });
       }
     }
   }

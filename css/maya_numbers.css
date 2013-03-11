@@ -7,7 +7,7 @@ body {
   overflow: hidden;
 }
 h1 {
-  margin: 4px 0 .5em;
+  margin: 4px 0 0;
 }
 div#wrapper {
   margin: 0 auto;
@@ -87,6 +87,18 @@ footer span.selected:hover {
 }
 
 /* Content */
+#instructions {
+  min-height: 60px;
+}
+#instructions {
+  margin: 20px 0;
+}
+#instructions p.level-1 {
+  display: none;
+}
+#instructions p {
+  margin: 0;
+}
 span#level {
   color: #FFFFFF;
   background: #f89406;
