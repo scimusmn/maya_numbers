@@ -136,8 +136,10 @@ $(function () {
     var bucketID = $(this).attr('id').match(/\d+/);
     var bucketValue = $(this).data('bucketValue');
     // Clear bucket and run subtract function
-    resetGlyphs(bucketID, bucketValue);
-    $(this).removeData('bucketValue').removeClass('full'); // Reset the bucket value
+    if (bucketValue) {
+      resetGlyphs(bucketID, bucketValue);
+      $(this).removeData('bucketValue').removeClass('full'); // Reset the bucket value
+    }
   });
 
   // Clear out the buckets and the live sum
