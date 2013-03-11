@@ -20,18 +20,18 @@
 
     <script src="js/main.js"></script>
     <script src="js/translate.js"></script>
-    <script src="js/kiosk.js"></script>
+    <!--<script src="js/kiosk.js"></script>-->
   </head>
   <body class="level-1">
 
     <div id="wrapper">
-
+      <!-- HEY DEVELOPER - if you're changing any text, that needs to happen in js/translate.js too, in both English and Spanish -->
       <h1 data-translate="headline">Can you match numbers with the corresponding glyphs?</h1>
 
       <div id="column-left" class="column">
         <div id="instructions">
           <p class="level-1" data-translate="glyph_text_1">Drag the correct glyph from below into the value box.</p>
-          <p class="level-2 level-3" data-translate="glyph_text_2">1. Using the glyphs and the value boxes, generate the number shown.</p>
+          <p class="level-2 level-3" data-translate="glyph_text_2">Using the glyphs and the value boxes, generate the number shown.</p>
           <p class="level-1 level-2 level-3" data-translate="glyph_text_3">Double-tap a glyph to put it back.</p>
         </div>
         <div id="glyphs">
@@ -97,7 +97,15 @@
           <a class="btn-large btn btn-primary" id="enter" data-translate="enter_button">Enter</a>
           <a class="btn" id="reset" data-translate="reset_button">Reset glyphs</a>
         </div>
-        <div id="notifications"></div> <!-- @TODO Show some sort of notification here when you get an answer right -->
+        <!-- @TODO translate -->
+        <div id="notifications">
+          <div class="alert alert-success">
+            <p><strong>Correct</strong>! <span>x</span> more to reach the next level.</p>
+          </div>
+          <div class="alert alert-error">
+            <p class="error"><strong>Incorrect</strong>. Try a different glyph in the <span>1s</span> bucket.</p>
+          </div>
+        </div>
       </div><!--/column-right--> 
 
       <footer>
