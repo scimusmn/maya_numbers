@@ -105,9 +105,14 @@ $(function () {
         totalCorrect = 0;
         console.log('Moving to level ' + level);
       } else {
+        // Append number remaining in the level to the success message, then show a success alert
+        var remaining = required - totalCorrect;
+        $('p#progress').prepend('<span id="totalCorrect"><strong>' + remaining + ' </strong></span>');
         $('#notifications .alert-success').fadeIn('fast');
         setTimeout(function() {
-          $('#notifications .alert-success').fadeOut(800);
+          $('#notifications .alert-success').fadeOut(800, function() {
+            $('span#totalCorrect').remove();
+          });
         }, 3600);
       }
 
