@@ -100,7 +100,7 @@ body.level-1 #instructions {
   display: none;
 }
 #notifications {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 #notifications div p:first-child {
   font-weight: bold;
