@@ -34,7 +34,6 @@ $(function () {
       // Set the bucket ID as data on the glyph and the glyph value as data on the bucket
       ui.draggable.data('bucketID', bucketID);
       $(this).data('bucketValue', value).attr('data-glyph-value', value);
-      console.log('Bucket ' + bucketID + ' now holds ' + $(this).data('bucketValue'));
 
       // Add the glyph's value to the total
       displayNumber(value, 'add', bucketID);
@@ -92,13 +91,11 @@ $(function () {
       values.push($(this).attr('data-glyph-value'));
     });
 
-    console.log('Checking values: ' + values);
     correct = solve(values); // Calculates answer and returns true or false
 
     // Correct answer
     if (correct == true) {
       totalCorrect++;
-      console.log('Correct answer (totalCorrect: ' + totalCorrect + ')');
       $('span#correct').text(totalCorrect);
 
       // Move to the next level after required number of correct answers
@@ -163,7 +160,6 @@ $(function () {
   // When the reset button is clicked, reset all the things
   $('#reset').click(function() {
     resetGlyphs();
-    console.log('Reset glyphs');
   });
 
   // Restart the game if you click the "Restart game" link
@@ -174,7 +170,6 @@ $(function () {
   // Open the dialog from the help link
   $('#help').click(function() {
     $('#level-'+ level +'-help').dialog('open');
-    console.log('Level ' + level + ' help dialog opened');
   });
 
 });
