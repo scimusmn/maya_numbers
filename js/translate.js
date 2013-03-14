@@ -28,6 +28,8 @@ dictionary = {
       "help_3": "Now things get a little tougher!",
       "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit.",
       "dialog_btn_1": "Go!",
+      "dialog_btn_win": "Ir!",
+      "dialog_title_win": "Nice work!",
       "alert_correct": "Correct!",
       "alert_next": "more to reach the next level.",
       "alert_incorrect": "Incorrect.",
@@ -56,6 +58,8 @@ dictionary = {
       "help_3": "Ahora las cosas se ponen un poco más difícil!",
       "win": "Éxito! Usted ha dominado números mayas. Búscalos por toda la instalación.",
       "dialog_btn_1": "Ir!",
+      "dialog_btn_win": "Jugar de nuevo",
+      "dialog_title_win": "Buen trabajo!",
       "alert_correct": "Correcto!",
       "alert_next": "más para llegar al siguiente nivel.",
       "alert_incorrect": "Incorrecta.",
@@ -96,11 +100,9 @@ $(function () {
     $('#level-2-help img').attr('src', path + helpImages[0]);
     $('#level-3-help img').attr('src', path + helpImages[1]);
 
-    // Update jQuery UI dialog titles and buttonset
-    // @TODO - this doesn't work - might need to re-initialize the dialogs on a language switch
-    var btn = $('#btn-1').text();
-    $('#level-1-help .ui-dialog-buttonset .ui-button-text').text(btn);
-
+    // Update jQuery UI dialog titles and buttons
+    var level = $('body').attr('class').match(/\d+/);
+    helpDialogs(level, false); // The "false" keeps autoOpen from happening on the language change
   });
 
   // Set initial language to English
