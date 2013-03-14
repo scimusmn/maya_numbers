@@ -32,6 +32,7 @@ div#instructions {
 #column-right {
   float: right;
   width: 250px;
+  height: 550px;
 }
 #buttons #reset {
   margin-left: 6px;
