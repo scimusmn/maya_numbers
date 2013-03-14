@@ -113,7 +113,7 @@ $(function () {
           $('#notifications .alert-success').fadeOut(800, function() {
             $('span#totalCorrect').remove();
           });
-        }, 3600);
+        }, 2400);
       }
 
       // Reset the glyphs
@@ -192,7 +192,7 @@ var levelChange = function(level, $dropzone) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 5;
+      required = 10;
       break;
     case 2:
       var min = 20;
@@ -306,8 +306,8 @@ var helpDialogs = function(level) {
       } else {
         $(this).dialog('close');
         // Fade in directions after the box closes
-        $('#instructions p.level-' + level + ':eq(0)').fadeIn(800, function() {
-          $('#instructions p.level-' + level + ':eq(1)').fadeIn(1200);
+        $('#instructions p.level-' + level + ':eq(0)').fadeIn(600, function() {
+          $('#instructions p.level-' + level + ':eq(1)').fadeIn(1000);
         });
       }
     }
