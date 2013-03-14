@@ -192,7 +192,7 @@ var levelChange = function(level, $dropzone) {
     case 1:
       var min = 0;
       var max = 19;
-      required = 10;
+      required = 5;
       break;
     case 2:
       var min = 20;
