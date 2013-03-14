@@ -133,7 +133,7 @@ $(function () {
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
-  $dropzone.dblclick(function() {
+  $dropzone.hammer().on('doubletap', function() {
     // Get the bucket ID and the value from the clicked object
     var bucketID = $(this).attr('id').match(/\d+/);
     var bucketValue = $(this).data('bucketValue');
