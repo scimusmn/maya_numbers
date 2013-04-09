@@ -34,6 +34,9 @@ div#instructions {
   width: 250px;
   height: 550px;
 }
+#buttons {
+  margin-top: 20px;
+}
 #buttons #reset {
   margin: 12px 0;
 }
