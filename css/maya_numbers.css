@@ -35,7 +35,7 @@ div#instructions {
   height: 550px;
 }
 #buttons #reset {
-  margin-left: 6px;
+  margin: 12px 0;
 }
 div#glyphs {
   margin: 0 auto;
