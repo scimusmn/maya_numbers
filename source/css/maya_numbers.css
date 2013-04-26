@@ -1,7 +1,7 @@
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333333;
-  background: url(../media/images/bg.png) repeat;
+  background: url(../../assets/images/bg.png) repeat;
   height: 768px;
   overflow: hidden;
   -webkit-touch-callout: none;
@@ -232,15 +232,15 @@ body.level-3 footer {
   padding-left: 40px;
 }
 .help_overlay ul li.dots {
-  background: url('../media/images/numbers/1.png') no-repeat left top;
+  background: url('../../assets/images/numbers/1.png') no-repeat left top;
   background-size: 30px 30px;
 }
 .help_overlay ul li.lines {
-  background: url('../media/images/numbers/5.png') no-repeat left top;
+  background: url('../../assets/images/numbers/5.png') no-repeat left top;
   background-size: 30px 30px;
 }
 .help_overlay ul li.six {
-  background: url('../media/images/numbers/6.png') no-repeat left top;
+  background: url('../../assets/images/numbers/6.png') no-repeat left top;
   background-size: 30px 30px;
 }
 

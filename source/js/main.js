@@ -39,7 +39,7 @@ $(function () {
       displayNumber(value, 'add', bucketID);
 
       // Show the dropped block as the bucket's background image
-      $(this).css('background', 'url(media/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
+      $(this).css('background', 'url(../assets/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
 
     }
   });
