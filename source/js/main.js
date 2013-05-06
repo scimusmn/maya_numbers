@@ -314,7 +314,10 @@ var helpDialogs = function(level, autoOpen) {
           $('#instructions p.level-' + level + ':eq(1)').fadeIn(1000);
         });
       }
-    }
+    },
+    resizable: false,
+    draggable: false,
+    height: 540
   }
 
   // Initialize dialogs
