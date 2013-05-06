@@ -7,6 +7,7 @@ var dictionary, set_lang;
 // Object literal behaving as multi-dictionary
 dictionary = {
   "english": {
+      "splash-title": "The Maya devised a math to map the heavens",
       "headline": "Can you match numbers with the corresponding glyphs?",
       "glyph_text_1": "Drag the correct glyph from below into the value box.",
       "glyph_text_2": "Using the glyphs and the value boxes, generate the number shown.",
@@ -18,7 +19,7 @@ dictionary = {
       "help_link": "Instructions",
       "level": "Level",
       "restart": "Restart game",
-      "help_1": "The Maya developed glyphs that visually express the numeric values they represent.",
+      "help_1": "The Maya created a mathematical system for documenting and predicting astronomical phenomena. They had several symbols for zero. Combinations of dots (ones) and bars (fives) represented any value from one to nineteen. And like our place values of tens, hundreds and thousands, the value of larger numbers was determined by each symbol’s position.",
       "help_1_a": "Dots indicate values of one.",
       "help_1_b": "Lines indicate values of five.",
       "help_1_c": "A glyph with one dot and one line represents the value six.",
@@ -36,6 +37,7 @@ dictionary = {
   },
   // @TODO: These came from Google Translate and are probably not that good. Get real translations.
   "spanish": {
+      "splash-title": "Los mayas ideó un matemático para asignar los cielos",
       "headline": "Puede coincidir con los números con los glifos correspondientes?",
       "glyph_text_1": "Arrastre el glifo correcto de abajo en el cuadro de valores.",
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número.",
@@ -47,7 +49,7 @@ dictionary = {
       "help_link": "Instrucciones",
       "level": "Nivel",
       "restart": "Reinicie juego",
-      "help_1": "Los glifos mayas desarrollaron visualmente que expresan los valores numéricos que representan.",
+      "help_1": "Los mayas crearon un sistema matemático para documentar y predecir fenómenos astronómicos. Tenían varios símbolos de cero. Las combinaciones de puntos (unos) y bares (cinco años) representan cualquier valor desde uno hasta diecinueve. Y al igual que los valores de lugar de decenas, cientos y miles, el valor de un mayor número fue determinado por la posición de cada símbolo.",
       "help_1_a": "Los puntos indican los valores de uno.",
       "help_1_b": "Las líneas indican los valores de cinco.",
       "help_1_c": "Un glifo con un punto y una línea representa el valor de seis.",

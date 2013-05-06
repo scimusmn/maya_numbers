@@ -278,6 +278,9 @@ var helpDialogs = function(level, autoOpen) {
     var text = $('#btn-win').text();
     var dialogTitle = $('#dialog-title-win').text();
   }
+  if (level == 1) {
+    var dialogTitle = $('#splash-title').text();
+  }
 
   var options = {
     autoOpen: autoOpen,
@@ -289,7 +292,7 @@ var helpDialogs = function(level, autoOpen) {
       }
     }],
     modal: true,
-    width: 500,
+    width: 600,
     hide: {
       effect: 'fadeOut',
       duration: 200
