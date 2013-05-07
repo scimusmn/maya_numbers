@@ -96,7 +96,7 @@ $(function () {
     } else {
       var helpImages = ['help-level2-spanish.png', 'help-level3-spanish.png'];
     }
-    var path = 'media/images/';
+    var path = '../assets/images/';
     $('#level-2-help img').attr('src', path + helpImages[0]);
     $('#level-3-help img').attr('src', path + helpImages[1]);
 
