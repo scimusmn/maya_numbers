@@ -243,6 +243,9 @@ body.level-3 footer {
   background: url('../../assets/images/numbers/6.png') no-repeat left top;
   background-size: 30px 30px;
 }
+.level-1.spanish .ui-dialog .ui-dialog-title {
+  font-size: 14px;
+}
 
 /* Bootstrap buttons */
 .btn {
