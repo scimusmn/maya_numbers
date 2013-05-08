@@ -35,9 +35,8 @@ dictionary = {
       "alert_incorrect": "Incorrect.",
       "alert_tryagain": "Try again."
   },
-  // @TODO: These came from Google Translate and are probably not that good. Get real translations.
   "spanish": {
-      "splash-title": "Los mayas ideó un matemático para asignar los cielos",
+      "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
       "headline": "Puede coincidir con los números con los glifos correspondientes?",
       "glyph_text_1": "Arrastre el glifo correcto de abajo en el cuadro de valores.",
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número.",
@@ -49,7 +48,7 @@ dictionary = {
       "help_link": "Instrucciones",
       "level": "Nivel",
       "restart": "Reinicie juego",
-      "help_1": "Los mayas crearon un sistema matemático para documentar y predecir fenómenos astronómicos. Tenían varios símbolos de cero. Las combinaciones de puntos (unos) y bares (cinco años) representan cualquier valor desde uno hasta diecinueve. Y al igual que los valores de lugar de decenas, cientos y miles, el valor de un mayor número fue determinado por la posición de cada símbolo.",
+      "help_1": "Los mayas crearon un sistema matemático para documentar y predecir los fenómenos astronómicos. Tenían varios símbolos para el cero y combinaciones de puntos (unos) y barras (cincos) que representaban cualquier valor del uno al diecinueve. Y como en nuestros valores posicionales para las decenas, las centenas y los millares, el valor de los números más grandes se determinaba por la posición de cada símbolo.",
       "help_1_a": "Los puntos indican los valores de uno.",
       "help_1_b": "Las líneas indican los valores de cinco.",
       "help_1_c": "Un glifo con un punto y una línea representa el valor de seis.",
@@ -89,6 +88,7 @@ $(function () {
       set_lang(dictionary[language]);
     }
     $(this).addClass('selected'); // Toggle button class
+    $('body').toggleClass('spanish'); // Toggle the body class
 
     // Swap images in the help dialogs
     if (language == 'english') {
