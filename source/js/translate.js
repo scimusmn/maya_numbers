@@ -30,12 +30,11 @@ dictionary = {
       "dialog_btn_1": "Go!",
       "dialog_btn_win": "Play again",
       "dialog_title_win": "Nice work!",
-      "alert_correct": "Correct!",
-      "alert_next": "more to reach the next level.",
-      "alert_incorrect": "Incorrect.",
-      "alert_tryagain": "Try again.",
+      "alert_correct": "Correct",
+      "alert_incorrect": "Incorrect",
       "hint_link": "Hint",
-      "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value."
+      "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value.",
+      "your_answer": "Your answer:"
   },
   "spanish": {
       "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
@@ -61,12 +60,11 @@ dictionary = {
       "dialog_btn_1": "Ir!",
       "dialog_btn_win": "Jugar de nuevo",
       "dialog_title_win": "Buen trabajo!",
-      "alert_correct": "Correcto!",
-      "alert_next": "más para llegar al siguiente nivel.",
-      "alert_incorrect": "Incorrecta.",
-      "alert_tryagain": "Inténtelo de nuevo.",
+      "alert_correct": "Correcto",
+      "alert_incorrect": "Incorrecta",
       "hint_link": "Indicio",
-      "hint": "Pruebe a arrastrar una conjetura sobre el área de mayor valor. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior."
+      "hint": "Pruebe a arrastrar una conjetura sobre el área de mayor valor. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior.",
+      "your_answer": "Su respuesta:"
   }
 };
 

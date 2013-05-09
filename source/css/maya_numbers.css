@@ -204,6 +204,32 @@ body.level-3 #column-right {
 body.level-3 footer {
   margin-top: 10px;
 }
+div#status {
+  clear: both;
+  border: 1px dashed #AAA;
+  padding: 10px;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  top: 80px;
+  width: 90%;
+  text-align: center;
+  border-radius: 8px;
+}
+div#status p {
+  text-align: left;
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+div#status div {
+  float: left;
+}
+div#status div#correct {
+  opacity: .3;
+  margin-right: 10px;
+}
+div#status div#incorrect {
+}
 
 /* Modal overlays */
 .help_overlay {
