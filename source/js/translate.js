@@ -35,7 +35,7 @@ dictionary = {
       "alert_incorrect": "Incorrect.",
       "alert_tryagain": "Try again.",
       "hint_link": "Hint",
-      "hint": "Try dragging a guesses into the value boxes, starting with the highest one. If your guess is too high, try a glyph with a lower value."
+      "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value."
   },
   "spanish": {
       "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
@@ -66,7 +66,7 @@ dictionary = {
       "alert_incorrect": "Incorrecta.",
       "alert_tryagain": "Inténtelo de nuevo.",
       "hint_link": "Indicio",
-      "hint": "Pruebe a arrastrar un conjeturas en los cuadros de valores, empezando por la más alta. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior."
+      "hint": "Pruebe a arrastrar una conjetura sobre el área de mayor valor. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior."
   }
 };
 
