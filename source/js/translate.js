@@ -28,12 +28,14 @@ dictionary = {
       "help_3": "Now things get a little tougher!",
       "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit.",
       "dialog_btn_1": "Go!",
-      "dialog_btn_win": "Ir!",
+      "dialog_btn_win": "Play again",
       "dialog_title_win": "Nice work!",
       "alert_correct": "Correct!",
       "alert_next": "more to reach the next level.",
       "alert_incorrect": "Incorrect.",
-      "alert_tryagain": "Try again."
+      "alert_tryagain": "Try again.",
+      "hint_link": "Hint",
+      "hint": "Try dragging a guesses into the value boxes, starting with the highest one. If your guess is too high, try a glyph with a lower value."
   },
   "spanish": {
       "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
@@ -62,7 +64,9 @@ dictionary = {
       "alert_correct": "Correcto!",
       "alert_next": "más para llegar al siguiente nivel.",
       "alert_incorrect": "Incorrecta.",
-      "alert_tryagain": "Inténtelo de nuevo."
+      "alert_tryagain": "Inténtelo de nuevo.",
+      "hint_link": "Indicio",
+      "hint": "Pruebe a arrastrar un conjeturas en los cuadros de valores, empezando por la más alta. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior."
   }
 };
 

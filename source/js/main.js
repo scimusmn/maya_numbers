@@ -185,6 +185,20 @@ $(function () {
     $('#level-'+ level +'-help').dialog('open');
   });
 
+  // Open the hint dialog from the hint link
+  $('#hint').dialog({
+    autoOpen: false,
+    modal: true,
+    width: 600,
+    hide: {
+      effect: 'fadeOut',
+      duration: 200
+    }
+  });
+  $('#hint_link').click(function() {
+    $('#hint').dialog('open');
+  });
+
 });
 
 /*
