@@ -98,33 +98,45 @@ $(function () {
     $.each($('.dropzone'), function(index, value) {
       values.push($(this).attr('data-glyph-value'));
     });
-
     correct = solve(values); // Calculates answer and returns true or false
 
     // Correct answer
     if (correct == true) {
       totalCorrect++;
       $('span#correct').text(totalCorrect);
+      $('div#correct').css('opacity', 1); // @TODO animate this
+      $('div#incorrect').css('opacity', .3);
+      $('#btn-next').fadeIn(); // Show the Next button
+    };
 
-      // Move to the next level after required number of correct answers
-      if (totalCorrect == required) {
-        level++;
-        levelChange(level, $dropzone);
-        totalCorrect = 0;
-        console.log('Moving to level ' + level);
-      } else {
-        // Append number remaining in the level to the success message, then show a success alert
-        var remaining = required - totalCorrect;
-        $('p#progress').prepend('<span id="totalCorrect"><strong>' + remaining + ' </strong></span>');
-      }
+  });
 
-      // Reset the glyphs
-      resetGlyphs();
+  // Move forward to the next level or problem when the Next button is tapped
+  $('#btn-next').click(function() {
+    // To the next level:
+    if (totalCorrect == required) {
+      level++;
+      levelChange(level, $dropzone);
+      totalCorrect = 0;
+      console.log('Moving to level ' + level);
 
-      // Load a new target value
-      $('div#target_value').html('');
-      updateTarget(targetValues, totalCorrect);
+    // Or, to the next problem
+    } else {
+      // Append number remaining in the level to the success message
+      var remaining = required - totalCorrect;
+      $('p#progress').prepend('<span id="totalCorrect"><strong>' + remaining + ' </strong></span>');
     }
+
+    // Reset the glyphs
+    resetGlyphs();
+
+    // Load a new target value
+    $('div#target_value').html('');
+    updateTarget(targetValues, totalCorrect);
+
+    $('#btn-next').fadeOut(); // Hide the Next button til next time
+    $('div#correct').css('opacity', .3); // @TODO animate this
+    $('div#incorrect').css('opacity', 1);
 
   });
 

@@ -230,6 +230,9 @@ div#status div#correct {
 }
 div#status div#incorrect {
 }
+#btn-next {
+  display: none;
+}
 
 /* Modal overlays */
 .help_overlay {
