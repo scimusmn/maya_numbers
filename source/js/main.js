@@ -4,12 +4,20 @@ $(function () {
   // Hide markup we don't need for level 1
   $('.level-2, .level-3').hide();
 
-  var level = 1,
-      totalCorrect = 0,
+  // Check for URL parameters for skipping to levels 2 and 3.
+  // This is handy for development.
+  if (window.location.href.indexOf('level-2') > -1) {
+    var level = 2;
+  } else if (window.location.href.indexOf('level-3') > -1) {
+    var level = 3;
+  } else {
+    var level = 1;
+  }
+
+  var totalCorrect = 0,
       number = 0,
       $dropzone = $('.dropzone');
 
-  // Initialize the level
   levelChange(level, $dropzone);
   updateTarget(targetValues, totalCorrect);
 
@@ -211,7 +219,8 @@ var levelChange = function(level, $dropzone) {
 
     // Levels 2-3 only
     if (level != 1) {
-      targetValues.length = 0; // Empty out target values array
+      targetValues = []; // Empty out target values array
+      // targetValues.length = 0;
       $('span#level-num').text(level); // Update the level text
     }
 
