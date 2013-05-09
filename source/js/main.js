@@ -116,12 +116,6 @@ $(function () {
         // Append number remaining in the level to the success message, then show a success alert
         var remaining = required - totalCorrect;
         $('p#progress').prepend('<span id="totalCorrect"><strong>' + remaining + ' </strong></span>');
-        $('#notifications .alert-success').fadeIn('fast');
-        setTimeout(function() {
-          $('#notifications .alert-success').fadeOut(800, function() {
-            $('span#totalCorrect').remove();
-          });
-        }, 2400);
       }
 
       // Reset the glyphs
@@ -130,14 +124,8 @@ $(function () {
       // Load a new target value
       $('div#target_value').html('');
       updateTarget(targetValues, totalCorrect);
-
-    } else {
-      // Incorrect answer
-      $('#total').animate({
-        color: "#880606"
-      }, 400);
-      $('#notifications .alert-error').fadeIn(800);
     }
+
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
@@ -166,8 +154,6 @@ $(function () {
       $dropzone.css('background', '').removeClass('full'); // Make buckets appear empty
       number = 0;
     }
-    $('#total').css('color', '#333333'); // Return text to black in case an error had turned it red
-    $('#notifications div.alert-error').fadeOut('slow'); // Remove error notification
   }
 
   // When the reset button is clicked, reset all the things

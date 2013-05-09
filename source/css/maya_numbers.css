@@ -105,15 +105,8 @@ body.level-1 #instructions {
 #instructions {
   margin: 20px 0;
 }
-#notifications div,
 #instructions p.level-1 {
   display: none;
-}
-#notifications {
-  margin-top: 30px;
-}
-#notifications div p:first-child {
-  font-weight: bold;
 }
 #instructions p {
   margin: 0;
