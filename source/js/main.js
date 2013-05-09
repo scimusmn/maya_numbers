@@ -186,18 +186,36 @@ $(function () {
   });
 
   // Open the hint dialog from the hint link
-  $('#hint').dialog({
+  $('#hint_link').click(function() {
+    $('#hint').dialog('open');
+  });
+  var hintOptions = {
     autoOpen: false,
+    buttons: [{
+      text: 'OK',
+      click: function() {
+        $('#hint').dialog('close');
+      }
+    }],
     modal: true,
     width: 600,
     hide: {
       effect: 'fadeOut',
       duration: 200
-    }
-  });
-  $('#hint_link').click(function() {
-    $('#hint').dialog('open');
-  });
+    },
+    open: function() {
+      $('.ui-widget-overlay').bind('click', function() {
+        $('#hint').dialog('close');
+      });
+    },
+    dialogClass: "no-close",
+    close: function(event, ui) {
+      $('#hint').dialog('close');
+    },
+    resizable: false,
+    draggable: false
+  };
+  $('#hint').dialog(hintOptions);
 
 });
 
