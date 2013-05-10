@@ -1,5 +1,18 @@
+/**
+ * Functionality for the Maya numbers game.
+ * The object of the game is to select the correct Mayan glyphs that add up to a given target value.
+ * Visitors drag glyphs into buckets which multiply those glyphs by a 20-based value.
+ * There are 3 levels, which get progressively more difficult by increasing the target value.
+ *
+ * @DEBUG markers in the code can be un-commented to print more verbose output to the browser's console.
+ * @SELENIUM markers are console.log statements that could be useful to log to a text file later via Selenium.
+*/
+
 $(function () {
   "use strict";
+
+  // @SELENIUM Log message
+  console.log(makeTimestamp() + ': Starting new game');
 
   // Hide markup we don't need for level 1
   $('.level-2, .level-3').hide();
@@ -113,7 +126,7 @@ $(function () {
         break;
     }
     number = number + (value * multiplier);
-    console.log(op + ' ' + Math.abs(value * multiplier) + ' from bucket ' + bucketID);
+    // @DEBUG console.log(op + ' ' + Math.abs(value * multiplier) + ' from bucket ' + bucketID);
     return number;
   }
 
@@ -131,7 +144,11 @@ $(function () {
       level++;
       levelChange(level, $dropzone);
       totalCorrect = 0;
-      console.log('Moving to level ' + level);
+
+      if (level < 4) {
+        // @SELENIUM Log message
+        console.log(makeTimestamp() + ': Moving to level ' + level);
+      }
 
     // Or, to the next problem
     } else {
@@ -276,7 +293,6 @@ var levelChange = function(level, $dropzone) {
     // Levels 2-3 only
     if (level != 1) {
       targetValues = []; // Empty out target values array
-      // targetValues.length = 0;
       $('span#level-num').text(level); // Update the level text
     }
 
@@ -295,7 +311,7 @@ var levelChange = function(level, $dropzone) {
       }
       if(!found)targetValues[targetValues.length]=rando;
     }
-    console.log('New array of target values generated for level ' + level + ': ' + targetValues);
+    //@DEBUG console.log('New array of target values generated for level ' + level + ': ' + targetValues);
 
     // Update body class
     var lastLevel = level - 1;
@@ -342,6 +358,9 @@ var helpDialogs = function(level, autoOpen) {
   } else {
     var text = $('#btn-win').text();
     var dialogTitle = $('#dialog-title-win').text();
+
+    // @SELENIUM Log message
+    console.log(makeTimestamp() + ': Game completed');
   }
   if (level == 1) {
     var dialogTitle = $('#splash-title').text();
@@ -451,7 +470,7 @@ var solve = function(values) {
   var solution = [bucket4, bucket3, bucket2, bucket1];
 
   // Are the two arrays the same?
-  console.log('Comparing values ' + values + ' to target values ' + solution);
+  // @DEBUG console.log('Comparing values ' + values + ' to target values ' + solution);
   correct = arraysEqual(solution, values);
 
   return correct;
@@ -473,4 +492,15 @@ function arraysEqual(arr1, arr2){
   }
 
   return true;
+
+}
+
+/**
+ * Make a timestamp.
+ * Format is like this: 5/10/2013 5:19:22 PM
+ * Used for logging events.
+ */
+function makeTimestamp() {
+  var timestamp = (new Date()).toLocaleString();
+  return timestamp;
 }
