@@ -59,7 +59,7 @@ div#glyphs {
 footer {
   clear: both;
   float: left;
-  margin-top: 30px;
+  margin-top: 55px;
   width: 100%;
   padding: 16px 4px;
   border-top: 1px solid #CECECE;
@@ -96,9 +96,6 @@ footer span.selected:hover {
 }
 
 /* Content */
-body.level-1 #instructions {
-  min-height: 60px;
-}
 #instructions {
   min-height: 85px;
 }
@@ -201,20 +198,25 @@ body.level-3 #column-middle {
 body.level-3 #column-right {
   width: 270px;
 }
-body.level-3 footer {
-  margin-top: 10px;
-}
 div#status {
   clear: both;
   border: 1px dashed #AAA;
   padding: 10px;
   font-weight: bold;
   float: left;
-  position: relative;
-  top: 80px;
-  width: 90%;
   text-align: center;
   border-radius: 8px;
+  position: absolute;
+  width: 220px;
+}
+body.level-1 div#status {
+  top: 300px;
+}
+body.level-2 div#status {
+  top: 450px;
+}
+body.level-3 div#status {
+  top: 580px;
 }
 div#status p {
   text-align: left;
@@ -232,6 +234,12 @@ div#status div#incorrect {
 }
 #btn-next {
   display: none;
+}
+body.level-3 .level-1 {
+  display: none;
+}
+body.level-3 .level-1.level-3 {
+  display: block;
 }
 
 /* Modal overlays */
