@@ -62,16 +62,27 @@ $(function () {
       if (correct == true) {
         totalCorrect++;
         factIndex++;
+
+        // Update the totals in the footer
         $('span#correct').text(totalCorrect);
+        // Update the status box
         $('div#correct').css('opacity', 1);
         $('div#incorrect').css('opacity', .3);
-        $('#btn-next').fadeIn(); // Show the Next button
-        // Show a new fact (unless we're out of facts)
-        if (factIndex <= factTotal) {
-          $('#facts p#fact_' + factIndex).fadeIn();
-        }
-      };
 
+        // Hide the reset button and show the next button
+        $('#reset').fadeOut(200, function() {
+          $('#btn-next').fadeIn(200, function() {
+            // The show a new fact (unless we're out of facts)
+            if (factIndex <= factTotal) {
+              $('#facts p#fact_' + factIndex).fadeIn(500);
+            }
+          });
+        });
+
+        // Don't allow other blocks to be dropped in til the next round
+        $(this).droppable('disable');
+
+      };
     }
   });
 
@@ -136,22 +147,34 @@ $(function () {
     $('div#target_value').html('');
     updateTarget(targetValues, totalCorrect);
 
-    $('#btn-next').fadeOut(); // Hide the Next button til next time
-    $('div#correct').css('opacity', .3); // @TODO animate this
+    $('#facts p').fadeOut(100); // Hide the fun fact
+
+    // Hide the Next button til next time, bring back the reset button
+    $('#btn-next').fadeOut(200, function() {
+      $('#reset').fadeIn(200);
+    });
+    $('div#correct').css('opacity', .3);
     $('div#incorrect').css('opacity', 1);
-    $('#facts p').fadeOut(); // Hide the fun fact
+
+    // Re-enable the dropzone
+    $dropzone.droppable('enable');
 
   });
 
   // When a bucket is double-tapped, clear out that bucket and remove its value from the total
   $dropzone.hammer().on('doubletap', function() {
-    // Get the bucket ID and the value from the clicked object
-    var bucketID = $(this).attr('id').match(/\d+/);
-    var bucketValue = $(this).data('bucketValue');
-    // Clear bucket and run subtract function
-    if (bucketValue) {
-      resetGlyphs(bucketID, bucketValue);
-      $(this).removeData('bucketValue').removeClass('full'); // Reset the bucket value
+
+    // Don't allow clearing the bucket if the right answer's in there
+    if (!$('#btn-next').is(':visible')) {
+
+      // Get the bucket ID and the value from the clicked object
+      var bucketID = $(this).attr('id').match(/\d+/);
+      var bucketValue = $(this).data('bucketValue');
+      // Clear bucket and run subtract function
+      if (bucketValue) {
+        resetGlyphs(bucketID, bucketValue);
+        $(this).removeData('bucketValue').removeClass('full'); // Reset the bucket value
+      }
     }
   });
 
