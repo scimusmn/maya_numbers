@@ -35,7 +35,12 @@ dictionary = {
       "hint_link": "Hint",
       "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value.",
       "your_answer": "Your answer:",
-      "next": "Next"
+      "next": "Next",
+      "fact_1": "The Maya math system is built around the number 20 because that’s how many fingers and toes you have.",
+      "fact_2": "The Maya were one of only four civilizations to develop the concept of zero.",
+      "fact_3": "A place value system allows the user to write and manipulate really big numbers—like those required to track astronomical phenomena—and to break those numbers down into units—such as days, weeks, months, etc.",
+      "fact_4": "For the purposes of astronomy, the Maya had to tweak their system a bit. In their Long Count calendar, the third place value represents quantities of 360, instead of 400, since this is closer to the length of the year. Consequently, the fourth place value was valued at 7200 and the place values continued in this manner.",
+      "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
   },
   "spanish": {
       "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
@@ -66,7 +71,12 @@ dictionary = {
       "hint_link": "Indicio",
       "hint": "Pruebe a arrastrar una conjetura sobre el área de mayor valor. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior.",
       "your_answer": "Su respuesta:",
-      "next": "Próximo"
+      "next": "Próximo",
+      "fact_1": "El sistema matemático maya se basa en el número 20 porque es el número de dedos que tiene.",
+      "fact_2": "Los mayas fueron una de las cuatro civilizaciones para desarrollar el concepto de cero.",
+      "fact_3": "Un sistema de valor posicional permite al usuario escribir y manipular números muy grandes-como los requeridos para seguir fenómenos astronómicos y romper esos números en unidades-como días, semanas, meses, etc",
+      "fact_4": "A los efectos de la astronomía, los mayas tenían que modificar su sistema un poco. En su calendario de cuenta larga, el tercer valor de posición representa cantidades de 360, en lugar de 400, ya que este está más cerca de la longitud del año. En consecuencia, el cuarto valor de posición se valoró en 7200 y los valores de lugar continuó de esta manera.",
+      "fact_5": "La exposición está llena de números mayas. Mira a tu alrededor: ¿puedes encontrar algo?"
   }
 };
 
