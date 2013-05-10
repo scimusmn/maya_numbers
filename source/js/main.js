@@ -16,6 +16,8 @@ $(function () {
 
   var totalCorrect = 0,
       number = 0,
+      factIndex = 0,
+      factTotal = $('#facts p').length,
       $dropzone = $('.dropzone');
 
   levelChange(level, $dropzone);
@@ -59,10 +61,15 @@ $(function () {
       // Correct answer
       if (correct == true) {
         totalCorrect++;
+        factIndex++;
         $('span#correct').text(totalCorrect);
         $('div#correct').css('opacity', 1);
         $('div#incorrect').css('opacity', .3);
         $('#btn-next').fadeIn(); // Show the Next button
+        // Show a new fact (unless we're out of facts)
+        if (factIndex <= factTotal) {
+          $('#facts p#fact_' + factIndex).fadeIn();
+        }
       };
 
     }
@@ -132,6 +139,7 @@ $(function () {
     $('#btn-next').fadeOut(); // Hide the Next button til next time
     $('div#correct').css('opacity', .3); // @TODO animate this
     $('div#incorrect').css('opacity', 1);
+    $('#facts p').fadeOut(); // Hide the fun fact
 
   });
 
