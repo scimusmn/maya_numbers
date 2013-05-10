@@ -49,6 +49,22 @@ $(function () {
       // Show the dropped block as the bucket's background image
       $(this).css('background', 'url(../assets/images/numbers/' + value + '.png) 8px 8px no-repeat').addClass('full');
 
+      // Make array of values in the buckets
+      var allValues = [];
+      $.each($('.dropzone'), function(index, value) {
+        allValues.push($(this).attr('data-glyph-value'));
+      });
+      correct = solve(allValues); // Calculate answer and return true or false
+
+      // Correct answer
+      if (correct == true) {
+        totalCorrect++;
+        $('span#correct').text(totalCorrect);
+        $('div#correct').css('opacity', 1);
+        $('div#incorrect').css('opacity', .3);
+        $('#btn-next').fadeIn(); // Show the Next button
+      };
+
     }
   });
 
@@ -89,27 +105,6 @@ $(function () {
     var updatedNumber = commaSeparateNumber(updateNumber(value, op, bucketID));
     $('div#total').html('= ' + updatedNumber); // Update the total
   }
-
-  // When the Enter button is clicked, see if the answer is correct
-  $('#enter').click(function() {
-
-    // Make array of values in the buckets
-    var values = [];
-    $.each($('.dropzone'), function(index, value) {
-      values.push($(this).attr('data-glyph-value'));
-    });
-    correct = solve(values); // Calculates answer and returns true or false
-
-    // Correct answer
-    if (correct == true) {
-      totalCorrect++;
-      $('span#correct').text(totalCorrect);
-      $('div#correct').css('opacity', 1); // @TODO animate this
-      $('div#incorrect').css('opacity', .3);
-      $('#btn-next').fadeIn(); // Show the Next button
-    };
-
-  });
 
   // Move forward to the next level or problem when the Next button is tapped
   $('#btn-next').click(function() {
