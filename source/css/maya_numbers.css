@@ -241,6 +241,9 @@ body.level-3 .level-1 {
 body.level-3 .level-1.level-3 {
   display: block;
 }
+#facts p {
+  display: none;
+}
 
 /* Modal overlays */
 .help_overlay {
