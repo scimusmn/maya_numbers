@@ -126,7 +126,14 @@ $(function () {
         break;
     }
     number = number + (value * multiplier);
-    // @DEBUG console.log(op + ' ' + Math.abs(value * multiplier) + ' from bucket ' + bucketID);
+
+    // Show this bucket's total next to it on levels 2 and 3
+    if (level > 1) {
+      $('#bucketSum-' + bucketID).text(number);
+    }
+
+    // @DEBUG
+    // console.log(op + ' ' + Math.abs(value * multiplier) + ' from bucket ' + bucketID);
     return number;
   }
 
@@ -470,7 +477,8 @@ var solve = function(values) {
   var solution = [bucket4, bucket3, bucket2, bucket1];
 
   // Are the two arrays the same?
-  // @DEBUG console.log('Comparing values ' + values + ' to target values ' + solution);
+  // @DEBUG
+  // console.log('Comparing values ' + values + ' to target values ' + solution);
   correct = arraysEqual(solution, values);
 
   return correct;

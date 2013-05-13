@@ -186,6 +186,11 @@ div#total {
 .bucket div.dropzone.full {
   opacity: .7;
 }
+div.bucketSum {
+  float: left;
+  margin-left: 6px;
+}
+
 body.level-1 .bucket {
   position: relative;
   left: 65px;
