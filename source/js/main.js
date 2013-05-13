@@ -209,11 +209,13 @@ $(function () {
       // For one bucket - run this on a double-click
       $('#bucket-'+ bucketID +'.dropzone').css('background', '').removeClass('full'); // Make buckets appear empty
       displayNumber(value, 'subtract', bucketID); // subtract the glyph's value from the total
+      $('#bucketSum-' + bucketID).text(''); // Clear out the single bucket sum
     } else {
       // For all buckets - run this on "Clear glyphs" button or after a correct answer
       $('#live_sum div#total').text('');
       $dropzone.removeData('bucketValue');
       $dropzone.css('background', '').removeClass('full'); // Make buckets appear empty
+      $('.bucketSum').text(''); // Remove single bucket sums
       number = 0;
     }
   }
