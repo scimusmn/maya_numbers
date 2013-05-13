@@ -129,7 +129,7 @@ $(function () {
 
     // Show this bucket's total next to it on levels 2 and 3
     if (level > 1) {
-      $('#bucketSum-' + bucketID).text(value * multiplier);
+      $('#bucketSum-' + bucketID).text(commaSeparateNumber(value * multiplier));
     }
 
     // @DEBUG
