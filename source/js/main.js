@@ -352,6 +352,11 @@ var levelChange = function(level, $dropzone) {
 var updateTarget = function(targetValues, totalCorrect) {
   $('div#target_value').attr('data-target', targetValues[totalCorrect]);
   $('div#target_value').html(commaSeparateNumber(targetValues[totalCorrect]));
+
+  // Hide any leftover hints
+  if ($('#zero_hint').is(':visible')) {
+    $('#zero_hint').fadeOut('fast');
+  }
 }
 
 /*
@@ -482,6 +487,11 @@ var solve = function(values) {
   // @DEBUG
   // console.log('Comparing values ' + values + ' to target values ' + solution);
   correct = arraysEqual(solution, values);
+
+  // Show the extra hint if the target values array contains a zero values
+  if (solution.indexOf(0) > -1) {
+    $('#zero_hint').fadeIn();
+  }
 
   return correct;
 }

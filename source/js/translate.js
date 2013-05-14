@@ -34,7 +34,7 @@ dictionary = {
       "alert_incorrect": "Incorrect",
       "hint_link": "Hint",
       "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value.",
-      "zero_hint": "Hint: If one value is supposed to be zero, you need to add the zero block to fully solve problem.",
+      "zero_hint": "Hint: If one place of the target number is supposed to be zero, you need to add the zero-value glyph to fully solve the problem.",
       "your_answer": "Your answer:",
       "next": "Next",
       "fact_1": "The Maya math system is built around the number 20 because that’s how many fingers and toes you have.",
