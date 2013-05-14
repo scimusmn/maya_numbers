@@ -497,8 +497,8 @@ var solve = function(level, values) {
   correct = arraysEqual(solution, values);
 
   // If a bucket (except the top one) isn't full, the answer is wrong, and the user gets the "add a zero glyph" hint
-  if (((level == 2) && (!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')))
-    || ((level == 3) && (!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')) || (!$('#bucket-3').hasClass('full')))) {
+  if (((level == 2) && ((!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')))) ||
+      ((level == 3) && ((!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')) || (!$('#bucket-3').hasClass('full'))))) {
     correct = false;
     $('#zero_hint').fadeIn();
   }
