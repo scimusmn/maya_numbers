@@ -252,7 +252,8 @@ body.level-3 .level-1 {
 body.level-3 .level-1.level-3 {
   display: block;
 }
-#facts p {
+#facts p,
+#zero_hint {
   display: none;
 }
 
