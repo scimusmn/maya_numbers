@@ -69,7 +69,7 @@ $(function () {
       $.each($('.dropzone'), function(index, value) {
         allValues.push($(this).attr('data-glyph-value'));
       });
-      correct = solve(allValues); // Calculate answer and return true or false
+      correct = solve(level, allValues); // Calculate answer and return true or false
 
       // Correct answer
       if (correct == true) {
@@ -82,6 +82,10 @@ $(function () {
         $('div#correct').css('opacity', 1);
         $('div#incorrect').css('opacity', .3);
 
+        // Hide any leftover hints
+        if ($('#zero_hint').is(':visible')) {
+          $('#zero_hint').fadeOut('fast');
+        }
         // Hide the reset button and show the next button
         $('#reset').fadeOut(200, function() {
           $('#btn-next').fadeIn(200, function() {
@@ -360,11 +364,6 @@ var levelChange = function(level, $dropzone) {
 var updateTarget = function(targetValues, totalCorrect) {
   $('div#target_value').attr('data-target', targetValues[totalCorrect]);
   $('div#target_value').html(commaSeparateNumber(targetValues[totalCorrect]));
-
-  // Hide any leftover hints
-  if ($('#zero_hint').is(':visible')) {
-    $('#zero_hint').fadeOut('fast');
-  }
 }
 
 /*
@@ -446,7 +445,7 @@ var commaSeparateNumber = function(val) {
 // Find the correct answer to the current problem.
 // @param - values - array containing the glyph value that's in each bucket
 // @return - boolean - true for correct, false for incorrect
-var solve = function(values) {
+var solve = function(level, values) {
   var target = $('div#target_value').attr('data-target');
 
   // Fill solution array with the correct value for each bucket. MATH!
@@ -454,6 +453,8 @@ var solve = function(values) {
 
   // All 4 buckets in play
   if (target >= 8000) {
+    var buckets = 4;
+
     bucket4 = Math.floor(target / 8000);
     var remainder = target % 8000;
 
@@ -464,10 +465,13 @@ var solve = function(values) {
     remainder = (target - (bucket4 * 8000) - (bucket3 * 400)) % 20;
 
     bucket1 = remainder;
+
   }
 
   // 3 buckets
   if (target >= 400 && target < 8000) {
+    var buckets = 3;
+
     bucket3 = Math.floor(target / 400);
     var remainder = target % 400;
 
@@ -479,6 +483,8 @@ var solve = function(values) {
 
   // 2 buckets
   if (target >= 20 && target < 400) {
+    var buckets = 2;
+
     bucket2 = Math.floor(target / 20);
     var remainder = target % 20;
     bucket1 = remainder;
@@ -486,6 +492,7 @@ var solve = function(values) {
 
   // 1 bucket
   if (target < 20) {
+    var buckets = 1;
     bucket1 = target;
   }
 
@@ -493,11 +500,13 @@ var solve = function(values) {
 
   // Are the two arrays the same?
   // @DEBUG
-  // console.log('Comparing values ' + values + ' to target values ' + solution);
+  console.log('Comparing values ' + values + ' to target values ' + solution);
   correct = arraysEqual(solution, values);
 
-  // Show the extra hint if the target values array contains a zero values
-  if (solution.indexOf(0) > -1) {
+  // If a bucket (except the top one) isn't full, the answer is wrong, and the user gets the "add a zero glyph" hint
+  if (((level == 2) && (!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')))
+    || ((level == 3) && (!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')) || (!$('#bucket-3').hasClass('full')))) {
+    correct = false;
     $('#zero_hint').fadeIn();
   }
 
