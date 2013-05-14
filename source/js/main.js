@@ -332,7 +332,7 @@ var levelChange = function(level, $dropzone) {
     }
 
     // @DEBUG
-    console.log('New array of target values generated for level ' + level + ': ' + targetValues);
+    // console.log('New array of target values generated for level ' + level + ': ' + targetValues);
 
     // Update body class
     var lastLevel = level - 1;
@@ -453,8 +453,6 @@ var solve = function(level, values) {
 
   // All 4 buckets in play
   if (target >= 8000) {
-    var buckets = 4;
-
     bucket4 = Math.floor(target / 8000);
     var remainder = target % 8000;
 
@@ -470,8 +468,6 @@ var solve = function(level, values) {
 
   // 3 buckets
   if (target >= 400 && target < 8000) {
-    var buckets = 3;
-
     bucket3 = Math.floor(target / 400);
     var remainder = target % 400;
 
@@ -483,8 +479,6 @@ var solve = function(level, values) {
 
   // 2 buckets
   if (target >= 20 && target < 400) {
-    var buckets = 2;
-
     bucket2 = Math.floor(target / 20);
     var remainder = target % 20;
     bucket1 = remainder;
@@ -492,7 +486,6 @@ var solve = function(level, values) {
 
   // 1 bucket
   if (target < 20) {
-    var buckets = 1;
     bucket1 = target;
   }
 
@@ -500,7 +493,7 @@ var solve = function(level, values) {
 
   // Are the two arrays the same?
   // @DEBUG
-  console.log('Comparing values ' + values + ' to target values ' + solution);
+  // console.log('Comparing values ' + values + ' to target values ' + solution);
   correct = arraysEqual(solution, values);
 
   // If a bucket (except the top one) isn't full, the answer is wrong, and the user gets the "add a zero glyph" hint
