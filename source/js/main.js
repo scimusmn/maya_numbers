@@ -320,7 +320,15 @@ var levelChange = function(level, $dropzone) {
       }
       if(!found)targetValues[targetValues.length]=rando;
     }
-    //@DEBUG console.log('New array of target values generated for level ' + level + ': ' + targetValues);
+
+    // @DEBUG - Check for an URL parameter which contains a target value. Handy for testing specific scenarios
+    if (window.location.href.indexOf('target') > -1) {
+      var newTarget = getURLParameter('target');
+      targetValues[0] = newTarget;
+    }
+
+    // @DEBUG
+    console.log('New array of target values generated for level ' + level + ': ' + targetValues);
 
     // Update body class
     var lastLevel = level - 1;
@@ -523,4 +531,13 @@ function arraysEqual(arr1, arr2){
 function makeTimestamp() {
   var timestamp = (new Date()).toLocaleString();
   return timestamp;
+}
+
+/**
+ * Get an URL parameter value.
+ * This is used for manually setting target values, for testing.
+ * See http://stackoverflow.com/a/1404100
+ */
+function getURLParameter(name) {
+  return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
 }
