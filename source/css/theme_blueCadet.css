@@ -1,3 +1,16 @@
 body {
   background: url(../../assets/images/theme/bg.jpg) repeat;
+  color: rgb(255,255,255);
+  font-family: "Serifa Std";
+}
+div#wrapper {
+  background: none;
+}
+h1 {
+  font-family: "Univers39-UltraCondensedThin";
+  font-weight: lighter;
+  font-size: 54px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgb(128, 161, 182);
 }
