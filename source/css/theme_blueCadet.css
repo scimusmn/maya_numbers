@@ -3,12 +3,26 @@ body {
   color: rgb(255,255,255);
   font-family: "Serifa Std";
 }
+div#language_bar {
+  height: 34px;
+  padding-top: 16px;
+  font-family: "Univers 75 Black";
+  background: url(../../assets/images/theme/bg_header.png) repeat-x;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+div#language_bar span#en {
+  margin-right: 56px;
+}
+div#language_bar span#es {
+  margin-right: 100px;
+}
 div#wrapper {
   background: none;
 }
 h1 {
   font-family: "Univers39-UltraCondensedThin";
-  text-shadow: 1px 1px 2px rgba(0,0,0,1);
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
   background: url(../../assets/images/theme/underline.png) repeat-x 0px 63px;
   font-weight: lighter;
   display: inline;
@@ -20,7 +34,7 @@ h1 {
   color: rgb(128, 161, 182);
 }
 #glyphs li img {
-  box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 7px #000;
 }
 #column-left {
   clear: both;
