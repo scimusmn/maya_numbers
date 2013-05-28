@@ -415,9 +415,7 @@ var helpDialogs = function(level, autoOpen) {
       } else {
         $(this).dialog('close');
         // Fade in directions after the box closes
-        $('#instructions p.level-' + level + ':eq(0)').fadeIn(600, function() {
-          $('#instructions p.level-' + level + ':eq(1)').fadeIn(1000);
-        });
+        $('#instructions p.level-' + level + ':eq(0)').fadeIn();
       }
     },
     resizable: false,
