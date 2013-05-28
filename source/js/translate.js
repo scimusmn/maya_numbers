@@ -42,7 +42,7 @@ dictionary = {
       "fact_4": "For the purposes of astronomy, the Maya had to tweak their system a bit. In their Long Count calendar, the third place value represents quantities of 360, instead of 400, since this is closer to the length of the year. Consequently, the fourth place value was valued at 7200 and the place values continued in this manner.",
       "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
   },
-  "spanish": {
+  "español": {
       "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
       "headline": "Puede coincidir con los números con los glifos correspondientes?",
       "glyph_text_1": "Arrastre el glifo correcto de abajo en el cuadro de valores. Puntee dos veces en un glifo a poner de nuevo.",

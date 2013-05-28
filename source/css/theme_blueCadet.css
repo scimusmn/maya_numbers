@@ -4,6 +4,7 @@ body {
   font-family: "Serifa Std";
 }
 div#language_bar {
+  color: rgba(255,255,255,.5);
   height: 34px;
   padding-top: 16px;
   font-family: "Univers 75 Black";
@@ -16,6 +17,9 @@ div#language_bar span#en {
 }
 div#language_bar span#es {
   margin-right: 100px;
+}
+span.selected {
+  color: rgb(255,255,255);
 }
 div#wrapper {
   background: none;
