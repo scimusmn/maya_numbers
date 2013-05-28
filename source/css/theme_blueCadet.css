@@ -3,6 +3,7 @@ body {
   color: rgb(255,255,255);
   font-family: "Serifa Std";
 }
+
 div#language_bar {
   color: rgba(255,255,255,.5);
   height: 34px;
@@ -21,9 +22,18 @@ div#language_bar span#es {
 span.selected {
   color: rgb(255,255,255);
 }
+
 div#wrapper {
   background: none;
 }
+#column-left {
+  clear: both;
+}
+#column-middle, div#facts {
+  background: #262626;
+  box-shadow: 0 0 15px #000;
+}
+
 h1 {
   font-family: "Univers39-UltraCondensedThin";
   text-shadow: 2px 2px 4px rgba(0,0,0,1);
@@ -37,9 +47,21 @@ h1 {
   text-transform: uppercase;
   color: rgb(128, 161, 182);
 }
+
 #glyphs li img {
   box-shadow: 0 0 7px #000;
 }
-#column-left {
-  clear: both;
+.bucket div.dropzone {
+  background: url(../../assets/images/theme/bg_bucket.png) no-repeat;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+.bucket div.dropzone.full {
+  opacity: 1;
+}
+
+div#status {
+  border: none;
+  position: static;
 }
