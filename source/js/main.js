@@ -86,14 +86,12 @@ $(function () {
         if ($('#zero_hint').is(':visible')) {
           $('#zero_hint').fadeOut('fast');
         }
-        // Hide the reset button and show the next button
-        $('#reset').fadeOut(200, function() {
-          $('#btn-next').fadeIn(200, function() {
-            // The show a new fact (unless we're out of facts)
-            if (factIndex <= factTotal) {
-              $('#facts p#fact_' + factIndex).fadeIn(500);
-            }
-          });
+        // Show the next button
+        $('#btn-next').fadeIn(200, function() {
+          // The show a new fact (unless we're out of facts)
+          if (factIndex <= factTotal) {
+            $('#facts p#fact_' + factIndex).fadeIn(500);
+          }
         });
 
         // Don't allow other blocks to be dropped in til the next round
@@ -177,10 +175,8 @@ $(function () {
 
     $('#facts p').fadeOut(100); // Hide the fun fact
 
-    // Hide the Next button til next time, bring back the reset button
-    $('#btn-next').fadeOut(200, function() {
-      $('#reset').fadeIn(200);
-    });
+    // Hide the Next button til next time
+    $('#btn-next').fadeOut(200);
     $('div#correct').css('opacity', .3);
     $('div#incorrect').css('opacity', 1);
 
@@ -223,11 +219,6 @@ $(function () {
       number = 0;
     }
   }
-
-  // When the reset button is clicked, reset all the things
-  $('#reset').click(function() {
-    resetGlyphs();
-  });
 
   // Restart the game if you click the "Restart game" link
   $('#restart').click(function() {
