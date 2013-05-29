@@ -62,7 +62,7 @@ div#wrapper {
 
 /* Left column */
 #instructions {
-  min-height: 50px;
+  min-height: 75px;
 }
 #instructions {
   margin: 10px 0 -20px;
@@ -121,14 +121,20 @@ div#bubble-wrap {
   position: relative;
   top: -10px;
 }
-#column-right p {
+#bubble-wrap p {
   width: 150px;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
-body.spanish #column-right p {
+body.spanish #bubble-wrap p {
   font-size: 14px;
 }
-#column-right p, div#target_value {
+body.level-2 #bubble-wrap p {
+  font-size: 32px;
+}
+body.level-3 #bubble-wrap p {
+  font-size: 26px;
+}
+#bubble-wrap p, div#target_value {
   position: relative;
   top: 60px;
 }
