@@ -62,10 +62,11 @@ div#wrapper {
 
 /* Left column */
 #instructions {
+  margin: 10px 0 -20px;
   min-height: 75px;
 }
-#instructions {
-  margin: 10px 0 -20px;
+body.level-1 #instructions {
+  min-height: 50px;
 }
 #instructions p.level-1 {
   display: none;
@@ -128,10 +129,10 @@ div#bubble-wrap {
 body.spanish #bubble-wrap p {
   font-size: 14px;
 }
-body.level-2 #bubble-wrap p {
+body.level-2 div#target_value {
   font-size: 32px;
 }
-body.level-3 #bubble-wrap p {
+body.level-3 div#target_value {
   font-size: 26px;
 }
 #bubble-wrap p, div#target_value {
@@ -142,6 +143,7 @@ div#target_value {
   font-size: 60px;
   font-family: "Univers 75 Black";
   clear: both;
+  text-shadow: 2px 2px 2px rgba(0,0,0,.4);
 }
 div#facts {
   background: #262626 url(../../assets/images/theme/underline.png) repeat-x 0 26px;
