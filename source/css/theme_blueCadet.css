@@ -3,7 +3,21 @@ body {
   color: rgb(255,255,255);
   font-family: "Serifa Std";
 }
+h1 {
+  font-family: "Univers39-UltraCondensedThin";
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
+  background: url(../../assets/images/theme/underline.png) repeat-x 0px 63px;
+  font-weight: lighter;
+  display: inline;
+  float: left;
+  padding-bottom: 20px;
+  font-size: 54px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgb(128, 161, 182);
+}
 
+/* Header */
 div#language_bar {
   color: rgba(255,255,255,.5);
   height: 34px;
@@ -27,6 +41,7 @@ span.selected {
   width: 400px;
 }
 
+/* Layout */
 div#wrapper {
   background: none;
   width: auto;
@@ -37,33 +52,20 @@ div#wrapper {
   width: 450px;
 }
 #column-middle {
+  background: #262626;
   margin: 0 60px 0 20px;
   width: 460px;
 }
-#column-right {
-}
 #column-middle, div#facts {
-  background: #262626;
   box-shadow: 0 0 15px #000;
 }
 
-h1 {
-  font-family: "Univers39-UltraCondensedThin";
-  text-shadow: 2px 2px 4px rgba(0,0,0,1);
-  background: url(../../assets/images/theme/underline.png) repeat-x 0px 63px;
-  font-weight: lighter;
-  display: inline;
-  float: left;
-  padding-bottom: 20px;
-  font-size: 54px;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: rgb(128, 161, 182);
-}
-
+/* Left column */
 #glyphs li img {
   box-shadow: 0 0 7px #000;
 }
+
+/* Middle column */
 .bucket div.dropzone {
   background: url(../../assets/images/theme/bg_bucket.png) no-repeat;
   border: none;
@@ -73,16 +75,6 @@ h1 {
 .bucket div.dropzone.full {
   opacity: 1;
 }
-div#facts h4 {
-  display: none;
-  text-transform: uppercase;
-}
-div#facts p {
-  padding: 30px 20px;
-  text-align: center;
-  font-style: italic;
-}
-
 #btn-next {
   background: url(../../assets/images/theme/bg_next.png) no-repeat;
   border: none;
@@ -106,4 +98,26 @@ body.spanish #btn-next {
 div#status {
   border: none;
   position: static;
+}
+
+/* Right column */
+div#facts {
+  background: #262626 url(../../assets/images/theme/underline.png) repeat-x 0 26px;
+}
+div#facts h4 {
+  font-family: "Univers UltraCondensed";
+  letter-spacing: .12em;
+  font-size: 16px;
+  text-align: center;
+  display: none;
+  text-transform: uppercase;
+  background: #262626;
+  padding: 20px 10px 0 10px;
+  margin: 0 auto;
+  width: 50px;
+}
+div#facts p {
+  padding: 0 20px 30px 20px;
+  text-align: center;
+  font-style: italic;
 }
