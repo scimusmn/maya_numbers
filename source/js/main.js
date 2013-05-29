@@ -90,7 +90,7 @@ $(function () {
         $('#btn-next').fadeIn(200, function() {
           // The show a new fact (unless we're out of facts)
           if (factIndex <= factTotal) {
-            $('#facts p#fact_' + factIndex).fadeIn(500);
+            $('#facts h4, #facts p#fact_' + factIndex).fadeIn(500);
           }
         });
 
@@ -173,7 +173,7 @@ $(function () {
     $('div#target_value').html('');
     updateTarget(targetValues, totalCorrect);
 
-    $('#facts p').fadeOut(100); // Hide the fun fact
+    $('#facts h4, #facts p').fadeOut(100); // Hide the fun fact
 
     // Hide the Next button til next time
     $('#btn-next').fadeOut(200);
