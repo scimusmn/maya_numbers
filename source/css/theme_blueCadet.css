@@ -22,6 +22,10 @@ div#language_bar span#es {
 span.selected {
   color: rgb(255,255,255);
 }
+#instructions p {
+  font-size: 18px;
+  width: 400px;
+}
 
 div#wrapper {
   background: none;
@@ -69,6 +73,15 @@ h1 {
 .bucket div.dropzone.full {
   opacity: 1;
 }
+div#facts h4 {
+  display: none;
+  text-transform: uppercase;
+}
+div#facts p {
+  padding: 30px 20px;
+  text-align: center;
+  font-style: italic;
+}
 
 #btn-next {
   background: url(../../assets/images/theme/bg_next.png) no-repeat;
@@ -84,7 +97,7 @@ h1 {
   font-size: 12px;
   color: #FFFFFF;
   position: relative;
-  top: 10px;
+  top: 12px;
   left: -17px;
 }
 body.spanish #btn-next {
