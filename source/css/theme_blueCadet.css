@@ -25,9 +25,18 @@ span.selected {
 
 div#wrapper {
   background: none;
+  width: auto;
+  padding: 10px 60px;
 }
 #column-left {
   clear: both;
+  width: 450px;
+}
+#column-middle {
+  margin: 0 60px 0 20px;
+  width: 460px;
+}
+#column-right {
 }
 #column-middle, div#facts {
   background: #262626;
