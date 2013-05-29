@@ -61,6 +61,18 @@ div#wrapper {
 }
 
 /* Left column */
+#instructions {
+  min-height: 50px;
+}
+#instructions {
+  margin: 10px 0 -20px;
+}
+#instructions p.level-1 {
+  display: none;
+}
+#instructions p {
+  margin: 0;
+}
 #glyphs li img {
   box-shadow: 0 0 7px #000;
 }
@@ -120,4 +132,11 @@ div#facts p {
   padding: 0 20px 30px 20px;
   text-align: center;
   font-style: italic;
+}
+
+/* Footer */
+footer {
+  clear: both;
+  float: left;
+  width: 100%;
 }

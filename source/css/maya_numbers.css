@@ -56,14 +56,6 @@ div#glyphs {
 #glyphs ul li.new-row {
   clear: both;
 }
-footer {
-  clear: both;
-  float: left;
-  margin-top: 85px;
-  width: 100%;
-  padding: 16px 4px;
-  border-top: 1px solid #CECECE;
-}
 span#counter {
   padding: 0 20px;
   margin: 0 10px;
@@ -95,18 +87,7 @@ footer span.selected:hover {
 }
 
 /* Content */
-#instructions {
-  min-height: 85px;
-}
-#instructions {
-  margin: 20px 0;
-}
-#instructions p.level-1 {
-  display: none;
-}
-#instructions p {
-  margin: 0;
-}
+
 span#level {
   color: #FFFFFF;
   background: #f89406;
