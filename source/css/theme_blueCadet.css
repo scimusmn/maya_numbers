@@ -61,6 +61,26 @@ h1 {
   opacity: 1;
 }
 
+#btn-next {
+  background: url(../../assets/images/theme/bg_next.png) no-repeat;
+  border: none;
+  width: 171px;
+  height: 41px;
+  border: none;
+  box-shadow: 0px 0px 10px #262626;
+}
+#btn-next span {
+  text-transform: uppercase;
+  font-family: "Univers 75 Black";
+  font-size: 12px;
+  color: #FFFFFF;
+  position: relative;
+  top: 10px;
+  left: -17px;
+}
+body.spanish #btn-next {
+  font-size: 9px;
+}
 div#status {
   border: none;
   position: static;
