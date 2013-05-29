@@ -113,6 +113,30 @@ div#status {
 }
 
 /* Right column */
+div#bubble-wrap {
+  background: url(../../assets/images/theme/circle.png) no-repeat;
+  height: 245px;
+  width: 245px;
+  text-align: center;
+  position: relative;
+  top: -10px;
+}
+#column-right p {
+  width: 150px;
+  margin: 0 auto;
+}
+body.spanish #column-right p {
+  font-size: 14px;
+}
+#column-right p, div#target_value {
+  position: relative;
+  top: 60px;
+}
+div#target_value {
+  font-size: 60px;
+  font-family: "Univers 75 Black";
+  clear: both;
+}
 div#facts {
   background: #262626 url(../../assets/images/theme/underline.png) repeat-x 0 26px;
 }

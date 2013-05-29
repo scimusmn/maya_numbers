@@ -102,15 +102,6 @@ span#correct,
 span#required {
   font-weight: bold;
 }
-div#target_value {
-  font-size: 80px;
-  font-weight: bold;
-  width: 250px;
-  clear: both;
-}
-#column-right p {
-  width: 200px;
-}
 div#live_sum {
   clear: both;
   float: left;
