@@ -202,7 +202,7 @@ footer {
   text-transform: uppercase;
   font-size: 12px;
 }
-span#level, span#counter, span#restart {
+span#level, span#counter {
   position: relative;
   top: 23px;
 }
@@ -226,6 +226,18 @@ div.footer-tab span {
 div.footer-tab.level-2.level-3 span {
   padding: 0 42px;
 }
-span#restart {
+div#restart-wrap {
   color: rgb(0, 90, 132);
+  background: url(../../assets/images/theme/bg_footer_line.png) repeat-y;
+  float: right;
+  position: relative;
+  top: 10px;
+  right: -70px;
+  height: 45px;
+  padding-left: 70px;
+}
+span#restart {
+  position: relative;
+  top: 13px;
+  margin-right: 70px;
 }
