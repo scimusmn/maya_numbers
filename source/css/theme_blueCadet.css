@@ -109,7 +109,7 @@ body.level-1 #instructions {
   width: 85px;
 }
 .bucket div.dropzone.full {
-  opacity: .7;
+  opacity: .8;
 }
 #btn-next {
   background: url(../../assets/images/theme/bg_next.png) no-repeat;
