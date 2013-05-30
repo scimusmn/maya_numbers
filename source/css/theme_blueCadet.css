@@ -2,6 +2,14 @@ body {
   background: url(../../assets/images/theme/bg.jpg) repeat;
   color: rgb(255,255,255);
   font-family: "Serifa Std";
+  height: 768px;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 h1 {
   font-family: "Univers39-UltraCondensedThin";
@@ -45,7 +53,8 @@ span.selected {
 div#wrapper {
   background: none;
   width: auto;
-  padding: 10px 60px;
+  padding: 10px 60px 0;
+  margin: 0 auto;
 }
 #column-left {
   clear: both;
@@ -55,6 +64,16 @@ div#wrapper {
   background: #262626;
   margin: 0 60px 0 20px;
   width: 460px;
+}
+#column-right {
+  float: right;
+  width: 250px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  clear: both;
+  width: 100%;
 }
 
 /* Left column */
@@ -175,7 +194,5 @@ div#facts p {
 
 /* Footer */
 footer {
-  clear: both;
-  float: left;
-  width: 100%;
+  background: url(../../assets/images/theme/bg_footer.png) repeat-x;
 }
