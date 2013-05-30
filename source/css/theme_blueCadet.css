@@ -99,13 +99,17 @@ body.level-1 #instructions {
 
 /* Middle column */
 .bucket div.dropzone {
-  background: url(../../assets/images/theme/bg_bucket.png) no-repeat;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
+  float: left;
+  border: 5px solid rgb(0, 90, 132);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #000;
+  background: rgb(191,191,191);
+  color: #777;
+  height: 85px;
+  width: 85px;
 }
 .bucket div.dropzone.full {
-  opacity: 1;
+  opacity: .7;
 }
 #btn-next {
   background: url(../../assets/images/theme/bg_next.png) no-repeat;
