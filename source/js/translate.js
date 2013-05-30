@@ -37,10 +37,10 @@ dictionary = {
       "your_answer": "Your answer:",
       "next": "Next question",
       "funfacts": "Fact",
-      "fact_1": "The Maya math system is built around the number 20 because that’s how many fingers and toes you have.",
+      "fact_1": "The Maya math system is built around the number 20—based on the number of fingers and toes people have.",
       "fact_2": "The Maya were one of only four civilizations to develop the concept of zero.",
-      "fact_3": "A place value system allows the user to write and manipulate really big numbers—like those required to track astronomical phenomena—and to break those numbers down into units—such as days, weeks, months, etc.",
-      "fact_4": "For the purposes of astronomy, the Maya had to tweak their system a bit. In their Long Count calendar, the third place value represents quantities of 360, instead of 400, since this is closer to the length of the year. Consequently, the fourth place value was valued at 7200 and the place values continued in this manner.",
+      "fact_3": "A place-value system allows the user to write and manipulate really big numbers–like those required to track astronomical phenomena–and to break those numbers down into units such as days, weeks and months.",
+      "fact_4": "In the Long Count calendar, the third place value represents quantities of 260, instead of 400, since 260 is closer to the length of the year. As a result, the digit in the fourth place represents quantities of 7,200.",
       "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
   },
   "español": {
