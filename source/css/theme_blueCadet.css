@@ -209,10 +209,35 @@ body.spanish #btn-next {
   font-size: 9px;
 }
 div#status {
-  border: none;
-  position: static;
   clear: both;
+}
+div#status {
+  background: url(../../assets/images/theme/underline.png) repeat-x 0 26px;
+  width: 420px;
+  margin: 0 auto;  
+}
+div#status p {
+  font-family: "Univers UltraCondensed";
+  letter-spacing: .12em;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #262626;
+  padding: 20px 20px 0 20px;
+  width: 100px;
+  margin: 0 auto;    
+}
+div#status div {
   float: left;
+}
+div#status div#correct {
+  opacity: .3;
+  margin-right: 10px;
+}
+div#status div#incorrect {
+}
+#btn-next {
+  display: none;
 }
 #column-middle, div#fact-wrap {
   box-shadow: 0 0 15px #000;
