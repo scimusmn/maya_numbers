@@ -29,6 +29,7 @@ h1 {
   width: 400px;
   background-position: 0 100px;
   line-height: normal;
+  margin: 10px 0 20px;
 }
 
 /* Header */
@@ -80,7 +81,7 @@ div#wrapper {
   top: -10px;
 }
 .level-3 #column-middle {
-  top: -125px;
+  top: -155px;
 }
 #column-right {
   float: right;
