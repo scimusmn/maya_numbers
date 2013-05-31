@@ -65,6 +65,13 @@ div#wrapper {
   background: #262626;
   margin: 0 60px 0 20px;
   width: 460px;
+  float: left;
+  padding-top: 30px;
+}
+.level-2 #column-middle, .level-3 #column-middle {
+  padding-top: 22px;
+  position: relative;
+  top: -10px;
 }
 #column-right {
   float: right;
@@ -167,6 +174,11 @@ body.level-3 .plus {
   height: 85px;
   width: 85px;
 }
+body.level-2 .bucket div.dropzone,
+body.level-3 .bucket div.dropzone {
+  height: 75px;
+  width: 75px;
+}
 .bucket div.dropzone.full {
   opacity: .8;
 }
@@ -181,7 +193,10 @@ div#live_sum {
   background: url(../../assets/images/theme/underline.png) repeat-x 0 10px;
   margin: 0 50px 0 0;
   padding: 28px 2px 0 12px;
-
+}
+body.level-2 #live_sum p,
+body.level-3 #live_sum p {
+  padding: 22px 2px 0 12px;
 }
 div#total {
   font-size: 44px;
@@ -190,12 +205,19 @@ div#total {
   margin-right: 50px;
 }
 div#status {
-  clear: both;
-}
-div#status {
   background: url(../../assets/images/theme/underline.png) repeat-x 0 26px;
+  clear: both;  
   width: 420px;
   margin: 0 auto;  
+}
+body.level-2 div#status,
+body.level-3 div#status {
+  position: relative;
+  top: -10px;
+}
+body.level-2 div#status div,
+body.level-3 div#status div {
+  padding: 40px 0px 8px 0px;
 }
 div#status p {
   font-family: "Univers UltraCondensed";
@@ -358,3 +380,10 @@ span#restart {
   top: 13px;
   margin-right: 70px;
 }
+
+/* Dialogs */
+.ui-widget-overlay {
+  opacity: .6;
+  background: #222;
+}
+
