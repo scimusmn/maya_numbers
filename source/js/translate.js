@@ -109,9 +109,9 @@ $(function () {
 
     // Swap images in the help dialogs
     if (language == 'english') {
-      var helpImages = ['help-level2.png', 'help-level3.png'];
+      var helpImages = ['help-level2.gif', 'help-level3.gif'];
     } else {
-      var helpImages = ['help-level2-spanish.png', 'help-level3-spanish.png'];
+      var helpImages = ['help-level2-spanish.gif', 'help-level3-spanish.gif'];
     }
     var path = '../assets/images/';
     $('#level-2-help img').attr('src', path + helpImages[0]);

@@ -416,7 +416,7 @@ var helpDialogs = function(level, autoOpen) {
     },
     resizable: false,
     draggable: false,
-    height: 560
+    height: 600
   }
 
   // Initialize dialogs

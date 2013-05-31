@@ -396,8 +396,41 @@ span#restart {
 }
 
 /* Dialogs */
-.ui-widget-overlay {
-  opacity: .6;
-  background: #222;
+.ui-widget {
+  font-family: Helvetica;
 }
-
+.ui-widget-header {
+  border: none;
+  background: none;
+  font-family: "Univers39-UltraCondensedThin";
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
+  color: rgb(128, 161, 182);
+  text-transform: uppercase;
+  font-size: 42px;
+}
+.ui-dialog p {
+  margin: 0;
+}
+.ui-dialog .ui-dialog-content {
+  padding: 0 1.5em;
+}
+.ui-dialog .ui-dialog-titlebar {
+  padding: 10px 20px 0;
+}
+.ui-widget-overlay {
+  opacity: .9;
+  background: #333;
+}
+.ui-widget-content {
+  border: none;
+  color: #FFFFFF;
+  background: url(../../assets/images/theme/bg.jpg) repeat; 
+}
+.level-2 .ui-widget-content,
+.level-3 .ui-widget-content {
+  background: #262626;
+}
+.level-2 .ui-widget-content img,
+.level-3 .ui-widget-content img {
+  margin: 20px 20px 0;
+}
