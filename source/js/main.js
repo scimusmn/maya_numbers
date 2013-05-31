@@ -62,7 +62,13 @@ $(function () {
       displayNumber(value, 'add', bucketID);
 
       // Show the dropped block as the bucket's background image
-      $(this).css('background', 'rgb(191,191,191) url(../assets/images/numbers/' + value + '.png) 10px 10px no-repeat').addClass('full');
+      // Background position depends on the level. Buckets are smaller in levels 2 and 3. 
+      if ($('#level-num').text() > 1) {
+        var x = 5;
+      } else {
+        var x = 10;
+      }
+      $(this).css('background', 'rgb(191,191,191) url(../assets/images/numbers/' + value + '.png) '+ x +'px '+ x +'px no-repeat').addClass('full');
 
       // Make array of values in the buckets
       var allValues = [];
