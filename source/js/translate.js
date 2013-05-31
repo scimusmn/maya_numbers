@@ -34,7 +34,8 @@ dictionary = {
       "hint_link": "Hint",
       "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value.",
       "zero_hint": "Hint: If one place of the target number is supposed to be zero, you need to add the zero-value glyph to fully solve the problem.",
-      "your_answer": "Your answer:",
+      "current_total": "Current total",
+      "your_answer": "Your answer",
       "next": "Next question",
       "funfacts": "Fact",
       "fact_1": "The Maya math system is built around the number 20—based on the number of fingers and toes people have.",
@@ -71,7 +72,8 @@ dictionary = {
       "hint_link": "Indicio",
       "hint": "Pruebe a arrastrar una conjetura sobre el área de mayor valor. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior.",
       "zero_hint": "Sugerencia:. Si un valor se supone que es cero, es necesario agregar el bloque cero para resolver completamente un problema.",
-      "your_answer": "Su respuesta:",
+      "current_total": "Total corriente",
+      "your_answer": "Su respuesta",
       "next": "Próximo",
       "funfacts": "Hecho",
       "fact_1": "El sistema matemático maya se basa en el número 20 porque es el número de dedos que tiene.",
@@ -81,7 +83,6 @@ dictionary = {
       "fact_5": "La exposición está llena de números mayas. Mira a tu alrededor: ¿puedes encontrar algo?"
   }
 };
-
 
 $(function () {
   "use strict";

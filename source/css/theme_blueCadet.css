@@ -98,6 +98,35 @@ body.level-1 #instructions {
 }
 
 /* Middle column */
+#column-middle {
+  font-family: "Univers 75 Black";
+}
+body.level-1 .bucket {
+  position: relative;
+  z-index: 0;
+}
+.bucket {
+  clear: both;
+  float: left;
+  margin-bottom: 12px;
+}
+.bucket .multiplier {
+  float: left;
+  margin-right: 18px;
+  font-size: 24px;
+  position: relative;
+  top: 20px;
+  text-align: right;
+  width: 80px;
+}
+div.bucketSum {
+  float: left;
+  position: relative;
+  top: 24px;
+  text-align: right;
+  width: 50px;
+  margin-left: 8px;
+}
 .bucket div.dropzone {
   float: left;
   border: 5px solid rgb(0, 90, 132);
@@ -121,12 +150,11 @@ body.level-1 #instructions {
 }
 #btn-next span {
   text-transform: uppercase;
-  font-family: "Univers 75 Black";
   font-size: 12px;
   color: #FFFFFF;
   position: relative;
-  top: 12px;
-  left: -17px;
+  top: 10px;
+  left: 13px;
 }
 body.spanish #btn-next {
   font-size: 9px;
@@ -134,6 +162,8 @@ body.spanish #btn-next {
 div#status {
   border: none;
   position: static;
+  clear: both;
+  float: left;
 }
 #column-middle, div#fact-wrap {
   box-shadow: 0 0 15px #000;

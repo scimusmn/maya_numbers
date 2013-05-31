@@ -1,7 +1,5 @@
 /* Layout */
-div#instructions {
-  font-size: 20px;
-}
+
 #column-left {
   float: left;
   width: 500px;
@@ -10,15 +8,6 @@ div#instructions {
   float: left;
   padding-top: 30px;
   margin-left: 80px;
-}
-#column-right {
-
-}
-#buttons {
-  margin-top: 20px;
-}
-#buttons #reset {
-  margin: 12px 0;
 }
 div#glyphs {
   margin: 0 auto;
@@ -112,15 +101,6 @@ div.bucketSum {
   width: 50px;
   margin-left: 8px;
 }
-body.level-1 .bucket {
-  position: relative;
-  left: 65px;
-  z-index: 0;
-}
-body.level-2 .bucket,
-body.level-3 .bucket {
-  left: 0;
-}
 body.level-3 #column-middle {
   padding-top: 20px;
   min-height: 500px;
@@ -129,15 +109,7 @@ body.level-3 #column-right {
   width: 270px;
 }
 div#status {
-  clear: both;
-  border: 1px dashed #AAA;
-  padding: 10px;
-  font-weight: bold;
-  float: left;
-  text-align: center;
-  border-radius: 8px;
-  position: absolute;
-  width: 220px;
+
 }
 body.level-1 div#status {
   top: 300px;
