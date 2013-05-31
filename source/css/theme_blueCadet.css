@@ -111,24 +111,32 @@ body.level-1 .bucket {
   margin-bottom: 12px;
 }
 .bucket .multiplier {
-  float: left;
-  margin-right: 18px;
-  font-size: 24px;
+  margin-right: 28px;
   position: relative;
   top: 20px;
   text-align: right;
-  width: 80px;
+  width: 140px;
+  font-size: 28px;
+}
+.multiplier, .equals, .bucketSum {
+  float: left;
+  color: #c0bfbf;
 }
 .equals {
-  float: left;
+  position: relative;
+  top: 17px;
+  left: 20px;
+  margin-right: 8px;
+  font-size: 32px;
 }
 div.bucketSum {
   float: left;
   position: relative;
-  top: 24px;
+  top: 10px;
   text-align: right;
   width: 50px;
-  margin-left: 8px;
+  font-family: "Univers UltraCondensed";
+  font-size: 38px;
 }
 .bucket div.dropzone {
   float: left;
