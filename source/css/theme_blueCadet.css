@@ -119,6 +119,9 @@ body.level-1 .bucket {
   text-align: right;
   width: 80px;
 }
+.equals {
+  float: left;
+}
 div.bucketSum {
   float: left;
   position: relative;

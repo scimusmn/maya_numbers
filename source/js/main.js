@@ -141,7 +141,7 @@ $(function () {
   var displayNumber = function(value, op, bucketID) {
     // Run addition/subtraction
     var updatedNumber = commaSeparateNumber(updateNumber(value, op, bucketID));
-    $('div#total').html('= ' + updatedNumber); // Update the total
+    $('div#total').html(updatedNumber); // Update the total
   }
 
   // Move forward to the next level or problem when the Next button is tapped
