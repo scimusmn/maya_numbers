@@ -25,6 +25,11 @@ h1 {
   color: rgb(128, 161, 182);
   margin: 0;
 }
+.level-3 h1 {
+  width: 400px;
+  background-position: 0 100px;
+  line-height: normal;
+}
 
 /* Header */
 div#language_bar {
@@ -60,6 +65,7 @@ div#wrapper {
 #column-left {
   clear: both;
   width: 450px;
+  float: left;
 }
 #column-middle {
   background: #262626;
@@ -73,9 +79,16 @@ div#wrapper {
   position: relative;
   top: -10px;
 }
+.level-3 #column-middle {
+  top: -125px;
+}
 #column-right {
   float: right;
   width: 250px;
+}
+.level-3 #column-right {
+  position: relative;
+  top: -70px;
 }
 footer {
   position: fixed;
@@ -87,7 +100,7 @@ footer {
 }
 
 /* Left column */
-#instructions {
+#column-left #instructions {
   margin: 10px 0 -20px;
   min-height: 75px;
 }
@@ -156,13 +169,13 @@ body.level-2 div.bucketSum {
   width: 100px;
 }
 body.level-2 div.plus {
-  left: -64px;
+  left: -74px;
 }
 body.level-3 div.bucketSum {
   width: 120px;
 }
 body.level-3 .plus {
-  left: -45px;
+  left: -55px;
 }
 .bucket div.dropzone {
   float: left;

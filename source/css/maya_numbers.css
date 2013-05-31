@@ -1,8 +1,7 @@
 /* Layout */
 
 #column-left {
-  float: left;
-  width: 500px;
+
 }
 #column-middle {
 
@@ -54,14 +53,6 @@ footer span.selected:hover {
 #glyphs li img {
   cursor: pointer;
   z-index: 99;
-}
-
-body.level-3 #column-middle {
-  padding-top: 20px;
-  min-height: 500px;
-}
-body.level-3 #column-right {
-  width: 270px;
 }
 
 body.level-3 .level-1 {
