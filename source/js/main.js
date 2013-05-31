@@ -486,14 +486,17 @@ var solve = function(level, values) {
 
   // Are the two arrays the same?
   // @DEBUG
-  // console.log('Comparing values ' + values + ' to target values ' + solution);
+  console.log('Comparing values ' + values + ' to target values ' + solution);
   correct = arraysEqual(solution, values);
 
-  // If a bucket (except the top one) isn't full, the answer is wrong, and the user gets the "add a zero glyph" hint
+  // If a bucket (except the top one) isn't full, the answer is wrong
   if (((level == 2) && ((!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')))) ||
       ((level == 3) && ((!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')) || (!$('#bucket-3').hasClass('full'))))) {
     correct = false;
-    $('#zero_hint').fadeIn();
+    // And if the answer requires it, show the user the "add a zero glyph" hint
+    if (inArray(solution, 0)) {
+      $('#zero_hint').fadeIn();
+    }
   }
 
   return correct;
@@ -536,3 +539,11 @@ function makeTimestamp() {
 function getURLParameter(name) {
   return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
 }
+
+function inArray(array, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] == value) return true;
+    }
+    return false;
+}
+
