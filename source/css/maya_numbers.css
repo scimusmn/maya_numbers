@@ -28,14 +28,7 @@ span#es,
 span#restart {
   float: right;
 }
-div.plus {
-  float: right;
-  font-size: 24px;
-  position: relative;
-  clear: left;
-  margin-top: -30px;
-  left: -36px;
-}
+
 footer span.btn-link {
   padding-top: 4px;
   padding-bottom: 4px;

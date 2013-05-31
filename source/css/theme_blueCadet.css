@@ -138,6 +138,25 @@ div.bucketSum {
   font-family: "Univers UltraCondensed";
   font-size: 38px;
 }
+div.plus {
+  float: right;
+  font-size: 24px;
+  position: relative;
+  clear: left;
+  margin-top: -30px;
+}
+body.level-2 div.bucketSum {
+  width: 100px;
+}
+body.level-2 div.plus {
+  left: -64px;
+}
+body.level-3 div.bucketSum {
+  width: 120px;
+}
+body.level-3 .plus {
+  left: -45px;
+}
 .bucket div.dropzone {
   float: left;
   border: 5px solid rgb(0, 90, 132);
