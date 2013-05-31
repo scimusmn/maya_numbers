@@ -170,6 +170,25 @@ body.level-3 .plus {
 .bucket div.dropzone.full {
   opacity: .8;
 }
+div#live_sum {
+  clear: both;
+}
+#live_sum p {
+  font-family: "Univers UltraCondensed";
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  float: right;
+  background: url(../../assets/images/theme/underline.png) repeat-x 0 10px;
+  margin: 0 50px 0 0;
+  padding: 28px 2px 0 12px;
+
+}
+div#total {
+  font-size: 44px;
+  clear: both;
+  text-align: right;
+  margin-right: 50px;
+}
 #btn-next {
   background: url(../../assets/images/theme/bg_next.png) no-repeat;
   border: none;

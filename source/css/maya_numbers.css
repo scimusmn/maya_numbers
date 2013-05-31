@@ -43,21 +43,7 @@ footer span.selected:hover {
 }
 
 /* Content */
-div#live_sum {
-  clear: both;
-  float: left;
-  margin-top: 10px;
-}
-div#total {
-  font-weight: bold;
-  font-size: 44px;
-  width: 240px;
-  padding-top: 10px;
-  border-top: 1px solid #000;
-  clear: both;
-  float: left;
-  text-align: center;
-}
+
 #glyphs ul {
   clear: both;
   padding: 0;
