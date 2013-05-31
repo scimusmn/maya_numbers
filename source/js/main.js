@@ -232,6 +232,7 @@ $(function () {
   // Open the dialog from the help link
   $('#help').click(function() {
     $('#level-'+ level +'-help').dialog('open');
+    $('button').blur(); // Take focus off button    
   });
 
   // Open the hint dialog from the hint link
@@ -420,6 +421,9 @@ var helpDialogs = function(level, autoOpen) {
 
   // Initialize dialogs
   $('#level-'+ level +'-help').dialog(options);
+  
+  // Take the Focus off the button. The browser outlines the button in blue when it has the focus attribute.
+  $('button').blur();
 
 }
 
@@ -540,10 +544,13 @@ function getURLParameter(name) {
   return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
 }
 
+/**
+ * Check if an array contains a value.
+ */
 function inArray(array, value) {
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] == value) return true;
-    }
-    return false;
+  for (var i = 0; i < array.length; i++) {
+      if (array[i] == value) return true;
+  }
+  return false;
 }
 
