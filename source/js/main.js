@@ -238,6 +238,7 @@ $(function () {
   // Open the hint dialog from the hint link
   $('#hint_link').click(function() {
     $('#hint').dialog('open');
+    $('button').blur();
   });
   var hintOptions = {
     autoOpen: false,
