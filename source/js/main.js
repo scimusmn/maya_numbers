@@ -210,7 +210,7 @@ $(function () {
       $('#bucketSum-' + bucketID).text(''); // Clear out the single bucket sum
     } else {
       // For all buckets - run this on "Clear glyphs" button or after a correct answer
-      $('#live_sum div#total').text('');
+      $('#live_sum div#total').text('0');
       $dropzone.removeData('bucketValue');
       $dropzone.css('background', '').removeClass('full'); // Make buckets appear empty
       $('.bucketSum').text(''); // Remove single bucket sums
