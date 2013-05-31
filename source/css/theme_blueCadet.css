@@ -189,25 +189,6 @@ div#total {
   text-align: right;
   margin-right: 50px;
 }
-#btn-next {
-  background: url(../../assets/images/theme/bg_next.png) no-repeat;
-  border: none;
-  width: 171px;
-  height: 41px;
-  border: none;
-  box-shadow: 0px 0px 10px #262626;
-}
-#btn-next span {
-  text-transform: uppercase;
-  font-size: 12px;
-  color: #FFFFFF;
-  position: relative;
-  top: 10px;
-  left: 13px;
-}
-body.spanish #btn-next {
-  font-size: 9px;
-}
 div#status {
   clear: both;
 }
@@ -225,19 +206,47 @@ div#status p {
   background: #262626;
   padding: 20px 20px 0 20px;
   width: 100px;
-  margin: 0 auto;    
+  margin: 0 auto 20px;    
 }
 div#status div {
   float: left;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: .08em;
+  padding: 40px 0px 30px 0px;
 }
 div#status div#correct {
   opacity: .3;
-  margin-right: 10px;
+  background: url(../../assets/images/theme/correct.png) no-repeat top center;
 }
+#status img {
+  float: left;
+  margin: 0 30px;
+}  
 div#status div#incorrect {
+  background: url(../../assets/images/theme/incorrect.png) no-repeat top center;
 }
-#btn-next {
+div#status div#btn-next {
+  background: url(../../assets/images/theme/bg_next.png) no-repeat;
+  border: none;
+  width: 171px;
+  height: 41px;
+  border: none;
+  box-shadow: 0px 0px 10px #262626;
   display: none;
+  padding: 0;
+  float: right;
+}
+#btn-next span {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #FFFFFF;
+  position: relative;
+  top: 10px;
+  left: 13px;
+}
+body.spanish #btn-next {
+  font-size: 9px;
 }
 #column-middle, div#fact-wrap {
   box-shadow: 0 0 15px #000;
