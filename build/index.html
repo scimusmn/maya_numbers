@@ -6,13 +6,15 @@
     <title>Maya Numbers</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
     <link rel="stylesheet" href="css/maya_numbers.min.css">
     <script src="js/maya_numbers.min.js"></script>
 
   </head>
   <body class="level-1">
-
+    <div id="language_bar">
+      <span id="es" class="lang">Español</span>
+      <span id="en" class="lang selected">English</span>
+    </div>
     <div id="wrapper">
       <h1 data-translate="headline"></h1>
 
@@ -20,7 +22,6 @@
         <div id="instructions">
           <p class="level-1" data-translate="glyph_text_1"></p>
           <p class="level-2 level-3" data-translate="glyph_text_2"></p>
-          <p class="level-1 level-2 level-3" data-translate="glyph_text_3"></p>
         </div>
         <div id="glyphs">
           <ul>
@@ -53,108 +54,121 @@
           <div class="bucket level-3">
             <div class="multiplier">8,000 x</div>
             <div id="bucket-4" class="dropzone" data-glyph-value="0"></div>
+            <div class="equals">=</div>
             <div id="bucketSum-4" class="bucketSum level-3"></div>
           </div>
           <div class="plus level-3">+</div>
           <div class="bucket level-2 level-3">
             <div class="multiplier">400 x</div>
             <div id="bucket-3" class="dropzone" data-glyph-value="0"></div>
+            <div class="equals">=</div>
             <div id="bucketSum-3" class="bucketSum level-2 level-3"></div>
           </div>
           <div class="plus level-3 level-2">+</div>
           <div class="bucket level-2 level-3">
             <div class="multiplier">20 x</div>
             <div id="bucket-2" class="dropzone" data-glyph-value="0"></div>
+            <div class="equals">=</div>
             <div id="bucketSum-2" class="bucketSum level-2 level-3"></div>
           </div>
           <div class="plus level-3 level-2">+</div>
           <div class="bucket">
-            <div class="multiplier level-2 level-3">1 x</div>
+            <div class="multiplier level-1 level-2 level-3">1 x</div>
             <div id="bucket-1" class="dropzone" data-glyph-value="0"></div>
-            <div id="bucketSum-1" class="bucketSum level-2 level-3"></div>
+            <div class="equals">=</div>
+            <div id="bucketSum-1" class="bucketSum level-1 level-2 level-3"></div>
           </div>
         </div>
 
         <div id="live_sum">
-          <div id="total"></div>
+          <p data-translate="current_total"></p>
+          <div id="total">0</div>
         </div>
 
         <div id="status">
           <p data-translate="your_answer"></p>
-          <div id="correct" data-translate="alert_correct"></div>
           <div id="incorrect" data-translate="alert_incorrect"></div>
+          <img src="../assets/images/theme/separator.gif">
+          <div id="correct" data-translate="alert_correct"></div>
+          <div id="btn-next"><span data-translate="next"></span></div>
         </div>
 
       </div><!--/column-middle-->
 
       <div id="column-right" class="column">
-        <p class="level-1" data-translate="target_1"></p>
-        <p class="level-2 level-3" data-translate="target_2"></p>
-        <div id="target_value"></div>
-        <div id="buttons">
-          <a class="btn" id="reset" data-translate="reset_button"></a>
-          <a class="btn btn-success" id="btn-next" data-translate="next"></a>
+        <div id="bubble-wrap">
+          <p class="level-1" data-translate="target_1"></p>
+          <p class="level-2 level-3" data-translate="target_2"></p>
+          <div id="target_value"></div>
         </div>
         <p id="zero_hint" data-translate="zero_hint"></p>
-        <div id="facts">
-          <p id="fact_1" data-translate="fact_1"></p>
-          <p id="fact_2" data-translate="fact_2"></p>
-          <p id="fact_3" data-translate="fact_3"></p>
-          <p id="fact_4" data-translate="fact_4"></p>
-          <p id="fact_5" data-translate="fact_5"></p>
+        <div id="fact-wrap">
+          <div id="facts">
+            <h4 data-translate="funfacts"></h4>
+            <p id="fact_1" data-translate="fact_1"></p>
+            <p id="fact_2" data-translate="fact_2"></p>
+            <p id="fact_3" data-translate="fact_3"></p>
+            <p id="fact_4" data-translate="fact_4"></p>
+            <p id="fact_5" data-translate="fact_5"></p>
+          </div>
         </div>
       </div><!--/column-right-->
 
-      <footer>
-        <span id="level">
-          <span id="level-label" data-translate="level"></span> <span id="level-num">1</span>
-        </span>
-        <span id="counter"><span id="correct">0</span> / <span id="required">5</span></span>
-        <span id="help" class="btn-link btn" data-translate="help_link"></span>
-        <span id="hint_link" class="btn-link btn level-2 level-3" data-translate="hint_link"></span>
-        <span id="restart" class="btn-link btn" data-translate="restart"></span>
-        <span id="en" class="lang btn-link btn selected">English</span>
-        <span id="es" class="lang btn-link btn">Spanish</span>
-      </footer>
-
-      <!-- Help text, displayed in overlays, usually hidden. -->
-      <div class="help_overlay" id="level-1-help">
-        <p data-translate="help_1"></p>
-        <ul>
-          <li class="dots" data-translate="help_1_a"></li>
-          <li class="lines" data-translate="help_1_b"></li>
-          <li class="six" data-translate="help_1_c"></li>
-        </ul>
-        <p id="intro" data-translate="help_intro"></p>
-      </div>
-
-      <div class="help_overlay" id="level-2-help">
-        <p data-translate="help_2"></p>
-        <img src="../assets/images/help-level2.png">
-      </div>
-
-      <div class="help_overlay" id="level-3-help">
-        <p data-translate="help_3"></p>
-        <img src="../assets/images/help-level3.png">
-      </div>
-
-      <div class="help_overlay" id="level-4-help">
-        <p data-translate="win"></p>
-      </div>
-
-      <div class="help_overlay" id="hint">
-        <p data-translate="hint"></p>
-      </div>
-
-      <div class="help_overlay">
-        <!-- Hidden elements, used for dialog titles and buttons. They're part of the HTML markup so that we can translate them if needed -->
-        <span id="btn-1" data-translate="dialog_btn_1">Go!</span>
-        <span id="btn-win" data-translate="dialog_btn_win">Play again</span>
-        <span id="splash-title" data-translate="splash-title">The Maya devised a math to map the heavens</span>
-        <span id="dialog-title" data-translate="level">Level</span>
-        <span id="dialog-title-win" data-translate="dialog_title_win">Nice work!</span>
-      </div>
-
     </div><!--/wrapper-->
+
+    <footer>
+      <span id="level">
+        <span id="level-label" data-translate="level"></span> <span id="level-num">1</span>
+      </span>
+      <span id="counter"><span id="correct">0</span> / <span id="required">5</span></span>
+      <div class="footer-tab">
+        <span id="help" data-translate="help_link"></span>
+      </div>
+      <div class="footer-tab level-2 level-3">
+        <span id="hint_link" class="level-2 level-3" data-translate="hint_link"></span>
+      </div>
+      <div id="restart-wrap">
+        <span id="restart" data-translate="restart"></span>
+      </div>
+    </footer>
+
+    <!-- Help text, displayed in overlays, usually hidden. -->
+    <div class="help_overlay" id="level-1-help">
+      <p data-translate="help_1"></p>
+      <ul>
+        <li class="dots" data-translate="help_1_a"></li>
+        <li class="lines" data-translate="help_1_b"></li>
+        <li class="six" data-translate="help_1_c"></li>
+      </ul>
+      <p id="intro" data-translate="help_intro"></p>
+    </div>
+
+    <div class="help_overlay" id="level-2-help">
+      <p data-translate="help_2"></p>
+      <img src="../assets/images/help-level2.gif">
+    </div>
+
+    <div class="help_overlay" id="level-3-help">
+      <p data-translate="help_3"></p>
+      <img src="../assets/images/help-level3.gif">
+    </div>
+
+    <div class="help_overlay" id="level-4-help">
+      <p data-translate="win"></p>
+    </div>
+
+    <div class="help_overlay" id="hint">
+      <p data-translate="hint"></p>
+    </div>
+
+    <div class="help_overlay">
+      <!-- Hidden elements, used for dialog titles and buttons. They're part of the HTML markup so that we can translate them if needed -->
+      <span id="btn-1" data-translate="dialog_btn_1">Go!</span>
+      <span id="btn-win" data-translate="dialog_btn_win">Play again</span>
+      <span id="splash-title" data-translate="splash-title">The Maya devised a math to map the heavens</span>
+      <span id="dialog-title" data-translate="level">Level</span>
+      <span id="dialog-title-win" data-translate="dialog_title_win">Nice work!</span>
+    </div>
+
   </body>
 </html>
