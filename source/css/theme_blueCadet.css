@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Univers39-UltraCondensedThin";
+  src: local("Univers39-UltraCondensedThin"),
+  url(../../assets/fonts/Univers39UltraCondensedThin.ttf);
+}
+@font-face {
+  font-family: "Univers UltraCondensed";
+  src: local("Univers 59 Ultra Condensed.ttf"),
+  url(../../assets/fonts/Univers 59 Ultra Condensed.ttf);
+}
+@font-face {
+  font-family: "Univers 75 Black";
+  src: local("Univers 75 Black.ttf"),
+  url(../../assets/fonts/Univers 75 Black.ttf);
+}
+@font-face {
+  font-family: "Serifa Std";
+  src: local("SerifaStd-Roman.otf"),
+  url(../../assets/fonts/SerifaStd-Roman.otf);
+}
+
 body {
   background: url(../../assets/images/theme/bg.jpg) repeat;
   color: rgb(255,255,255);
@@ -220,9 +241,9 @@ div#total {
 }
 div#status {
   background: url(../../assets/images/theme/underline.png) repeat-x 0 26px;
-  clear: both;  
+  clear: both;
   width: 420px;
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 body.level-2 div#status,
 body.level-3 div#status {
@@ -242,7 +263,7 @@ div#status p {
   background: #262626;
   padding: 20px 20px 0 20px;
   width: 100px;
-  margin: 0 auto 20px;    
+  margin: 0 auto 20px;
 }
 div#status div {
   float: left;
@@ -258,7 +279,7 @@ div#status div#correct {
 #status img {
   float: left;
   margin: 0 30px;
-}  
+}
 div#status div#incorrect {
   background: url(../../assets/images/theme/incorrect.png) no-repeat top center;
 }
