@@ -101,12 +101,16 @@ $(function () {
       set_lang(dictionary[language]);
     }
     $(this).addClass('selected'); // Toggle button class
-    $('body').toggleClass(language); // Toggle the body class
 
-    // Swap images in the help dialogs
+    // Markup changes
     if (language == 'english') {
+      // Toggle body class
+      $('body').removeClass('spanish');
+      // Swap images in the help dialogs
       var helpImages = ['help-level2.gif', 'help-level3.gif'];
     } else {
+      // Add a body class for Spanish - this sizes some text down a bit
+      $('body').addClass('spanish');
       var helpImages = ['help-level2-spanish.gif', 'help-level3-spanish.gif'];
     }
     var path = '../assets/images/';
