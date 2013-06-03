@@ -72,9 +72,10 @@ div#language_bar span#es {
 span.selected {
   color: rgb(255,255,255);
 }
-#instructions p {
-  font-size: 18px;
-  width: 400px;
+span#en,
+span#es,
+span#restart {
+  float: right;
 }
 
 /* Layout */
@@ -121,7 +122,23 @@ footer {
   padding: 0 70px 0 85px;
 }
 
+/* Initially hidden content */
+body.level-3 .level-1 {
+  display: none;
+}
+body.level-3 .level-1.level-3 {
+  display: block;
+}
+#facts p,
+#zero_hint {
+  display: none;
+}
+
 /* Left column */
+#instructions p {
+  font-size: 18px;
+  width: 400px;
+}
 #column-left #instructions {
   margin: 10px 0 -20px;
   min-height: 75px;
@@ -135,8 +152,27 @@ body.level-1 #instructions {
 #instructions p {
   margin: 0;
 }
+div#glyphs {
+  margin: 0 auto;
+  text-align: center;
+}
+#glyphs ul {
+  clear: both;
+  padding: 0;
+  margin: 0 0 50px 0;
+}
+#glyphs ul li {
+  float: left;
+  list-style-type: none;
+  margin: 5px 20px 8px 0;
+}
+#glyphs ul li.new-row {
+  clear: both;
+}
 #glyphs li img {
   box-shadow: 0 0 7px #000;
+  cursor: pointer;
+  z-index: 99;
 }
 
 /* Middle column */
@@ -414,6 +450,10 @@ span#restart {
   position: relative;
   top: 13px;
   margin-right: 70px;
+}
+span#counter {
+  padding: 0 20px;
+  margin: 0 10px;
 }
 
 /* Dialogs */
