@@ -101,7 +101,7 @@ $(function () {
       set_lang(dictionary[language]);
     }
     $(this).addClass('selected'); // Toggle button class
-    $('body').toggleClass('spanish'); // Toggle the body class
+    $('body').toggleClass(language); // Toggle the body class
 
     // Swap images in the help dialogs
     if (language == 'english') {
