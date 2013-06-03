@@ -7,14 +7,12 @@ var dictionary, set_lang;
 // Object literal behaving as multi-dictionary
 dictionary = {
   "english": {
-      "splash-title": "The Maya devised a math to map the heavens",
+      "splash-title": "The Maya invented math to map the heavens",
       "headline": "Can you match numbers with the corresponding glyphs?",
       "glyph_text_1": "Drag the correct glyph from below into the value box. Double-tap a glyph to put it back.",
       "glyph_text_2": "Using the glyphs and the value boxes, generate the number shown. Double-tap a glyph to put it back.",
       "target_1": "Add a glyph to the box that equals this number:",
       "target_2": "Add glyphs to the boxes that add up to this number:",
-      "enter_button": "Check your answer",
-      "reset_button": "Reset glyphs",
       "help_link": "Instructions",
       "level": "Level",
       "restart": "Restart game",
@@ -51,8 +49,6 @@ dictionary = {
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número. Puntee dos veces en un glifo a poner de nuevo.",
       "target_1": "Añadir un glifo a la casilla que corresponde a este número:",
       "target_2": "Añadir glifos para las cajas que se suman a este número:",
-      "enter_button": "Compruebe su respuesta",
-      "reset_button": "Cambiar glifos",
       "help_link": "Instrucciones",
       "level": "Nivel",
       "restart": "Reinicie juego",
