@@ -43,7 +43,7 @@ dictionary = {
       "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
   },
   "español": {
-      "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
+      "splash-title": "La matemática inventada Maya para mapear los cielos",
       "headline": "Puede coincidir con los números con los glifos correspondientes?",
       "glyph_text_1": "Arrastre el glifo correcto de abajo en el cuadro de valores. Puntee dos veces en un glifo a poner de nuevo.",
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número. Puntee dos veces en un glifo a poner de nuevo.",
