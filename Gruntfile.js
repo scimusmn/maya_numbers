@@ -25,8 +25,7 @@ module.exports = function(grunt) {
             'source/css/main.css',
             'source/css/normalize.min.css',
             'source/css/jquery-ui.min.css',
-            'source/css/maya_numbers.css',
-            'source/css/theme_blueCadet.css'
+            'source/css/maya.css'
           ]
         }
       }
