@@ -7,14 +7,12 @@ var dictionary, set_lang;
 // Object literal behaving as multi-dictionary
 dictionary = {
   "english": {
-      "splash-title": "The Maya devised a math to map the heavens",
+      "splash-title": "The Maya invented math to map the heavens",
       "headline": "Can you match numbers with the corresponding glyphs?",
       "glyph_text_1": "Drag the correct glyph from below into the value box. Double-tap a glyph to put it back.",
       "glyph_text_2": "Using the glyphs and the value boxes, generate the number shown. Double-tap a glyph to put it back.",
       "target_1": "Add a glyph to the box that equals this number:",
       "target_2": "Add glyphs to the boxes that add up to this number:",
-      "enter_button": "Check your answer",
-      "reset_button": "Reset glyphs",
       "help_link": "Instructions",
       "level": "Level",
       "restart": "Restart game",
@@ -45,14 +43,12 @@ dictionary = {
       "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
   },
   "español": {
-      "splash-title": "Los mayas idearon un sistema matemático para trazar el mapa del cielo",
+      "splash-title": "La matemática inventada Maya para mapear los cielos",
       "headline": "Puede coincidir con los números con los glifos correspondientes?",
       "glyph_text_1": "Arrastre el glifo correcto de abajo en el cuadro de valores. Puntee dos veces en un glifo a poner de nuevo.",
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número. Puntee dos veces en un glifo a poner de nuevo.",
       "target_1": "Añadir un glifo a la casilla que corresponde a este número:",
       "target_2": "Añadir glifos para las cajas que se suman a este número:",
-      "enter_button": "Compruebe su respuesta",
-      "reset_button": "Cambiar glifos",
       "help_link": "Instrucciones",
       "level": "Nivel",
       "restart": "Reinicie juego",
@@ -105,12 +101,16 @@ $(function () {
       set_lang(dictionary[language]);
     }
     $(this).addClass('selected'); // Toggle button class
-    $('body').toggleClass('spanish'); // Toggle the body class
 
-    // Swap images in the help dialogs
+    // Markup changes
     if (language == 'english') {
+      // Toggle body class
+      $('body').removeClass('spanish');
+      // Swap images in the help dialogs
       var helpImages = ['help-level2.gif', 'help-level3.gif'];
     } else {
+      // Add a body class for Spanish - this sizes some text down a bit
+      $('body').addClass('spanish');
       var helpImages = ['help-level2-spanish.gif', 'help-level3-spanish.gif'];
     }
     var path = '../assets/images/';
