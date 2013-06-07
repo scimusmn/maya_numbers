@@ -1,8 +1,8 @@
-@font-face {
+/*@font-face {
   font-family: "Univers39-UltraCondensedThin";
   src: local("Univers39-UltraCondensedThin"),
   url(../../assets/fonts/Univers39UltraCondensedThin.ttf);
-}
+}*/
 @font-face {
   font-family: "Univers UltraCondensed";
   src: local("Univers 59 Ultra Condensed.ttf"),
@@ -33,23 +33,22 @@ body {
   user-select: none;
 }
 h1 {
-  font-family: "Univers39-UltraCondensedThin";
+  /*font-family: "Univers39-UltraCondensedThin";
   text-shadow: 2px 2px 4px rgba(0,0,0,1);
   background: url(../../assets/images/theme/underline.png) repeat-x 0px 63px;
   font-weight: lighter;
-  display: inline;
-  float: left;
-  padding-bottom: 20px;
   font-size: 54px;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: rgb(128, 161, 182);
+  color: rgb(128, 161, 182);*/
+  float: left;
+  padding-bottom: 20px;
   margin: 0;
 }
 .level-3 h1 {
   width: 400px;
-  background-position: 0 100px;
-  line-height: normal;
+  /*background-position: 0 100px;
+  line-height: normal;*/
   margin: 10px 0 20px;
 }
 
@@ -61,6 +60,11 @@ h1 {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
+}
+h1.text-replacement {
+  width: 695px;
+  height: 61px;
+  background: url(../../assets/images/text/headline-eng.png) no-repeat;
 }
 
 /* Header */
@@ -113,7 +117,7 @@ div#wrapper {
   top: -10px;
 }
 .level-3 #column-middle {
-  top: -155px;
+  top: -115px;
 }
 #column-right {
   float: right;
@@ -267,17 +271,16 @@ div#live_sum {
   clear: both;
 }
 #live_sum p {
-  font-family: "Univers UltraCondensed";
+  /*font-family: "Univers UltraCondensed";
   text-transform: uppercase;
   letter-spacing: .12em;
+  background: url(../../assets/images/theme/underline.png) repeat-x 0 10px;*/
   float: right;
-  background: url(../../assets/images/theme/underline.png) repeat-x 0 10px;
-  margin: 0 50px 0 0;
-  padding: 28px 2px 0 12px;
-}
-body.level-2 #live_sum p,
-body.level-3 #live_sum p {
-  padding: 22px 2px 0 12px;
+  background: url(../../assets/images/text/current-total-eng.png) no-repeat;
+  width: 112px;
+  height: 39px;
+  margin: 0 40px 0 0;
+  padding: 8px 0px 0 0;
 }
 div#total {
   font-size: 44px;
@@ -286,10 +289,10 @@ div#total {
   margin-right: 50px;
 }
 div#status {
-  background: url(../../assets/images/theme/underline.png) repeat-x 0 26px;
-  clear: both;
-  width: 420px;
+  /*background: url(../../assets/images/theme/underline.png) repeat-x 0 26px;*/
+  width: 400px;
   margin: 0 auto;
+  clear: both;
 }
 body.level-2 div#status,
 body.level-3 div#status {
@@ -301,15 +304,17 @@ body.level-3 div#status div {
   padding: 40px 0px 8px 0px;
 }
 div#status p {
-  font-family: "Univers UltraCondensed";
+  /*font-family: "Univers UltraCondensed";
   letter-spacing: .12em;
   font-size: 16px;
   text-align: center;
   text-transform: uppercase;
-  background: #262626;
+  background: #262626;*/
+  background: url(../../assets/images/text/your-answer-eng.png) no-repeat;
   padding: 20px 20px 0 20px;
-  width: 100px;
-  margin: 0 auto 20px;
+  width: 406px;
+  height: 12px;
+  margin: 10px auto;
 }
 div#status div {
   float: left;
