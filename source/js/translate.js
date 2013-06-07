@@ -7,8 +7,6 @@ var dictionary, set_lang;
 // Object literal behaving as multi-dictionary
 dictionary = {
   "english": {
-      "splash-title": "The Maya invented math to map the heavens",
-      "headline": "Can you match numbers with the corresponding glyphs?",
       "glyph_text_1": "Drag the correct glyph from below into the value box. Double-tap a glyph to put it back.",
       "glyph_text_2": "Using the glyphs and the value boxes, generate the number shown. Double-tap a glyph to put it back.",
       "target_1": "Add a glyph to the box that equals this number:",
@@ -26,14 +24,11 @@ dictionary = {
       "win": "Success! You’ve mastered Maya numbers. Look for them throughout the exhibit.",
       "dialog_btn_1": "Go!",
       "dialog_btn_win": "Play again",
-      "dialog_title_win": "Nice work!",
       "alert_correct": "Correct",
       "alert_incorrect": "Incorrect",
       "hint_link": "Hint",
       "hint": "Try dragging a guess into the highest value box. If your guess is too high, try a glyph with a lower value.",
       "zero_hint": "Hint: If one place of the target number is supposed to be zero, you need to add the zero-value glyph to fully solve the problem.",
-      "current_total": "Current total",
-      "your_answer": "Your answer",
       "next": "Next question",
       "funfacts": "Fact",
       "fact_1": "The Maya math system is built around the number 20—based on the number of fingers and toes people have.",
@@ -43,8 +38,6 @@ dictionary = {
       "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
   },
   "español": {
-      "splash-title": "La matemática inventada Maya para mapear los cielos",
-      "headline": "Puede coincidir con los números con los glifos correspondientes?",
       "glyph_text_1": "Arrastre el glifo correcto de abajo en el cuadro de valores. Puntee dos veces en un glifo a poner de nuevo.",
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número. Puntee dos veces en un glifo a poner de nuevo.",
       "target_1": "Añadir un glifo a la casilla que corresponde a este número:",
@@ -62,14 +55,11 @@ dictionary = {
       "win": "Éxito! Usted ha dominado números mayas. Búscalos por toda la instalación.",
       "dialog_btn_1": "Ir!",
       "dialog_btn_win": "Jugar de nuevo",
-      "dialog_title_win": "Buen trabajo!",
       "alert_correct": "Correcto",
       "alert_incorrect": "Incorrecta",
       "hint_link": "Indicio",
       "hint": "Pruebe a arrastrar una conjetura sobre el área de mayor valor. Si su respuesta es demasiado alto, pruebe con un glifo con un valor inferior.",
       "zero_hint": "Sugerencia:. Si un valor se supone que es cero, es necesario agregar el bloque cero para resolver completamente un problema.",
-      "current_total": "Total corriente",
-      "your_answer": "Su respuesta",
       "next": "Próximo",
       "funfacts": "Hecho",
       "fact_1": "El sistema matemático maya se basa en el número 20 porque es el número de dedos que tiene.",
