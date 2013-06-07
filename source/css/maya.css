@@ -516,8 +516,12 @@ span#counter {
 .ui-widget-overlay {
   opacity: .9;
 }
+.no-close .ui-dialog-titlebar,
 .no-close .ui-dialog-titlebar-close {
   display: none;
+}
+.ui-dialog {
+  padding-top: 30px;
 }
 .help_overlay ul li {
   list-style-type: none;

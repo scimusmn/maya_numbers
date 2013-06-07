@@ -372,16 +372,11 @@ var helpDialogs = function(level, autoOpen) {
   // Level-specific text
   if (level < 4) {
     var text = $('#btn-1').text();
-    var dialogTitle = $('#dialog-title').text() + ' ' + level;
   } else {
     var text = $('#btn-win').text();
-    var dialogTitle = $('#dialog-title-win').text();
 
     // @SELENIUM Log message
     console.log(makeTimestamp() + ': Game completed');
-  }
-  if (level == 1) {
-    var dialogTitle = $('#splash-title').text();
   }
 
   var options = {
@@ -405,7 +400,6 @@ var helpDialogs = function(level, autoOpen) {
       })
     },
     dialogClass: "no-close",
-    title: dialogTitle,
     close: function(event, ui) {
       if (level == 4) {
         location.reload(); // Restart the game after the last dialog is closed.
@@ -417,7 +411,7 @@ var helpDialogs = function(level, autoOpen) {
     },
     resizable: false,
     draggable: false,
-    height: 600
+    height: 500
   }
 
   // Initialize dialogs
