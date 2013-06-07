@@ -62,7 +62,7 @@ $(function () {
       displayNumber(value, 'add', bucketID);
 
       // Show the dropped block as the bucket's background image
-      // Background position depends on the level. Buckets are smaller in levels 2 and 3. 
+      // Background position depends on the level. Buckets are smaller in levels 2 and 3.
       if ($('#level-num').text() > 1) {
         var x = 5;
       } else {
@@ -232,7 +232,7 @@ $(function () {
   // Open the dialog from the help link
   $('#help').click(function() {
     $('#level-'+ level +'-help').dialog('open');
-    $('button').blur(); // Take focus off button    
+    $('button').blur(); // Take focus off button
   });
 
   // Open the hint dialog from the hint link
@@ -286,7 +286,7 @@ var levelChange = function(level, $dropzone) {
       required = 5;
       break;
     case 2:
-      var min = 20;
+      var min = 400;
       var max = 7999;
       required = 3;
       break;
@@ -422,7 +422,7 @@ var helpDialogs = function(level, autoOpen) {
 
   // Initialize dialogs
   $('#level-'+ level +'-help').dialog(options);
-  
+
   // Take the Focus off the button. The browser outlines the button in blue when it has the focus attribute.
   $('button').blur();
 
