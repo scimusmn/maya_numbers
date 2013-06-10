@@ -39,9 +39,9 @@ dictionary = {
   },
   "español": {
       "glyph_text_1": "Arrastra el glifo correcto desde abajo hasta la casilla de los valores. Toca el glifo dos veces para devolverlo a su lugar.",
-      "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número. Toca el glifo dos veces para devolverlo a su lugar.",
-      "target_1": "Añadir un glifo a la casilla que corresponde a este número:",
-      "target_2": "Agrega glifos a las casillas que dan como resultado este número:",
+      "glyph_text_2": "Utilizando los glifos y las casillas de valores, genera el número que aparece aquí.",
+      "target_1": "Añadir un glifo a la casilla que suman a este número:",
+      "target_2": "Agrega glifos a las casillas que suman este número:",
       "help_link": "Instrucciones",
       "level": "Nivel",
       "restart": "Reiniciar juego",
