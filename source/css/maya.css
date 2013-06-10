@@ -317,6 +317,11 @@ div#live_sum {
   margin: 0 40px 0 0;
   padding: 8px 0px 0 0;
 }
+body.level-2 #live_sum,
+body.level-3 #live_sum {
+  position: relative;
+  top: -10px;
+}
 body.spanish #live_sum p {
   background: url(../../assets/images/text/current-total-esp.png) no-repeat;
 }
