@@ -495,6 +495,7 @@ var solve = function(level, values) {
       ((level == 3) && ((!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')) || (!$('#bucket-3').hasClass('full'))))) {
     correct = false;
     // And if the answer requires it, show the user the "add a zero glyph" hint
+    // @BUG - This always returns true on level 2 because it's checking the extra 8000s place value, which is always 0 on level 2
     if (inArray(solution, 0)) {
       $('#zero_hint').fadeIn();
     }
