@@ -389,7 +389,7 @@ var helpDialogs = function(level) {
       }
     }],
     modal: true,
-    width: 600,
+    width: 700,
     hide: {
       effect: 'fadeOut',
       duration: 200
@@ -411,7 +411,7 @@ var helpDialogs = function(level) {
     },
     resizable: false,
     draggable: false,
-    height: 500
+    height: 700
   }
 
   // Initialize dialogs
