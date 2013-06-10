@@ -240,10 +240,11 @@ $(function () {
     $('#hint').dialog('open');
     $('button').blur();
   });
+  var hintText = $('#btn-aight').text();
   var hintOptions = {
     autoOpen: false,
     buttons: [{
-      text: 'OK',
+      text: hintText,
       click: function() {
         $('#hint').dialog('close');
       }

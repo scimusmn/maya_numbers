@@ -35,7 +35,8 @@ dictionary = {
       "fact_2": "The Maya were one of only four civilizations to develop the concept of zero.",
       "fact_3": "A place-value system allows the user to write and manipulate really big numbers – like those required to track astronomical phenomena – and to break those numbers down into units such as days, weeks and months.",
       "fact_4": "In the Long Count calendar, the third place value represents quantities of 260, instead of 400, since 260 is closer to the length of the year. As a result, the digit in the fourth place represents quantities of 7,200.",
-      "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?"
+      "fact_5": "The exhibit is full of Maya numbers. Look around: can you find some?",
+      "dialog_btn_ok": "OK"
   },
   "español": {
       "glyph_text_1": "Arrastra el glifo correcto desde abajo hasta la casilla de los valores. Toca el glifo dos veces para devolverlo a su lugar.",
@@ -66,7 +67,8 @@ dictionary = {
       "fact_2": "La maya es una de las cuatro únicas  civilizaciones que desarrollaron el concepto del cero.",
       "fact_3": "Un sistema de valor posicional le permite a quien lo use, escribir y manipular números realmente grandes – como aquellos que se requieren para registrar fenómenos astronómicos – y descomponer esos números en unidades tales como días, semanas y meses.",
       "fact_4": "En el calendario de Cuenta Larga, el tercer valor posicional representa cantidades de 260, en vez de 400, puesto que 260 es un número más próximo a la duración del año. Como resultado de esto, el dígito en el cuarto lugar representa cantidades de 7200.",
-      "fact_5": "En esta exhibición hay montones de números mayas. Mira alrededor: ¿puedes encontrar algunos?"
+      "fact_5": "En esta exhibición hay montones de números mayas. Mira alrededor: ¿puedes encontrar algunos?",
+      "dialog_btn_ok": "Bien"
   }
 };
 
@@ -110,6 +112,15 @@ $(function () {
     // Update jQuery UI dialog buttons
     var level = $('body').attr('class').match(/\d+/);
     helpDialogs(level, false); // The "false" keeps autoOpen from happening on the language change
+    var hintText = $('#btn-aight').text();
+    $('#hint').dialog({
+      buttons: [{
+        text: hintText,
+        click: function() {
+          $('#hint').dialog('close');
+        }
+      }]
+    });
 
     // @SELENIUM Log message
     console.log(makeTimestamp() + ': Language changed to ' + language);
