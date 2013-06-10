@@ -380,7 +380,7 @@ var helpDialogs = function(level) {
   }
 
   var options = {
-    autoOpen: false,
+    autoOpen: true,
     buttons: [{
       text: text,
       click: function() {
