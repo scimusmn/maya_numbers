@@ -107,6 +107,10 @@ $(function () {
     $('#level-2-help img').attr('src', path + helpImages[0]);
     $('#level-3-help img').attr('src', path + helpImages[1]);
 
+    // Update jQuery UI dialog buttons
+    var level = $('body').attr('class').match(/\d+/);
+    helpDialogs(level, false); // The "false" keeps autoOpen from happening on the language change
+
     // @SELENIUM Log message
     console.log(makeTimestamp() + ': Language changed to ' + language);
 

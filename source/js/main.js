@@ -348,7 +348,7 @@ var levelChange = function(level, $dropzone) {
     $('h1, .column, footer').hide(); // When the game ends, just hide everything except the dialog
   }
 
-  helpDialogs(level); // Launch dialogs
+  helpDialogs(level, true); // Launch dialogs
 }
 
 /*
@@ -363,11 +363,12 @@ var updateTarget = function(targetValues, totalCorrect) {
   $('div#target_value').html(commaSeparateNumber(targetValues[totalCorrect]));
 }
 
-/*
+/**
  * Help dialogs. These open when each level begins and can be re-opened using the "Help?" link.
  * @param level - int - which level we're currently on
+ * @param autoOpen - boolean - should the dialog open automatically?
 */
-var helpDialogs = function(level) {
+var helpDialogs = function(level, autoOpen) {
 
   // Level-specific text
   if (level < 4) {
@@ -380,7 +381,7 @@ var helpDialogs = function(level) {
   }
 
   var options = {
-    autoOpen: true,
+    autoOpen: autoOpen,
     buttons: [{
       text: text,
       click: function() {
