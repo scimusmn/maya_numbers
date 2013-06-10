@@ -495,8 +495,7 @@ var solve = function(level, values) {
       ((level == 3) && ((!$('#bucket-1').hasClass('full')) || (!$('#bucket-2').hasClass('full')) || (!$('#bucket-3').hasClass('full'))))) {
     correct = false;
     // And if the answer requires it, show the user the "add a zero glyph" hint
-    // @BUG - This always returns true on level 2 because it's checking the extra 8000s place value, which is always 0 on level 2
-    if (inArray(solution, 0)) {
+    if (inArray(level, solution)) {
       $('#zero_hint').fadeIn();
     }
   }
@@ -543,11 +542,15 @@ function getURLParameter(name) {
 }
 
 /**
- * Check if an array contains a value.
+ * Check if an array contains a zero.
  */
-function inArray(array, value) {
+function inArray(level, array) {
+  // Cut the 8000s place value off the array for level 2 (it's always zero)
+  if (level < 3) {
+    array.splice(0, 1);
+  }
   for (var i = 0; i < array.length; i++) {
-      if (array[i] == value) return true;
+    if (array[i] == 0) return true;
   }
   return false;
 }
