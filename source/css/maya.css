@@ -66,12 +66,24 @@ h1 {
   height: 61px;
   background: url(../../assets/images/text/headline-eng.png) no-repeat;
 }
+body.level-3 #wrapper h1.text-replacement {
+  background: url(../../assets/images/text/headline-L3-eng.png) no-repeat;
+  height: 111px;
+  width: 396px;
+}
 body.spanish #wrapper h1.text-replacement {
   width: 876px;
   height: 77px;
   background: url(../../assets/images/text/headline-esp.png) no-repeat;
   padding-bottom: 14px;
 }
+body.level-3.spanish #wrapper h1.text-replacement {
+  background: url(../../assets/images/text/headline-L3-esp.png) no-repeat;
+  width: 442px;
+  height: 117px;
+}
+
+/* Dialogs */
 .help_overlay h1 {
   height: 46px;
 }
@@ -159,10 +171,7 @@ div#wrapper {
 }
 .level-3 #column-middle {
   position: relative;
-  top: -115px;
-}
-body.spanish.level-3 #column-middle {
-  top: -130px;
+  top: -165px;
 }
 #column-right {
   float: right;
@@ -557,7 +566,7 @@ span#counter {
 }
 .level-2 .ui-widget-content img,
 .level-3 .ui-widget-content img {
-  margin: 20px 20px 0;
+  margin: 50px 100px 0;
 }
 .help_overlay {
   display: none;
