@@ -61,25 +61,48 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
 }
-h1.text-replacement {
+#wrapper h1.text-replacement {
   width: 695px;
   height: 61px;
   background: url(../../assets/images/text/headline-eng.png) no-repeat;
 }
+body.spanish #wrapper h1.text-replacement {
+  width: 884px;
+  height: 77px;
+  background: url(../../assets/images/text/headline-esp.png) no-repeat;
+}
 .help_overlay h1 {
   height: 46px;
+}
+body.spanish h1#splash-title {
+  background: url(../../assets/images/text/dialog-1-esp.png) no-repeat;
+  width: 492px;
+  height: 93px;
 }
 h1#splash-title {
   background: url(../../assets/images/text/dialog-1-eng.png) no-repeat;
   width: 451px;
 }
+body.spanish h1#level-2 {
+  background: url(../../assets/images/text/dialog-2-esp.png) no-repeat;
+  width: 76px;
+}
 h1#level-2 {
   background: url(../../assets/images/text/dialog-2-eng.png) no-repeat;
   width: 78px;
 }
+body.spanish h1#level-3 {
+  background: url(../../assets/images/text/dialog-3-esp.png) no-repeat;
+  width: 75px;
+}
 h1#level-3 {
   background: url(../../assets/images/text/dialog-3-eng.png) no-repeat;
   width: 77px;
+}
+body.spanish h1#win-title {
+  background: url(../../assets/images/text/dialog-4-esp.png) no-repeat;
+  width: 114px;
+  height: 55px;
 }
 h1#win-title {
   background: url(../../assets/images/text/dialog-4-eng.png) no-repeat;
@@ -132,11 +155,13 @@ div#wrapper {
 }
 .level-2 #column-middle, .level-3 #column-middle {
   padding-top: 22px;
-  position: relative;
-  top: -10px;
 }
 .level-3 #column-middle {
+  position: relative;
   top: -115px;
+}
+body.spanish.level-3 #column-middle {
+  top: -130px;
 }
 #column-right {
   float: right;
@@ -392,9 +417,6 @@ div#bubble-wrap {
   width: 150px;
   font-style: italic;
   margin: 0 auto 10px;
-}
-body.spanish #bubble-wrap p {
-  font-size: 14px;
 }
 body.level-2 div#target_value {
   font-size: 32px;
