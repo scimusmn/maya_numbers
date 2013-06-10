@@ -14,7 +14,7 @@ dictionary = {
       "help_link": "Instructions",
       "level": "Level",
       "restart": "Restart game",
-      "help_1": "The Maya created a mathematical system for documenting and predicting astronomical phenomena. They had several symbols for zero. Combinations of dots (ones) and bars (fives) represented any value from one to nineteen. And like our place values of tens, hundreds and thousands, the value of larger numbers was determined by each symbol’s position.",
+      "help_1": "The Maya created a mathematical system for documenting and predicting astronomical phenomena. They had several symbols for zero. Combinations of dots (ones) and bars (fives) represented any value from one to nineteen. And like our place values of tens, hundreds and thousands, the value of larger numbers was determined by each symbol's position.",
       "help_1_a": "Dots indicate values of one.",
       "help_1_b": "Lines indicate values of five.",
       "help_1_c": "A glyph with one dot and one line represents the value six.",
@@ -41,7 +41,7 @@ dictionary = {
       "glyph_text_1": "Arrastra el glifo correcto desde abajo hasta la casilla de los valores. Toca el glifo dos veces para devolverlo a su lugar.",
       "glyph_text_2": "Uso de los glifos y los cuadros de valor, generar el número. Toca el glifo dos veces para devolverlo a su lugar.",
       "target_1": "Añadir un glifo a la casilla que corresponde a este número:",
-      "target_2": "Agrega glifos a las casillas que dan como resultado este número:".
+      "target_2": "Agrega glifos a las casillas que dan como resultado este número:",
       "help_link": "Instrucciones",
       "level": "Nivel",
       "restart": "Reiniciar juego",
