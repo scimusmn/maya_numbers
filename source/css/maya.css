@@ -70,6 +70,7 @@ body.spanish #wrapper h1.text-replacement {
   width: 884px;
   height: 77px;
   background: url(../../assets/images/text/headline-esp.png) no-repeat;
+  padding-bottom: 14px;
 }
 .help_overlay h1 {
   height: 46px;
@@ -326,6 +327,9 @@ div#live_sum {
   margin: 0 40px 0 0;
   padding: 8px 0px 0 0;
 }
+body.spanish #live_sum p {
+  background: url(../../assets/images/text/current-total-esp.png) no-repeat;
+}
 div#total {
   font-size: 44px;
   clear: both;
@@ -360,6 +364,9 @@ div#status p {
   height: 12px;
   margin: 10px auto;
 }
+body.spanish div#status p {
+  background: url(../../assets/images/text/your-answer-esp.png) no-repeat;
+}
 div#status div {
   float: left;
   text-transform: uppercase;
@@ -374,6 +381,9 @@ div#status div#correct {
 #status img {
   float: left;
   margin: 0 30px;
+}
+body.spanish #status img {
+  margin: 0 20px;
 }
 div#status div#incorrect {
   background: url(../../assets/images/theme/incorrect.png) no-repeat top center;
@@ -394,11 +404,11 @@ div#status div#btn-next {
   font-size: 12px;
   color: #FFFFFF;
   position: relative;
-  top: 10px;
+  top: 12px;
   left: 13px;
 }
-body.spanish #btn-next {
-  font-size: 9px;
+body.spanish #btn-next span {
+  left: 36px;
 }
 #column-middle, div#fact-wrap {
   box-shadow: 0 0 15px #000;
@@ -528,6 +538,7 @@ span#counter {
 .ui-dialog p {
   margin: 0;
   clear: both;
+  line-height: 1.5em;
 }
 .ui-dialog .ui-dialog-content {
   padding: 0 1.5em;
