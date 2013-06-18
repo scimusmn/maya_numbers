@@ -327,6 +327,7 @@ div#total {
   clear: both;
   text-align: right;
   margin-right: 50px;
+  height: 60px;
 }
 div#status {
   width: 406px;
