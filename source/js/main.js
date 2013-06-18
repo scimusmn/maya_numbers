@@ -58,9 +58,6 @@ $(function () {
       ui.draggable.data('bucketID', bucketID);
       $(this).data('bucketValue', value).attr('data-glyph-value', value);
 
-      // Add the glyph's value to the total
-      displayNumber(value, 'add', bucketID);
-
       // Show the dropped block as the bucket's background image
       // Background position depends on the level. Buckets are smaller in levels 2 and 3.
       if ($('#level-num').text() > 1) {
@@ -69,6 +66,9 @@ $(function () {
         var x = 10;
       }
       $(this).css('background', 'rgb(191,191,191) url(../assets/images/numbers/' + value + '.png) '+ x +'px '+ x +'px no-repeat').addClass('full');
+
+      // Add the glyph's value to the total
+      displayNumber(value, 'add', bucketID);
 
       // Make array of values in the buckets
       var allValues = [];
@@ -147,7 +147,13 @@ $(function () {
   var displayNumber = function(value, op, bucketID) {
     // Run addition/subtraction
     var updatedNumber = commaSeparateNumber(updateNumber(value, op, bucketID));
-    $('div#total').html(updatedNumber); // Update the total
+
+    // Show the new total. If the total is 0 and there isn't a zero glyph in the bucket, show nothing.
+    if ((updatedNumber === 0) && (!$('.dropzone').hasClass('full'))) {
+      $('div#total').text('');
+    } else {
+      $('div#total').text(updatedNumber);
+    }
   }
 
   // Move forward to the next level or problem when the Next button is tapped
