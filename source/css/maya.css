@@ -434,6 +434,10 @@ div#fact-wrap {
   background: #262626;
   width: 260px;
 }
+body.spanish #fact-wrap {
+  position: relative;
+  top: -10px;
+}
 div#facts {
   width: 215px;
   margin: 0 auto;
