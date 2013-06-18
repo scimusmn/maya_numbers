@@ -30,7 +30,12 @@ module.exports = function(grunt) {
           ]
         }
       }
-    }
+    },
+    smushit: {
+      path: {
+        src:['assets/images']
+      },
+    },
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -38,6 +43,9 @@ module.exports = function(grunt) {
 
   // CSSMin plugin
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+  // Image optimizer
+  grunt.loadNpmTasks('grunt-smushit');
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'cssmin']);
