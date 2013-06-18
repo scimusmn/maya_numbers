@@ -1,0 +1,17 @@
+/**
+ * Touchscreen-specific styles.
+ * These are excluded from /source and added to /build from the Grunt script.
+ * Helpful for development on non-touch devices.
+ */
+
+* { cursor: url(../../assets/images/cursor.png), none !important }
+
+body {
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

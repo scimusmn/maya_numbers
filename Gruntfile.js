@@ -25,6 +25,7 @@ module.exports = function(grunt) {
             'source/css/main.css',
             'source/css/normalize.min.css',
             'source/css/jquery-ui.min.css',
+            'source/css/build.css',
             'source/css/maya.css'
           ]
         }
@@ -40,7 +41,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'cssmin']);
-
-  // @TODO Add image compressor
 
 };
