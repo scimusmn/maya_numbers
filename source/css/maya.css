@@ -103,18 +103,21 @@ h1#win-title {
 /* Header */
 div#language_bar {
   color: rgba(255,255,255,.5);
-  height: 34px;
-  padding-top: 16px;
+  height: 50px;
   font-family: "Univers 75 Black";
   background: url(../../assets/images/theme/bg_header.png) repeat-x;
   text-transform: uppercase;
   font-size: 12px;
 }
+div#language_bar span {
+  position: relative;
+  top: -4px;
+}
 div#language_bar span#en {
-  margin-right: 56px;
+  margin-right: 36px;
 }
 div#language_bar span#es {
-  margin-right: 100px;
+  margin-right: 80px;
 }
 span.selected {
   color: rgb(255,255,255);
@@ -123,6 +126,7 @@ span#en,
 span#es,
 span#restart {
   float: right;
+  padding: 20px;
 }
 
 /* Layout */
@@ -495,8 +499,8 @@ div#restart-wrap {
 }
 span#restart {
   position: relative;
-  top: 13px;
-  margin-right: 70px;
+  top: -8px;
+  margin-right: 50px;
 }
 span#counter {
   padding: 0 20px;
