@@ -98,6 +98,11 @@ body.spanish h1#win-title {
 h1#win-title {
   background: url(../../assets/images/text/dialog-4-eng.png) no-repeat;
   width: 115px;
+  height: 46px;
+  display: block !important;
+}
+#level-4-help img {
+  margin: 50px 0 0;
 }
 
 /* Header */
