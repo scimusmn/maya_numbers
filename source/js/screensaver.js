@@ -1,11 +1,12 @@
-/*
- * Museum-specific behavior.
- * This file shouldn't be included in a web version of this game, but it should run on the exhibit floor.
-*/
+/**
+ * Screensaver functionality.
+ * After 3 minutes of inactivity, play the screensaver animation.
+ * Reload the page when the screen is touched.
+ */
 
 $(function () {
 
-  // Reload the page after 3 minutes of inactivity
+  // Start the clock
   idleTime = 0;
 
   // Increment the idle time counter every minute.
@@ -21,13 +22,30 @@ $(function () {
 
 });
 
-/*
- * Reload the page after 3 minutes of inactivity.
- * See http://stackoverflow.com/a/4029518
-*/
+/**
+ * Start the screensaver after 3 minutes of inactivity.
+ */
 function timerIncrement() {
   idleTime = idleTime + 1;
-  if (idleTime > 2) { // 3 minutes
-    window.location.reload();
+
+  // If it's been 3 minutes of inactivity, and a video's not playing, save the screen
+  if (idleTime > 2) {
+
+    // @TODO - Animation goes here
+
+    console.log('SCREENSAVERED!');
+
+    wakeUp(); // Watch for mousemove, or an error, which will reload the page
+
   }
+}
+
+/**
+ * Clear screensaver
+ */
+function wakeUp() {
+  // Refresh on mousemove
+  $('body').mousemove(function (e) {
+    location.reload();
+  });
 }
