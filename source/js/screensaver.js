@@ -31,9 +31,21 @@ function timerIncrement() {
   // If it's been 3 minutes of inactivity, and a video's not playing, save the screen
   if (idleTime > 2) {
 
-    // @TODO - Animation goes here
-
     console.log('SCREENSAVERED!');
+
+    // Fade out all the content
+
+    // Fade to darker background
+
+    // Animate the headline text in
+
+    // Animate (bounce? spin?) the glyphs in
+
+    // Animate the call-to-action in
+
+    // Pause
+
+    // Repeat
 
     wakeUp(); // Watch for mousemove, or an error, which will reload the page
 
