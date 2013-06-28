@@ -594,15 +594,27 @@ span#counter {
 
 /* Screensaver */
 #screensaver {
-  display: none;
   text-align: center;
-  padding-top: 76px;
+}
+#screensaver img {
+  display: none;
 }
 body.screensavered {
   background: url(../../assets/images/screensaver/bg.jpg) repeat;
 }
 #screensaver #headline {
+  padding-top: 76px;
   margin-bottom: 90px;
+}
+#screensaver .bigGlyph {
+  float: left;
+  margin-right: 20px;
+}
+#screensaver .bigGlyph.first {
+  margin-left: 205px;
+}
+#screensaver .bigGlyph.last {
+  margin-right: 0;
 }
 #screensaver #subheadline {
   margin-top: 115px;

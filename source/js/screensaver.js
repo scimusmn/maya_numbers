@@ -36,8 +36,27 @@ function timerIncrement() {
  * Screensaver animation
  */
 function screensaver() {
-  alert('SCREENSAVERED!!!');
-  wakeUp(); // Watch for mousemove, which will reload the page
+  console.log('SCREENSAVERED!');
+
+  var assetPath = '../assets/images/screensaver';
+
+  // Fade out all the content
+  $('#language_bar, #wrapper, footer').fadeOut('slow', function() {
+    $('body').addClass('screensavered'); // Darken the background
+
+    // Show the headline, then animate the glyphs in, then fade in the subheadline
+    $('#screensaver #headline').fadeIn(3000, function() {
+      $('.bigGlyph').each(function(index) {
+        $(this).delay(index * 1600).show('slide', 1600, function() {
+          if ($(".bigGlyph:animated").length === 0)
+            $("#subheadline").fadeIn('slow');
+        });
+      });
+    });
+
+  });
+
+  //wakeUp(); // Watch for mousemove, which will reload the page
 }
 
 /**
