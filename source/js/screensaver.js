@@ -38,8 +38,6 @@ function timerIncrement() {
 function screensaver() {
   console.log('SCREENSAVERED!');
 
-  var assetPath = '../assets/images/screensaver';
-
   // Fade out all the content
   $('#language_bar, #wrapper, footer').fadeOut('slow', function() {
     $('body').addClass('screensavered'); // Darken the background
