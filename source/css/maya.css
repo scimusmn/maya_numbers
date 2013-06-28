@@ -591,3 +591,19 @@ span#counter {
   background: url('../../assets/images/numbers/6.png') no-repeat left top;
   background-size: 30px 30px;
 }
+
+/* Screensaver */
+#screensaver {
+  display: none;
+  text-align: center;
+  padding-top: 76px;
+}
+body.screensavered {
+  background: url(../../assets/images/screensaver/bg.jpg) repeat;
+}
+#screensaver #headline {
+  margin-bottom: 90px;
+}
+#screensaver #subheadline {
+  margin-top: 115px;
+}
