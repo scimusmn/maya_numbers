@@ -42,9 +42,10 @@ var screensaver = function() {
   $('#content').fadeOut('slow', function() {
     $('body').addClass('screensavered'); // Darken the background
 
-    // Show the headline, then animate each glyphs in
+    // Show the headline
     $('#screensaver #headline').fadeIn(3000, function() {
 
+      // Then animate each glyphs in
       $('.bigGlyph').each(function(index) {
         $(this).delay(index * 1600).show('puff', 1600);
 
@@ -52,12 +53,11 @@ var screensaver = function() {
       }).promise().done(function() {
         $('#subheadline').fadeIn('slow', function() {
 
-          // Then flip the glyphs
+          // Then flip the glyphs, using the flippant.js plugin
           $('.bigGlyph').each(function(i) {
-            var id = this.id,
-                front = document.getElementById(id),
-                glyphVal = [0, 17, 11, 4], // Glyph values to show on backs
-                backContent = '<h1>'+ glyphVal[i] +'</h1>',
+            var front = document.getElementById(this.id),
+                glyphVals = [0, 17, 11, 4], // Glyph values to show on backs
+                backContent = '<h1>'+ glyphVals[i] +'</h1>',
                 back = flippant.flip(front, backContent);
           });
         });
