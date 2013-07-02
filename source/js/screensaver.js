@@ -25,7 +25,7 @@ $(function () {
 /**
  * Start the screensaver after 3 minutes of inactivity.
  */
-function timerIncrement() {
+var timerIncrement = function() {
   idleTime = idleTime + 1;
   if (idleTime > 2) {
     screensaver();
@@ -71,7 +71,7 @@ var screensaver = function() {
 /**
  * Clear screensaver
  */
-function wakeUp() {
+var wakeup = function() {
   // Refresh on mousemove
   $('body').mousemove(function (e) {
     location.reload();
