@@ -51,13 +51,13 @@ var screensaver = function() {
   });
 
   // Once the glyphs are in, fade in the subheadline
-  var glyphVal = [0, 17, 11, 17]; // @TODO 17's in there twice, make a new image
   setTimeout(function(){
     $('#subheadline').fadeIn('slow', function() {
       // Then flip the glyphs
       $('.bigGlyph').each(function(i) {
-        var id = this.id,
+        var id = this.id, // Select by ID
             front = document.getElementById(id),
+            glyphVal = [0, 17, 11, 4], // Glyph values to show on backs
             backContent = '<h1>'+ glyphVal[i] +'</h1>',
             back;
         back = flippant.flip(front, backContent);
