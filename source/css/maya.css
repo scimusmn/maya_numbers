@@ -631,3 +631,6 @@ body.screensavered {
   font-family: "Arial Black";
   text-shadow: 1px 1px #999, -1px -1px #444;
 }
+.flippant, .flipper {
+  transition: all 1.6s ease-in-out;
+}
