@@ -44,26 +44,26 @@ var screensaver = function() {
 
     // Show the headline, then animate each glyphs in
     $('#screensaver #headline').fadeIn(3000, function() {
+
       $('.bigGlyph').each(function(index) {
         $(this).delay(index * 1600).show('puff', 1600);
+
+      // When the glyphs finish puffing in, show the subheadline
+      }).promise().done(function() {
+        $('#subheadline').fadeIn('slow', function() {
+
+          // Then flip the glyphs
+          $('.bigGlyph').each(function(i) {
+            var id = this.id,
+                front = document.getElementById(id),
+                glyphVal = [0, 17, 11, 4], // Glyph values to show on backs
+                backContent = '<h1>'+ glyphVal[i] +'</h1>',
+                back = flippant.flip(front, backContent);
+          });
+        });
       });
     });
   });
-
-  // Once the glyphs are in, fade in the subheadline
-  setTimeout(function(){
-    $('#subheadline').fadeIn('slow', function() {
-      // Then flip the glyphs
-      $('.bigGlyph').each(function(i) {
-        var id = this.id, // Select by ID
-            front = document.getElementById(id),
-            glyphVal = [0, 17, 11, 4], // Glyph values to show on backs
-            backContent = '<h1>'+ glyphVal[i] +'</h1>',
-            back;
-        back = flippant.flip(front, backContent);
-      });
-    });
-  }, 10000);
 
   //wakeUp(); // Watch for mousemove, which will reload the page
 }
