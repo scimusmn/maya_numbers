@@ -35,24 +35,19 @@ function timerIncrement() {
 /**
  * Screensaver animation
  */
-function screensaver() {
+var screensaver = function() {
   console.log('SCREENSAVERED!');
 
   // Fade out all the content
-  $('#language_bar, #wrapper, footer').fadeOut('slow', function() {
+  $('#content').fadeOut('slow', function() {
     $('body').addClass('screensavered'); // Darken the background
 
     // Show the headline, then animate each glyphs in
     $('#screensaver #headline').fadeIn(3000, function() {
       $('.bigGlyph').each(function(index) {
-        $(this).delay(index * 1600).show('puff', 1600, function() {
-          // When the animations are done, show the subheadline
-          if ($(".bigGlyph:animated").length === 0)
-            $("#subheadline").fadeIn('slow');
-        });
+        $(this).delay(index * 1600).show('puff', 1600);
       });
     });
-
   });
 
   //wakeUp(); // Watch for mousemove, which will reload the page
