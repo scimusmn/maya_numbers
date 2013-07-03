@@ -3,6 +3,8 @@
  * After 3 minutes of inactivity, play the screensaver animation.
  * Reload the page when the screen is touched.
  */
+var loops = 0; // Count how many times the animation runs
+
 $(function () {
 
   // Start the clock
@@ -39,38 +41,46 @@ var timerIncrement = function() {
 var screensaver = function() {
   console.log('SCREENSAVERED!');
 
-  // Values to show on the backs of the glyphs after they flip
-  var glyphVals = [0, 17, 11, 4];
-
   // Fade out all the content
   $('#content').fadeOut('slow', function() {
     $('body').addClass('screensavered'); // Darken the background
-
-    // Show the headline
-    $('#screensaver #headline').fadeIn(3000, function() {
-
-      // Then animate each glyphs in
-      $('.bigGlyph').each(function(index) {
-        $(this).delay(index * 1600).show('puff', 1600);
-
-      // When the glyphs finish puffing in, show the subheadline
-      }).promise().done(function() {
-        $('#subheadline').fadeIn('slow', function() {
-
-          // Then flip the glyphs over and back
-          $('.bigGlyph').each(function(index) {
-            flipIt(this.id, index, glyphVals);
-          });
-
-        });
-      });
-
-    });
+    screensaverLoop(); // Run the animation
   });
 
   //wakeUp(); // Watch for mousemove, which will reload the page
 }
 
+
+/**
+ * Screensaver animation
+ */
+var screensaverLoop = function() {
+
+  // Values to show on the backs of the glyphs after they flip
+  var glyphVals = [0, 17, 11, 4];
+
+  // Show the headline
+  $('#screensaver #headline').fadeIn(3000, function() {
+
+    // Then animate each glyphs in
+    $('.bigGlyph').each(function(index) {
+      $(this).delay(index * 1600).show('puff', 1600);
+
+    // When the glyphs finish puffing in, show the subheadline
+    }).promise().done(function() {
+      $('#subheadline').fadeIn('slow', function() {
+
+        // Then flip the glyphs over and back
+        $('.bigGlyph').each(function(index) {
+          flipIt(this.id, index, glyphVals);
+        });
+
+      });
+    });
+
+  });
+
+}
 
 /**
  * Flip the glyphs over and back
@@ -83,7 +93,7 @@ var flipIt = function(id, index, glyphVals) {
   var front = document.getElementById(id),
       backContent = '<h1>'+ glyphVals[index] +'</h1>',
       back,
-      time = 2000; // seconds between flips
+      time = 2000; // milliseconds between flips
 
   back = flippant.flip(front, backContent);
 
@@ -95,10 +105,31 @@ var flipIt = function(id, index, glyphVals) {
   // If we're done, restart
   if (index === 3) {
     setTimeout(function() {
-      console.log('doneskis');
+      restartScreensaver();
     }, time * 5);
   }
 
+}
+
+
+/**
+ * Loop the screensaver animation a few times, then reload the page.
+ */
+var restartScreensaver = function() {
+
+  loops++; // Add 1 to the loops variable
+  console.log('Loops:' + loops);
+
+  // Start the screensaver over
+  $('#screensaver img').not('#headline').fadeOut('slow');
+  $('#screensaver #headline').fadeOut('fast', function() {
+    screensaver();
+  });
+
+  // Reload the page after 2 loops
+  if (loops > 2) {
+    location.reload();
+  }
 }
 
 
