@@ -41,6 +41,9 @@ var timerIncrement = function() {
 var screensaver = function() {
   console.log('SCREENSAVERED!');
 
+  // Close any open dialogs
+  $('.ui-dialog, .ui-widget-overlay').fadeOut('fast');
+
   // Fade out all the content
   $('#content').fadeOut('slow', function() {
     $('body').addClass('screensavered'); // Darken the background
