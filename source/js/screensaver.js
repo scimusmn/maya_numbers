@@ -120,7 +120,7 @@ var restartScreensaver = function() {
   loops++; // Add 1 to the loops variable
   console.log('Loops:' + loops);
 
-  if (loops < 10) {
+  if (loops < 100) {
     $('#subheadline').fadeOut(1700, function() {
       $('.bigGlyph').removeClass('flippant').hide('puff', 800);
     });
