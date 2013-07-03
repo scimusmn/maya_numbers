@@ -29,9 +29,9 @@ $(function () {
  */
 var timerIncrement = function() {
   idleTime = idleTime + 1;
-  /*if (idleTime > 2) {
+  if (idleTime > 2) {
     screensaver();
-  }*/
+  }
 }
 
 
@@ -47,7 +47,7 @@ var screensaver = function() {
     screensaverLoop(); // Run the animation
   });
 
-  //wakeUp(); // Watch for mousemove, which will reload the page
+  wakeUp(); // Watch for mousemove, which will reload the page
 }
 
 
@@ -138,7 +138,7 @@ var restartScreensaver = function() {
  * Clear screensaver when the screen is touched.
  * This reloads the page and shows the game start dialog.
  */
-var wakeup = function() {
+var wakeUp = function() {
   $('body').mousemove(function (e) {
     location.reload();
   });
