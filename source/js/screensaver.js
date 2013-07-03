@@ -82,20 +82,21 @@ var flipIt = function(id, index, glyphVals) {
 
   var front = document.getElementById(id),
       backContent = '<h1>'+ glyphVals[index] +'</h1>',
-      back;
+      back,
+      time = 2000; // seconds between flips
 
   back = flippant.flip(front, backContent);
 
   // Pause, then flip back one-by-one
   setTimeout(function() {
     back.close();
-  }, ((index + 1) * 2000));
+  }, ((index + 1) * time));
 
   // If we're done, restart
   if (index === 3) {
     setTimeout(function() {
       console.log('doneskis');
-    }, 10000);
+    }, time * 5);
   }
 
 }
