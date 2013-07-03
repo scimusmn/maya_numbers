@@ -11,6 +11,7 @@ module.exports = function(grunt) {
               'libs/jquery.hammer.min.js',
               'libs/jquery-ui-1.10.0.custom.min.js',
               'libs/jquery.ui.touch-punch.min.js',
+              'libs/flippant.js',
               'source/js/main.js',
               'source/js/translate.js',
               'source/js/screensaver.js'
@@ -25,6 +26,7 @@ module.exports = function(grunt) {
             'source/css/main.css',
             'source/css/normalize.min.css',
             'source/css/jquery-ui.min.css',
+            'source/css/flippant.css',
             'source/css/build.css',
             'source/css/maya.css'
           ]
