@@ -80,16 +80,16 @@ var screensaver = function() {
  */
 var flipIt = function(id, index, glyphVals) {
 
-      var front = document.getElementById(id),
-          backContent = '<h1>'+ glyphVals[index] +'</h1>',
-          back;
+  var front = document.getElementById(id),
+      backContent = '<h1>'+ glyphVals[index] +'</h1>',
+      back;
 
-      back = flippant.flip(front, backContent);
+  back = flippant.flip(front, backContent);
 
-      // Pause, then flip back
-      setTimeout(function() {
-        back.close();
-      }, ((index + 1) * 2000));
+  // Pause, then flip back one-by-one
+  setTimeout(function() {
+    back.close();
+  }, ((index + 1) * 2000));
 
 }
 
