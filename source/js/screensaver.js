@@ -120,16 +120,17 @@ var restartScreensaver = function() {
   loops++; // Add 1 to the loops variable
   console.log('Loops:' + loops);
 
-  // Start the screensaver over
-  $('#screensaver img').not('#headline').fadeOut('slow');
-  $('#screensaver #headline').fadeOut('fast', function() {
-    screensaver();
-  });
-
-  // Reload the page after 2 loops
-  if (loops > 2) {
+  if (loops < 10) {
+    $('#subheadline').fadeOut(1700, function() {
+      $('.bigGlyph').removeClass('flippant').hide('puff', 800);
+    });
+    $('#screensaver #headline').fadeOut(1700, function() {
+      screensaver();
+    });
+  } else {
     location.reload();
   }
+
 }
 
 
