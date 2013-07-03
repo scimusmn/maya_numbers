@@ -89,7 +89,7 @@ var flipIt = function(id, index, glyphVals) {
       // Pause, then flip back
       setTimeout(function() {
         back.close();
-      }, 5000);
+      }, ((index + 1) * 2000));
 
 }
 
