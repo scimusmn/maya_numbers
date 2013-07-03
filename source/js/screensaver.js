@@ -91,6 +91,13 @@ var flipIt = function(id, index, glyphVals) {
     back.close();
   }, ((index + 1) * 2000));
 
+  // If we're done, restart
+  if (index === 3) {
+    setTimeout(function() {
+      console.log('doneskis');
+    }, 10000);
+  }
+
 }
 
 
