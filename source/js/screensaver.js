@@ -3,7 +3,6 @@
  * After 3 minutes of inactivity, play the screensaver animation.
  * Reload the page when the screen is touched.
  */
-
 $(function () {
 
   // Start the clock
@@ -22,23 +21,26 @@ $(function () {
 
 });
 
+
 /**
  * Start the screensaver after 3 minutes of inactivity.
  */
 var timerIncrement = function() {
   idleTime = idleTime + 1;
-  if (idleTime > 2) {
+  /*if (idleTime > 2) {
     screensaver();
-  }
+  }*/
 }
 
+
 /**
- * Screensaver animation
+ * Screensaver animation sequence
  */
 var screensaver = function() {
   console.log('SCREENSAVERED!');
 
-  var glyphVals = [0, 17, 11, 4]; // Glyph values to show on backs, after the flip
+  // Values to show on the backs of the glyphs after they flip
+  var glyphVals = [0, 17, 11, 4];
 
   // Fade out all the content
   $('#content').fadeOut('slow', function() {
@@ -55,25 +57,48 @@ var screensaver = function() {
       }).promise().done(function() {
         $('#subheadline').fadeIn('slow', function() {
 
-          // Then flip the glyphs, using the flippant.js plugin
-          $('.bigGlyph').each(function(i) {
-            var front = document.getElementById(this.id),
-                backContent = '<h1>'+ glyphVals[i] +'</h1>',
-                back = flippant.flip(front, backContent);
+          // Then flip the glyphs over and back
+          $('.bigGlyph').each(function(index) {
+            flipIt(this.id, index, glyphVals);
           });
+
         });
       });
+
     });
   });
 
   //wakeUp(); // Watch for mousemove, which will reload the page
 }
 
+
 /**
- * Clear screensaver
+ * Flip the glyphs over and back
+ * @param id - string - ID of element to flip
+ * @param index - integer - array key for the value we want to see on the back of the item
+ * @param glyphVals - array - list of values to show on the backs of the glyphs
+ */
+var flipIt = function(id, index, glyphVals) {
+
+      var front = document.getElementById(id),
+          backContent = '<h1>'+ glyphVals[index] +'</h1>',
+          back;
+
+      back = flippant.flip(front, backContent);
+
+      // Pause, then flip back
+      setTimeout(function() {
+        back.close();
+      }, 5000);
+
+}
+
+
+/**
+ * Clear screensaver when the screen is touched.
+ * This reloads the page and shows the game start dialog.
  */
 var wakeup = function() {
-  // Refresh on mousemove
   $('body').mousemove(function (e) {
     location.reload();
   });
