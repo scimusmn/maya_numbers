@@ -38,6 +38,8 @@ var timerIncrement = function() {
 var screensaver = function() {
   console.log('SCREENSAVERED!');
 
+  var glyphVals = [0, 17, 11, 4]; // Glyph values to show on backs, after the flip
+
   // Fade out all the content
   $('#content').fadeOut('slow', function() {
     $('body').addClass('screensavered'); // Darken the background
@@ -56,7 +58,6 @@ var screensaver = function() {
           // Then flip the glyphs, using the flippant.js plugin
           $('.bigGlyph').each(function(i) {
             var front = document.getElementById(this.id),
-                glyphVals = [0, 17, 11, 4], // Glyph values to show on backs
                 backContent = '<h1>'+ glyphVals[i] +'</h1>',
                 back = flippant.flip(front, backContent);
           });
