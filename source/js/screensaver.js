@@ -3,7 +3,11 @@
  * After 3 minutes of inactivity, play the screensaver animation.
  * Reload the page when the screen is touched.
  */
-var loops = 0; // Count how many times the animation runs
+
+// Keep track of how many times the animation runs.
+// When we hit enoughLoops, the page will reload.
+var loops = 1,
+    enoughLoops = 100;
 
 $(function () {
 
@@ -93,26 +97,36 @@ var screensaverLoop = function() {
  */
 var flipIt = function(id, index, glyphVals) {
 
-  console.log(makeTimestamp() + ': flipping');
-
+  // Set up content and a function call for glyph flipping
   var front = document.getElementById(id),
       backContent = '<h1>'+ glyphVals[index] +'</h1>',
-      back,
-      time = 2000; // milliseconds between flips
+      back = flippant.flip(front, backContent);
 
-  back = flippant.flip(front, backContent);
+  /**
+   * Implementation of tock.js for handling timers.
+   * Using the setTimeout() method gets sketchy after running in loops for awhile.
+   * See http://www.sitepoint.com/creating-accurate-timers-in-javascript/
+   */
+  // Backflip the glyphs one-by-one
+  var flipTockOptions = {
+    countdown: true,
+    complete: function() {
+      back.close();
+    }
+  },
+  flipTimer = new Tock(flipTockOptions);
+  flipTimer.start((index + 1) * 2000);
 
-  // Pause, then flip back one-by-one
-  setTimeout(function() {
-    back.close();
-  }, ((index + 1) * time));
-
-  // If we're done, restart
-  if (index === 3) {
-    setTimeout(function() {
-      console.log(makeTimestamp() + ': restarting');
-      restartScreensaver();
-    }, time * 5);
+  // Restart the animation when the backflips are done
+  if (index > 2) {
+    var loopClockOptions = {
+      countdown: true,
+      complete: function() {
+        restartScreensaver();
+      }
+    }
+    loopTimer = new Tock(loopClockOptions);
+    loopTimer.start(12000);
   }
 
 }
@@ -124,9 +138,9 @@ var flipIt = function(id, index, glyphVals) {
 var restartScreensaver = function() {
 
   loops++; // Add 1 to the loops variable
-  console.log('Loops:' + loops);
+  console.log('Restarting screensaver, loop ' + loops);
 
-  if (loops < 100) {
+  if (loops < enoughLoops) {
     $('#subheadline').fadeOut(1700, function() {
       $('.bigGlyph').removeClass('flippant').hide('puff', 800);
     });
