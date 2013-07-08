@@ -39,7 +39,6 @@ var timerIncrement = function() {
  * Screensaver animation sequence
  */
 var screensaver = function() {
-  console.log(makeTimestamp() + ': SCREENSAVERED!');
 
   // Close any open dialogs
   $('.ui-dialog, .ui-widget-overlay').fadeOut('fast');
@@ -58,6 +57,7 @@ var screensaver = function() {
  * Screensaver animation
  */
 var screensaverLoop = function() {
+  console.log(makeTimestamp() + ': SCREENSAVERED!');
 
   // Values to show on the backs of the glyphs after they flip
   var glyphVals = [0, 17, 11, 4];
@@ -93,6 +93,8 @@ var screensaverLoop = function() {
  */
 var flipIt = function(id, index, glyphVals) {
 
+  console.log(makeTimestamp() + ': flipping');
+
   var front = document.getElementById(id),
       backContent = '<h1>'+ glyphVals[index] +'</h1>',
       back,
@@ -108,6 +110,7 @@ var flipIt = function(id, index, glyphVals) {
   // If we're done, restart
   if (index === 3) {
     setTimeout(function() {
+      console.log(makeTimestamp() + ': restarting');
       restartScreensaver();
     }, time * 5);
   }
@@ -128,7 +131,7 @@ var restartScreensaver = function() {
       $('.bigGlyph').removeClass('flippant').hide('puff', 800);
     });
     $('#screensaver #headline').fadeOut(1700, function() {
-      screensaver();
+      screensaverLoop();
     });
   } else {
     location.reload();
