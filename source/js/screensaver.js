@@ -39,7 +39,7 @@ var timerIncrement = function() {
  * Screensaver animation sequence
  */
 var screensaver = function() {
-  console.log('SCREENSAVERED!');
+  console.log(makeTimestamp() + ': SCREENSAVERED!');
 
   // Close any open dialogs
   $('.ui-dialog, .ui-widget-overlay').fadeOut('fast');
