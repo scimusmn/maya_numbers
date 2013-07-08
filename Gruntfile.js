@@ -12,6 +12,7 @@ module.exports = function(grunt) {
               'libs/jquery-ui-1.10.0.custom.min.js',
               'libs/jquery.ui.touch-punch.min.js',
               'libs/flippant.js',
+              'libs/tock.min.js',
               'source/js/main.js',
               'source/js/translate.js',
               'source/js/screensaver.js'
