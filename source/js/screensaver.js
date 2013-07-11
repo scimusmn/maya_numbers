@@ -1,12 +1,13 @@
 /**
- * Screensaver functionality.
+ * Numbers game screensaver.
  * After 3 minutes of inactivity, play the screensaver animation.
- * Reload the page when the screen is touched.
+ * Reload the page when the screen is touched, or once we've hit 100 loops.
  */
 
 var savedScreen = false, // Screen is initially not saved.
     loops = 1, // Keep track of how many times the animation runs.
-    enoughLoops = 100; // When we hit enoughLoops, the page will reload.
+    enoughLoops = 100, // When we hit enoughLoops, the page will reload.
+    glyphVals = [0, 17, 11, 4]; // Numbers to show on the backs of the glyphs when they flip.
 
 $(function () {
 
@@ -68,9 +69,6 @@ var screensaver = function() {
  * This runs in a loop until the screen is touched or the page is reloaded.
  */
 var screensaverLoop = function() {
-
-  // Values to show on the backs of the glyphs after they flip
-  var glyphVals = [0, 17, 11, 4];
 
   // Show the headline
   $('#screensaver #headline').fadeIn(3000, function() {
