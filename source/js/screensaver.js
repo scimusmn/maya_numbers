@@ -42,7 +42,8 @@ var timerIncrement = function() {
 
 
 /**
- * Screensaver animation sequence
+ * Set up the page for screensavering.
+ * Kick off the screensaver animation sequence and watch for activity.
  */
 var screensaver = function() {
 
@@ -58,15 +59,15 @@ var screensaver = function() {
   // The screen is saved! Hooray!
   savedScreen = true;
 
-  // wakeUp(); // Watch for mousemove, which will reload the page
+  wakeUp(); // Watch for mousemove, which will reload the page
 }
 
 
 /**
- * Screensaver animation
+ * Screensaver animation.
+ * This runs in a loop until the screen is touched or the page is reloaded.
  */
 var screensaverLoop = function() {
-  console.log(makeTimestamp() + ': SCREENSAVERED!');
 
   // Values to show on the backs of the glyphs after they flip
   var glyphVals = [0, 17, 11, 4];
@@ -139,7 +140,7 @@ var flipIt = function(id, index, glyphVals) {
 
 
 /**
- * Loop the screensaver animation a few times, then reload the page.
+ * Loop the screensaver animation the set number of times, then reload the page.
  */
 var restartScreensaver = function() {
 
