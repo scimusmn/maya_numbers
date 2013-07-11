@@ -4,10 +4,9 @@
  * Reload the page when the screen is touched.
  */
 
-// Keep track of how many times the animation runs.
-// When we hit enoughLoops, the page will reload.
-var loops = 1,
-    enoughLoops = 100;
+var savedScreen = false, // Screen is initially not saved.
+    loops = 1, // Keep track of how many times the animation runs.
+    enoughLoops = 100; // When we hit enoughLoops, the page will reload.
 
 $(function () {
 
@@ -15,7 +14,7 @@ $(function () {
   idleTime = 0;
 
   // Increment the idle time counter every minute.
-  var idleInterval = setInterval('timerIncrement()', 60000); // 1 minute
+  var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
 
   // Zero the idle timer on mouse movement.
   $(this).mousemove(function (e) {
@@ -34,7 +33,10 @@ $(function () {
 var timerIncrement = function() {
   idleTime = idleTime + 1;
   if (idleTime > 2) {
-    screensaver();
+    if (!savedScreen) {
+      console.log(makeTimestamp() + ': Saving the screen');
+      screensaver();
+    }
   }
 }
 
@@ -53,7 +55,10 @@ var screensaver = function() {
     screensaverLoop(); // Run the animation
   });
 
-  wakeUp(); // Watch for mousemove, which will reload the page
+  // The screen is saved! Hooray!
+  savedScreen = true;
+
+  // wakeUp(); // Watch for mousemove, which will reload the page
 }
 
 
@@ -88,6 +93,7 @@ var screensaverLoop = function() {
   });
 
 }
+
 
 /**
  * Flip the glyphs over and back
@@ -138,7 +144,7 @@ var flipIt = function(id, index, glyphVals) {
 var restartScreensaver = function() {
 
   loops++; // Add 1 to the loops variable
-  console.log('Restarting screensaver, loop ' + loops);
+  console.log(makeTimestamp() + ': Restarting screensaver, loop ' + loops);
 
   if (loops < enoughLoops) {
     $('#subheadline').fadeOut(1700, function() {
