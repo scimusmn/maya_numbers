@@ -604,7 +604,7 @@ body.screensavered {
 }
 #screensaver #headline {
   padding-top: 76px;
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 }
 #screensaver .bigGlyph {
   float: left;
@@ -617,7 +617,7 @@ body.screensavered {
   margin-right: 0;
 }
 #screensaver #subheadline {
-  margin-top: 115px;
+  margin-top: 85px;
 }
 .flippant-back {
   border: 4px solid #004964;
