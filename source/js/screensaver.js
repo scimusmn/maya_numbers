@@ -131,7 +131,7 @@ var flipIt = function(id, index, glyphVals) {
       }
     }
     loopTimer = new Tock(loopClockOptions);
-    loopTimer.start(12000);
+    loopTimer.start(11000);
   }
 
 }
