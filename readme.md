@@ -3,9 +3,6 @@
 ## Main Message
 The Maya developed a mathematical system that allowed them to denote and calculate very large numbers. Can you match numbers with the corresponding glyphs?
 
-## To-Do
-Add a screensaver.
-
 ## Dev setup 
 If you're making code changes, you can use Grunt to create new builds.
 
